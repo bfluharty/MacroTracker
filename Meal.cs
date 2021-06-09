@@ -4,25 +4,33 @@ namespace MacroTracker
 {
     public class Meal
     {
+        public enum MealTypes
+        {
+            Breakfast = 'B',
+            Lunch = 'L',
+            Dinner = 'D',
+            Snack = 'S'
+        }
+
         public Meal()
         {
-            Type = 'S';
-            Date = new DateTime();
+            Type = MealTypes.Snack;
+            Date = DateTime.Now;
         }
 
         public Meal(char type, DateTime date)
         {
-            Type = type;
+            Type = (MealTypes) type;
             Date = date;
         }
 
         public override string ToString()
         {
             return "Meal [Type=" + Type +
-                ", Date=" + Date.Date + "]";
+                ", Date=" + Date.ToShortDateString() + "]";
         }
 
-        public char Type { get; set; }
+        public MealTypes Type { get; set; }
         public DateTime Date { get; set; }
     }
 }

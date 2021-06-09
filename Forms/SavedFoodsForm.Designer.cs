@@ -33,9 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.savedFoodsView = new System.Windows.Forms.DataGridView();
             this.foodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.macroTrackerDataSet = new MacroTracker.MacroTrackerDataSet();
+            this.macroTrackerDataSet = new MacroTracker.DataSets.MacroTrackerDataSet();
             this.menuButton = new System.Windows.Forms.Button();
-            this.foodsTableAdapter = new MacroTracker.MacroTrackerDataSetTableAdapters.FoodsTableAdapter();
+            this.foodsTableAdapter = new MacroTracker.DataSets.MacroTrackerDataSetTableAdapters.FoodsTableAdapter();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.caloriesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -180,8 +180,8 @@
 
         private System.Windows.Forms.DataGridView savedFoodsView;
         private System.Windows.Forms.Button menuButton;
-        private MacroTrackerDataSet macroTrackerDataSet;
-        private MacroTrackerDataSetTableAdapters.FoodsTableAdapter foodsTableAdapter;
+        private DataSets.MacroTrackerDataSet macroTrackerDataSet;
+        private DataSets.MacroTrackerDataSetTableAdapters.FoodsTableAdapter foodsTableAdapter;
         private System.Windows.Forms.BindingSource foodsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn caloriesDataGridViewTextBoxColumn;
