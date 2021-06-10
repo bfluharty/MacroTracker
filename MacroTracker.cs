@@ -4,7 +4,7 @@ using MacroTracker.Forms;
 
 namespace MacroTracker
 {
-    static class Program
+    static class MacroTracker
     {
         /// <summary>
         /// The main entry point for the application.

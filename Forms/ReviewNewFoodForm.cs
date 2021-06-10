@@ -6,10 +6,17 @@ namespace MacroTracker.Forms
 {
     public partial class ReviewNewFoodForm : Form
     {
+        private List<Food> foods;
+
         public ReviewNewFoodForm(List<Food> addedFoods)
         {
             InitializeComponent();
             foods = addedFoods;
+
+            foodsToAddGrid.DataSource = foods;
+            foodsToAddGrid.RowHeadersVisible = false;
+            foodsToAddGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            foodsToAddGrid.ClearSelection();
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -37,20 +44,9 @@ namespace MacroTracker.Forms
             e.Column.SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
-        private List<Food> foods;
-
         private void ReviewNewFoodForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void ReviewNewFoodForm_Load(object sender, EventArgs e)
-        {
-            foodsToAddGrid.DataSource = foods;
-            foodsToAddGrid.RowHeadersVisible = false;
-            foodsToAddGrid.ClearSelection();
-            foodsToAddGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-
         }
     }
 }

@@ -276,7 +276,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Add New Food";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddNewFoodForm_FormClosed);
-            this.Load += new System.EventHandler(this.AddNewFoodForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.caloriesInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fatInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carbsInput)).EndInit();

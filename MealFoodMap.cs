@@ -34,7 +34,7 @@ namespace MacroTracker
 
         public override string ToString()
         {
-            return "Meal [Foods=" + Foods.ToString() + "]";
+            return "MealFoodMap [Foods=" + Foods.ToString() + "]";
         }
 
         public Dictionary<Food, double> Foods { get; }

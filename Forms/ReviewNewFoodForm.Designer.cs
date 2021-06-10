@@ -143,7 +143,7 @@
             // 
             // foodBindingSource
             // 
-            this.foodBindingSource.DataSource = typeof(MacroTracker.Food);
+            this.foodBindingSource.DataSource = typeof(global::MacroTracker.Food);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -205,7 +205,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Confirm New Food";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReviewNewFoodForm_FormClosed);
-            this.Load += new System.EventHandler(this.ReviewNewFoodForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.foodsToAddGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).EndInit();
             this.ResumeLayout(false);

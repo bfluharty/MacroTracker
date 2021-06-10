@@ -94,7 +94,7 @@
     <Compile Include="Forms\AddNewFoodForm.Designer.cs">
       <DependentUpon>AddNewFoodForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="MacroTracker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\ReviewNewFoodForm.cs">
       <SubType>Form</SubType>

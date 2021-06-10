@@ -8,6 +8,11 @@ namespace MacroTracker.Forms
         public SavedFoodsForm()
         {
             InitializeComponent();
+
+            this.foodsTableAdapter.Fill(this.macroTrackerDataSet.Foods);
+            savedFoodsView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            savedFoodsView.RowHeadersVisible = false;
+            savedFoodsView.ClearSelection();
         }
 
         private void menuButton_Click(object sender, EventArgs e)
@@ -19,14 +24,6 @@ namespace MacroTracker.Forms
         private void SavedFoodsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void SavedFoodsForm_Load(object sender, EventArgs e)
-        {
-            this.foodsTableAdapter.Fill(this.macroTrackerDataSet.Foods);
-            savedFoodsView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            savedFoodsView.RowHeadersVisible = false;
-            savedFoodsView.ClearSelection();
         }
     }
 }

@@ -8,13 +8,11 @@ namespace MacroTracker.Forms
         public RecordMealForm()
         {
             InitializeComponent();
-        }
-
-        private void RecordMealForm_Load(object sender, EventArgs e)
-        {
             datePicker.Value = DateTime.Today;
             ResetInputs();
             HideArrows();
+
+            map = new MealFoodMap();
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -26,11 +24,20 @@ namespace MacroTracker.Forms
         private void addButton_Click(object sender, EventArgs e)
         {
             //Add to list
-            
-            if (mealTypeBox.SelectedValue == null)
+            if (mealTypeBox.SelectedItem == null)
             {
                 confirmationLabel.Text = "Select the meal type!";
+                return;
             }
+            if (servingsInput.Value == 0)
+            {
+                confirmationLabel.Text = "Enter a valid servings amount!";
+                return;
+            }
+
+            //confirmationLabel.Text =  has been added.";
+            nextButton.Enabled = true;
+            ResetInputs();
         }
 
         private void nextButton_Click(object sender, EventArgs e)
@@ -52,5 +59,7 @@ namespace MacroTracker.Forms
         {
             Application.Exit();
         }
+
+        private MealFoodMap map;
     }
 }

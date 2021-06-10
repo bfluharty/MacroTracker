@@ -6,10 +6,15 @@ namespace MacroTracker.Forms
 {
     public partial class AddNewFoodForm : Form
     {
+        private List<Food> addedFoods { get; set; }
+
         public AddNewFoodForm()
         {
             InitializeComponent();
             HideArrows();
+            ResetInputs();
+            title.Select();
+
             addedFoods = new List<Food>();
         }
 
@@ -43,6 +48,12 @@ namespace MacroTracker.Forms
             ResetInputs();
         }
 
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            new ReviewNewFoodForm(addedFoods).Show();
+            Hide();
+        }
+
         private void ResetInputs()
         {
             nameInput.ResetText();
@@ -50,12 +61,6 @@ namespace MacroTracker.Forms
             fatInput.ResetText();
             carbsInput.ResetText();
             proteinInput.ResetText();
-        }
-
-        private void nextButton_Click(object sender, EventArgs e)
-        {
-            new ReviewNewFoodForm(addedFoods).Show();
-            Hide();
         }
 
         private void HideArrows()
@@ -66,17 +71,9 @@ namespace MacroTracker.Forms
             proteinInput.Controls[0].Visible = false;
         }
 
-        private List<Food> addedFoods { get; set; }
-
         private void AddNewFoodForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void AddNewFoodForm_Load(object sender, EventArgs e)
-        {
-            title.Select();
-            ResetInputs();
         }
     }
 }

@@ -150,10 +150,6 @@
             this.mealTypeBox.Size = new System.Drawing.Size(148, 40);
             this.mealTypeBox.TabIndex = 35;
             // 
-            // mealTypesBindingSource
-            // 
-            this.mealTypesBindingSource.DataSource = typeof(MacroTracker.Meal.MealTypes);
-            // 
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
@@ -169,7 +165,7 @@
             // datePicker
             // 
             this.datePicker.CalendarFont = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datePicker.CustomFormat = "M  dd, yyyy";
+            this.datePicker.CustomFormat = "M/dd/yyyy";
             this.datePicker.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePicker.Location = new System.Drawing.Point(498, 125);
@@ -210,7 +206,6 @@
             this.Name = "RecordMealForm";
             this.Text = "MacroTracker - Record Meal";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RecordMealForm_FormClosed);
-            this.Load += new System.EventHandler(this.RecordMealForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.servingsInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mealTypesBindingSource)).EndInit();
             this.ResumeLayout(false);

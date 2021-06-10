@@ -33,9 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.savedFoodsView = new System.Windows.Forms.DataGridView();
             this.foodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.macroTrackerDataSet = new MacroTracker.DataSets.MacroTrackerDataSet();
+            this.macroTrackerDataSet = new global::MacroTracker.DataSets.MacroTrackerDataSet();
             this.menuButton = new System.Windows.Forms.Button();
-            this.foodsTableAdapter = new MacroTracker.DataSets.MacroTrackerDataSetTableAdapters.FoodsTableAdapter();
+            this.foodsTableAdapter = new global::MacroTracker.DataSets.MacroTrackerDataSetTableAdapters.FoodsTableAdapter();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.caloriesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -168,7 +168,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Saved Foods";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SavedFoodsForm_FormClosed);
-            this.Load += new System.EventHandler(this.SavedFoodsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.savedFoodsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.macroTrackerDataSet)).EndInit();
