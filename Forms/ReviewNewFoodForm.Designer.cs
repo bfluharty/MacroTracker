@@ -1,4 +1,4 @@
-﻿namespace MacroTracker
+﻿namespace MacroTracker.Forms
 {
     partial class ReviewNewFoodForm
     {

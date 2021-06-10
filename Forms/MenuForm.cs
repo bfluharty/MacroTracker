@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace MacroTracker
+namespace MacroTracker.Forms
 {
     public partial class MenuForm : Form
     {
@@ -18,7 +18,8 @@ namespace MacroTracker
 
         private void recordMealButton_Click(object sender, EventArgs e)
         {
-            //Form for recording meal
+            new RecordMealForm().Show();
+            Hide();
         }
 
         private void viewRecordsButton_Click(object sender, EventArgs e)

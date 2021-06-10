@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace MacroTracker
+namespace MacroTracker.Forms
 {
     public partial class ReviewNewFoodForm : Form
     {
