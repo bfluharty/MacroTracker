@@ -9,8 +9,10 @@ namespace MacroTracker.Forms
         {
             InitializeComponent();
             datePicker.Value = DateTime.Today;
-            ResetInputs();
+            foodComboBox.DataSource = DatabaseInterface.SelectFoodNames();
             HideArrows();
+            mealTypeBox.SelectedItem = null;
+            ResetInputs();
 
             map = new MealFoodMap();
         }
@@ -23,10 +25,14 @@ namespace MacroTracker.Forms
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            //Add to list
             if (mealTypeBox.SelectedItem == null)
             {
                 confirmationLabel.Text = "Select the meal type!";
+                return;
+            }
+            if (foodComboBox.SelectedItem == null)
+            {
+                confirmationLabel.Text = "Select a food!";
                 return;
             }
             if (servingsInput.Value == 0)
@@ -35,18 +41,26 @@ namespace MacroTracker.Forms
                 return;
             }
 
-            //confirmationLabel.Text =  has been added.";
+            string foodChoice = foodComboBox.SelectedItem.ToString();
+            double servings = (double)Math.Round(servingsInput.Value, 1);
+
+            Food food = DatabaseInterface.SelectFood(foodChoice);
+            map.AddFood(food, servings);
+
+            confirmationLabel.Text = foodChoice + " (" + servings + " serving[s]) has been added.";
             nextButton.Enabled = true;
             ResetInputs();
         }
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-            //GOTO review meal addition
+            //new ReviewNewFoodForm(map).Show();
+            //Hide();
         }
 
         private void ResetInputs()
         {
+            foodComboBox.SelectedItem = null;
             servingsInput.ResetText();
         }
 
