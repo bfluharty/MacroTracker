@@ -84,6 +84,22 @@ namespace MacroTracker
             return food;
         }
 
+        public static int SelectFoodID(string foodName)
+        {
+
+            string sql = "SELECT * FROM Foods WHERE Name ='" + foodName + "'";
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+
+            int ID = Int32.Parse(reader.GetValue(0).ToString());
+
+            reader.Close();
+            command.Dispose();
+
+            return ID;
+        }
+
         private static SqlConnection connection;
     }
 }

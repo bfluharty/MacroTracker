@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace MacroTracker.Forms
@@ -14,7 +15,8 @@ namespace MacroTracker.Forms
             mealTypeBox.SelectedItem = null;
             ResetInputs();
 
-            map = new MealFoodMap();
+            meal = new Meal();
+            map = new Dictionary<Food, double>();
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -41,11 +43,17 @@ namespace MacroTracker.Forms
                 return;
             }
 
+            string typeString = mealTypeBox.SelectedItem.ToString();
+            char type = (char) typeString.ToCharArray().GetValue(0);
+
+            meal.Type = (Meal.MealTypes) type;
+            meal.Date = datePicker.Value;
+
             string foodChoice = foodComboBox.SelectedItem.ToString();
             double servings = (double)Math.Round(servingsInput.Value, 1);
 
-            Food food = DatabaseInterface.SelectFood(foodChoice);
-            map.AddFood(food, servings);
+            //Food food = DatabaseInterface.SelectFood(foodChoice);
+            map.Add(foodChoice, servings);
 
             confirmationLabel.Text = foodChoice + " (" + servings + " serving[s]) has been added.";
             nextButton.Enabled = true;
@@ -54,8 +62,8 @@ namespace MacroTracker.Forms
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-            //new ReviewNewFoodForm(map).Show();
-            //Hide();
+           // new ReviewNewMealForm(meal, map).Show();
+            Hide();
         }
 
         private void ResetInputs()
@@ -74,6 +82,7 @@ namespace MacroTracker.Forms
             Application.Exit();
         }
 
-        private MealFoodMap map;
+        private Dictionary<string, double> map;
+        private Meal meal;
     }
 }
