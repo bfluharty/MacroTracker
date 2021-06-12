@@ -28,10 +28,10 @@ namespace MacroTracker.Forms
             }
 
             string typeString = mealTypeBox.SelectedItem.ToString();
-            char type = (char)typeString.ToCharArray().GetValue(0);
+            char type = Meal.GetCharMealType(typeString);
 
             Meal meal = new Meal(type, datePicker.Value);
-            Tuple<string, string> mealPair = new Tuple<string, string>(((char) type).ToString(), datePicker.Value.ToShortDateString());
+            Tuple<string, string> mealPair = new Tuple<string, string>(meal.GetStringMealType(), datePicker.Value.ToShortDateString());
 
             if (DatabaseInterface.SelectMeals().Contains(mealPair))
             {

@@ -12,6 +12,11 @@ namespace MacroTracker
             Snack = 'S'
         }
 
+        public static char GetCharMealType(string input)
+        {
+            return (char)input.ToCharArray().GetValue(0);
+        }
+
         public Meal()
         {
             Type = MealTypes.Snack;
@@ -24,9 +29,14 @@ namespace MacroTracker
             Date = date;
         }
 
-        public string getInsertSQL()
+        public string GetStringMealType()
         {
-            return "('" + (char) Type + "', '" + Date.ToShortDateString() + "')";
+            return ((char)Type).ToString();
+        }
+
+        public string GetInsertSQL()
+        {
+            return "('" + GetStringMealType() + "', '" + Date.ToShortDateString() + "')";
         }
 
         public override string ToString()

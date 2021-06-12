@@ -7,6 +7,7 @@ namespace MacroTracker.Forms
     public partial class ReviewNewMealForm : Form
     {
         private Meal meal;
+        private Dictionary<string, double> mealMap;
         private List<string> foods;
         private List<double> servings;
 
@@ -17,6 +18,7 @@ namespace MacroTracker.Forms
 
             mealLabel.Text = meal.ToString();
 
+            mealMap = map;
             foods = new List<string>(map.Keys);
             servings = new List<double>(map.Values);
 
@@ -29,22 +31,22 @@ namespace MacroTracker.Forms
             mealToAddGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
         }
 
-        private void backButton_Click(object sender, EventArgs e)
-        {
-            new RecordMealForm(meal).Show();
-            Hide();
-        }
-
         private void menuButton_Click(object sender, EventArgs e)
         {
             new MenuForm().Show();
             Hide();
         }
 
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            new RecordMealForm(meal).Show();
+            Hide();
+        }
+
         private void submitButton_Click(object sender, EventArgs e)
         {
             DatabaseInterface.InsertMeal(meal);
-            //Add meal and foods to meal/food weak entity
+            DatabaseInterface.InsertMealMap(meal, mealMap);
 
             new MenuForm().Show();
             Hide();

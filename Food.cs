@@ -20,7 +20,7 @@
             Protein = protein;
         }
 
-        public string getInsertSQL()
+        public string GetInsertSQL()
         {
             return "('" + Name + "', " + Calories + ", " + Fat + ", " + Carbs + ", " + Protein + ")";
         }

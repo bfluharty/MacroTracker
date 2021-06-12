@@ -19,34 +19,6 @@ namespace MacroTracker
             connection.Close();
         }
 
-        public static void InsertFoods(List<Food> foods)
-        {
-            foreach (Food food in foods)
-            {
-                string sql = "INSERT INTO Foods (Name, Calories, Fat, Carbs, Protein) VALUES " + food.getInsertSQL();
-                SqlCommand command = new SqlCommand(sql, connection);
-                adapter.InsertCommand = new SqlCommand(sql, connection);
-                adapter.InsertCommand.ExecuteNonQuery();
-                command.Dispose();
-            }
-        }
-
-        public static void SelectFoods()
-        {
-            string output = "Name\tCalories\tFat\tCarbs\tProtein\n";
-            string sql = "SELECT Name, Calories, Fat, Carbs, Protein FROM Foods";
-            SqlCommand command = new SqlCommand(sql, connection);
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                output += reader.GetValue(0) + "\t" + reader.GetValue(1) + "\t" + reader.GetValue(2) +
-                    "\t" + reader.GetValue(3) + "\t" + reader.GetValue(4) + "\n";
-            }
-            Console.WriteLine(output);
-            reader.Close();
-            command.Dispose();
-        }
-
         public static List<string> SelectFoodNames()
         {
             List<string> names = new List<string>();
@@ -90,24 +62,42 @@ namespace MacroTracker
             return meals;
         }
 
-        public static Food SelectFood(string foodName)
+        public static void InsertFoods(List<Food> foods)
         {
-
-            string sql = "SELECT * FROM Foods WHERE Name ='" + foodName + "'";
-            SqlCommand command = new SqlCommand(sql, connection);
-            SqlDataReader reader = command.ExecuteReader();
-            reader.Read();
-
-            Food food = new Food(foodName, int.Parse(reader.GetValue(2).ToString()), double.Parse(reader.GetValue(3).ToString()),
-                double.Parse(reader.GetValue(4).ToString()), double.Parse(reader.GetValue(5).ToString()));
-
-            reader.Close();
-            command.Dispose();
-
-            return food;
+            foreach (Food food in foods)
+            {
+                string sql = "INSERT INTO Foods (Name, Calories, Fat, Carbs, Protein) VALUES " + food.GetInsertSQL();
+                SqlCommand command = new SqlCommand(sql, connection);
+                adapter.InsertCommand = new SqlCommand(sql, connection);
+                adapter.InsertCommand.ExecuteNonQuery();
+                command.Dispose();
+            }
         }
 
-        public static int SelectFoodID(string foodName)
+        public static void InsertMeal(Meal meal)
+        {
+            string sql = "INSERT INTO Meals (MealType, MealDate) VALUES " + meal.GetInsertSQL();
+            Console.WriteLine(sql);
+            SqlCommand command = new SqlCommand(sql, connection);
+            adapter.InsertCommand = new SqlCommand(sql, connection);
+            adapter.InsertCommand.ExecuteNonQuery();
+            command.Dispose();
+        }
+
+        public static void InsertMealMap(Meal meal, Dictionary<string, double> map)
+        {
+            int mealID = SelectMealID(meal);
+            foreach (KeyValuePair<string, double> pair in map)
+            {
+                string sql = "INSERT INTO MealContents (MealID, FoodID, Servings) VALUES (" + mealID + ", " + SelectFoodID(pair.Key) + ", " + pair.Value + ")";
+                SqlCommand command = new SqlCommand(sql, connection);
+                adapter.InsertCommand = new SqlCommand(sql, connection);
+                adapter.InsertCommand.ExecuteNonQuery();
+                command.Dispose();
+            }
+        }
+
+        private static int SelectFoodID(string foodName)
         {
             string sql = "SELECT FoodID FROM Foods WHERE Name ='" + foodName + "'";
             SqlCommand command = new SqlCommand(sql, connection);
@@ -122,14 +112,19 @@ namespace MacroTracker
             return ID;
         }
 
-        public static void InsertMeal(Meal meal)
+        private static int SelectMealID(Meal meal)
         {
-            string sql = "INSERT INTO Meals (MealType, MealDate) VALUES " + meal.getInsertSQL();
-            Console.WriteLine(sql);
+            string sql = "SELECT MealID FROM Meals WHERE MealType='" + meal.GetStringMealType() + "' AND MealDate='" + meal.Date.ToShortDateString() + "'";
             SqlCommand command = new SqlCommand(sql, connection);
-            adapter.InsertCommand = new SqlCommand(sql, connection);
-            adapter.InsertCommand.ExecuteNonQuery();
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+
+            int ID = int.Parse(reader.GetValue(0).ToString());
+
+            reader.Close();
             command.Dispose();
+
+            return ID;
         }
 
         private static SqlConnection connection;
