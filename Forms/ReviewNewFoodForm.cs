@@ -16,7 +16,6 @@ namespace MacroTracker.Forms
             foodsToAddGrid.DataSource = foods;
             foodsToAddGrid.RowHeadersVisible = false;
             foodsToAddGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            foodsToAddGrid.ClearSelection();
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -47,6 +46,12 @@ namespace MacroTracker.Forms
         private void ReviewNewFoodForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void ReviewNewFoodForm_Shown(object sender, EventArgs e)
+        {
+            foodsToAddGrid.ClearSelection();
+            title.Select();
         }
     }
 }

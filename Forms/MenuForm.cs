@@ -8,7 +8,6 @@ namespace MacroTracker.Forms
         public MenuForm()
         {
             InitializeComponent();
-            title.Select();
         }
 
         private void addFoodButton_Click(object sender, EventArgs e)
@@ -37,6 +36,11 @@ namespace MacroTracker.Forms
         private void MenuForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void MenuForm_Shown(object sender, EventArgs e)
+        {
+            title.Select();
         }
     }
 }

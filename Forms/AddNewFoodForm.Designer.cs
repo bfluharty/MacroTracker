@@ -98,7 +98,7 @@
             // 
             this.nameInput.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameInput.Location = new System.Drawing.Point(208, 113);
-            this.nameInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameInput.Margin = new System.Windows.Forms.Padding(2);
             this.nameInput.Name = "nameInput";
             this.nameInput.Size = new System.Drawing.Size(326, 38);
             this.nameInput.TabIndex = 5;
@@ -157,7 +157,7 @@
             0,
             0});
             this.caloriesInput.Location = new System.Drawing.Point(208, 159);
-            this.caloriesInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.caloriesInput.Margin = new System.Windows.Forms.Padding(2);
             this.caloriesInput.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -178,7 +178,7 @@
             0,
             0});
             this.fatInput.Location = new System.Drawing.Point(208, 206);
-            this.fatInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fatInput.Margin = new System.Windows.Forms.Padding(2);
             this.fatInput.Maximum = new decimal(new int[] {
             999,
             0,
@@ -199,7 +199,7 @@
             0,
             0});
             this.carbsInput.Location = new System.Drawing.Point(208, 254);
-            this.carbsInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.carbsInput.Margin = new System.Windows.Forms.Padding(2);
             this.carbsInput.Maximum = new decimal(new int[] {
             999,
             0,
@@ -220,7 +220,7 @@
             0,
             0});
             this.proteinInput.Location = new System.Drawing.Point(208, 301);
-            this.proteinInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.proteinInput.Margin = new System.Windows.Forms.Padding(2);
             this.proteinInput.Maximum = new decimal(new int[] {
             999,
             0,
@@ -276,6 +276,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Add New Food";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddNewFoodForm_FormClosed);
+            this.Shown += new System.EventHandler(this.AddNewFoodForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.caloriesInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fatInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carbsInput)).EndInit();

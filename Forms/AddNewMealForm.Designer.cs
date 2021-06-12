@@ -155,6 +155,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Record Meal";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RecordMealForm_FormClosed);
+            this.Shown += new System.EventHandler(this.AddNewMealForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.mealTypesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

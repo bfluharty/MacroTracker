@@ -11,7 +11,6 @@ namespace MacroTracker.Forms
         {
             InitializeComponent();
             datePicker.Value = DateTime.Today;
-            mealTypeBox.SelectedItem = null;
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -47,6 +46,11 @@ namespace MacroTracker.Forms
         private void RecordMealForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void AddNewMealForm_Shown(object sender, EventArgs e)
+        {
+            title.Select();
         }
     }
 }

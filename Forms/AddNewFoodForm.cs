@@ -13,7 +13,6 @@ namespace MacroTracker.Forms
             InitializeComponent();
             HideArrows();
             ResetInputs();
-            title.Select();
 
             addedFoods = new List<Food>();
         }
@@ -72,6 +71,11 @@ namespace MacroTracker.Forms
         private void AddNewFoodForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void AddNewFoodForm_Shown(object sender, EventArgs e)
+        {
+            title.Select();
         }
     }
 }

@@ -79,5 +79,10 @@ namespace MacroTracker.Forms
         {
             Application.Exit();
         }
+
+        private void RecordMealForm_Shown(object sender, EventArgs e)
+        {
+            title.Select();
+        }
     }
 }

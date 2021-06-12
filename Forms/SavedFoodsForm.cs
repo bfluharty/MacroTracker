@@ -12,7 +12,6 @@ namespace MacroTracker.Forms
             this.foodsTableAdapter.Fill(this.macroTrackerDataSet.Foods);
             savedFoodsView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             savedFoodsView.RowHeadersVisible = false;
-            savedFoodsView.ClearSelection();
         }
 
         private void menuButton_Click(object sender, EventArgs e)
@@ -24,6 +23,11 @@ namespace MacroTracker.Forms
         private void SavedFoodsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void SavedFoodsForm_Shown(object sender, EventArgs e)
+        {
+            savedFoodsView.ClearSelection();
         }
     }
 }
