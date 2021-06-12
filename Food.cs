@@ -20,6 +20,11 @@
             Protein = protein;
         }
 
+        public string getInsertSQL()
+        {
+            return "('" + Name + "', " + Calories + ", " + Fat + ", " + Carbs + ", " + Protein + ")";
+        }
+
         public override string ToString()
         {
             return "Food [Name=" + Name +
@@ -27,11 +32,6 @@
                 ", Fat=" + Fat +
                 ", Carbs=" + Carbs +
                 ", Protein=" + Protein + "]";
-        }
-
-        public string getInsertSQL()
-        {
-            return "('" + Name + "', " + Calories + ", " + Fat + ", " + Carbs + ", " + Protein + ")";
         }
 
         public string Name { get; set; }

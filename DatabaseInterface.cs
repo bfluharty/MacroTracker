@@ -10,6 +10,8 @@ namespace MacroTracker
         {
             connection = new SqlConnection(@"Data Source=LAPTOPPC-1\SQLEXPRESS;Initial Catalog=MacroTracker;Integrated Security=True");
             connection.Open();
+
+            adapter = new SqlDataAdapter();
         }
 
         public static void CloseConnection()
@@ -19,8 +21,6 @@ namespace MacroTracker
 
         public static void InsertFoods(List<Food> foods)
         {
-            SqlDataAdapter adapter = new SqlDataAdapter();
-
             foreach (Food food in foods)
             {
                 string sql = "INSERT INTO Foods (Name, Calories, Fat, Carbs, Protein) VALUES " + food.getInsertSQL();
@@ -66,6 +66,30 @@ namespace MacroTracker
             return names;
         }
 
+        public static List<Tuple<string, string>> SelectMeals()
+        {
+            List<Tuple<string, string>> meals = new List<Tuple<string, string>>();
+
+            string sql = "SELECT MealType, MealDate FROM Meals";
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string type = reader.GetValue(0).ToString();
+                string dateTime = reader.GetValue(1).ToString();
+
+                string date = dateTime.Substring(0, dateTime.IndexOf(" "));
+
+                meals.Add(new Tuple<string, string>(type, date));
+            }
+
+            reader.Close();
+            command.Dispose();
+
+            return meals;
+        }
+
         public static Food SelectFood(string foodName)
         {
 
@@ -74,8 +98,8 @@ namespace MacroTracker
             SqlDataReader reader = command.ExecuteReader();
             reader.Read();
 
-            Food food = new Food(foodName, Int32.Parse(reader.GetValue(2).ToString()), Double.Parse(reader.GetValue(3).ToString()),
-                Double.Parse(reader.GetValue(4).ToString()), Double.Parse(reader.GetValue(5).ToString()));
+            Food food = new Food(foodName, int.Parse(reader.GetValue(2).ToString()), double.Parse(reader.GetValue(3).ToString()),
+                double.Parse(reader.GetValue(4).ToString()), double.Parse(reader.GetValue(5).ToString()));
 
             reader.Close();
             command.Dispose();
@@ -85,13 +109,12 @@ namespace MacroTracker
 
         public static int SelectFoodID(string foodName)
         {
-
             string sql = "SELECT FoodID FROM Foods WHERE Name ='" + foodName + "'";
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader();
             reader.Read();
 
-            int ID = Int32.Parse(reader.GetValue(0).ToString());
+            int ID = int.Parse(reader.GetValue(0).ToString());
 
             reader.Close();
             command.Dispose();
@@ -99,6 +122,17 @@ namespace MacroTracker
             return ID;
         }
 
+        public static void InsertMeal(Meal meal)
+        {
+            string sql = "INSERT INTO Meals (MealType, MealDate) VALUES " + meal.getInsertSQL();
+            Console.WriteLine(sql);
+            SqlCommand command = new SqlCommand(sql, connection);
+            adapter.InsertCommand = new SqlCommand(sql, connection);
+            adapter.InsertCommand.ExecuteNonQuery();
+            command.Dispose();
+        }
+
         private static SqlConnection connection;
+        private static SqlDataAdapter adapter;
     }
 }

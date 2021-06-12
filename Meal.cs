@@ -24,6 +24,11 @@ namespace MacroTracker
             Date = date;
         }
 
+        public string getInsertSQL()
+        {
+            return "('" + (char) Type + "', '" + Date.ToShortDateString() + "')";
+        }
+
         public override string ToString()
         {
             return Type + " - " + Date.ToShortDateString();

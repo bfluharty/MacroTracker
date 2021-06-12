@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace MacroTracker.Forms
@@ -29,7 +31,16 @@ namespace MacroTracker.Forms
             string typeString = mealTypeBox.SelectedItem.ToString();
             char type = (char)typeString.ToCharArray().GetValue(0);
 
-            new RecordMealForm(new Meal(type, datePicker.Value)).Show();
+            Meal meal = new Meal(type, datePicker.Value);
+            Tuple<string, string> mealPair = new Tuple<string, string>(((char) type).ToString(), datePicker.Value.ToShortDateString());
+
+            if (DatabaseInterface.SelectMeals().Contains(mealPair))
+            {
+                confirmationLabel.Text = meal + " has already been added!";
+                return;
+            }
+            
+            new RecordMealForm(meal).Show();
             Hide();
         }
 

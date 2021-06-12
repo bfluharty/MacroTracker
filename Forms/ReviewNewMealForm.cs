@@ -43,7 +43,7 @@ namespace MacroTracker.Forms
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            //DatabaseInterface.InsertFoods(foods);
+            DatabaseInterface.InsertMeal(meal);
 
             new MenuForm().Show();
             Hide();
