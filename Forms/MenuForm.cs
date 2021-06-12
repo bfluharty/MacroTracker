@@ -19,7 +19,7 @@ namespace MacroTracker.Forms
 
         private void recordMealButton_Click(object sender, EventArgs e)
         {
-            new RecordMealForm().Show();
+            new AddNewMealForm().Show();
             Hide();
         }
 

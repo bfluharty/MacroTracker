@@ -26,8 +26,7 @@ namespace MacroTracker
 
         public override string ToString()
         {
-            return "Meal [Type=" + Type +
-                ", Date=" + Date.ToShortDateString() + "]";
+            return Type + " - " + Date.ToShortDateString();
         }
 
         public MealTypes Type { get; set; }

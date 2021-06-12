@@ -23,7 +23,6 @@ namespace MacroTracker
 
             foreach (Food food in foods)
             {
-
                 string sql = "INSERT INTO Foods (Name, Calories, Fat, Carbs, Protein) VALUES " + food.getInsertSQL();
                 SqlCommand command = new SqlCommand(sql, connection);
                 adapter.InsertCommand = new SqlCommand(sql, connection);
@@ -87,7 +86,7 @@ namespace MacroTracker
         public static int SelectFoodID(string foodName)
         {
 
-            string sql = "SELECT * FROM Foods WHERE Name ='" + foodName + "'";
+            string sql = "SELECT FoodID FROM Foods WHERE Name ='" + foodName + "'";
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader();
             reader.Read();

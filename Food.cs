@@ -10,6 +10,7 @@
             Carbs = 0;
             Protein = 0;
         }
+
         public Food(string name, int calories, double fat, double carbs, double protein)
         {
             Name = name;
