@@ -62,6 +62,30 @@ namespace MacroTracker
             return meals;
         }
 
+        public static List<Tuple<int, int>> SelectMealFoods(Meal meal)
+        {
+            int mealID = SelectMealID(meal);
+            List<Tuple<int, int>> foods = new List<Tuple<int, int>>();
+
+            string sql = "SELECT FoodID, Servings FROM MealContents WHERE MealID = " + mealID;
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                int foodID = int.Parse(reader.GetValue(0).ToString());
+                int servings = int.Parse(reader.GetValue(1).ToString());
+
+                foods.Add(new Tuple<int, int>(foodID, servings));
+            }
+
+
+            reader.Close();
+            command.Dispose();
+
+            return foods;
+        }
+
         public static void InsertFoods(List<Food> foods)
         {
             foreach (Food food in foods)
@@ -77,7 +101,6 @@ namespace MacroTracker
         public static void InsertMeal(Meal meal)
         {
             string sql = "INSERT INTO Meals (MealType, MealDate) VALUES " + meal.GetInsertSQL();
-            Console.WriteLine(sql);
             SqlCommand command = new SqlCommand(sql, connection);
             adapter.InsertCommand = new SqlCommand(sql, connection);
             adapter.InsertCommand.ExecuteNonQuery();
@@ -97,6 +120,22 @@ namespace MacroTracker
             }
         }
 
+        public static string SelectFoodName(int foodID)
+        {
+            string name;
+            string sql = "SELECT Name FROM Foods WHERE FoodID = " + foodID;
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+
+            name = (reader.GetValue(0).ToString());
+
+            reader.Close();
+            command.Dispose();
+
+            return name;
+        }
+
         private static int SelectFoodID(string foodName)
         {
             string sql = "SELECT FoodID FROM Foods WHERE Name ='" + foodName + "'";
@@ -114,12 +153,16 @@ namespace MacroTracker
 
         private static int SelectMealID(Meal meal)
         {
+            int ID = -1;
             string sql = "SELECT MealID FROM Meals WHERE MealType='" + meal.GetStringMealType() + "' AND MealDate='" + meal.Date.ToShortDateString() + "'";
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader();
-            reader.Read();
 
-            int ID = int.Parse(reader.GetValue(0).ToString());
+            while(reader.Read())
+            {
+                ID = int.Parse(reader.GetValue(0).ToString());
+            }
+
 
             reader.Close();
             command.Dispose();

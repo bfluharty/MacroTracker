@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="DatabaseInterface.cs" />
     <Compile Include="Food.cs" />
+    <Compile Include="FormManager.cs" />
     <Compile Include="Forms\AddNewMealForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +81,12 @@
     </Compile>
     <Compile Include="Forms\ReviewNewMealForm.Designer.cs">
       <DependentUpon>ReviewNewMealForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DailyTotalsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DailyTotalsForm.Designer.cs">
+      <DependentUpon>DailyTotalsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Meal.cs" />
     <Compile Include="Forms\SavedFoodsForm.cs">
@@ -121,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReviewNewMealForm.resx">
       <DependentUpon>ReviewNewMealForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DailyTotalsForm.resx">
+      <DependentUpon>DailyTotalsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SavedFoodsForm.resx">
       <DependentUpon>SavedFoodsForm.cs</DependentUpon>

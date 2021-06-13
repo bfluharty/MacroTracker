@@ -24,7 +24,8 @@ namespace MacroTracker.Forms
 
         private void viewRecordsButton_Click(object sender, EventArgs e)
         {
-            //Form for viewing records of meals
+            new DailyTotalsForm().Show();
+            Hide();
         }
 
         private void viewFoodsButton_Click(object sender, EventArgs e)
