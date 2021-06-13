@@ -82,7 +82,6 @@
       <DependentUpon>ReviewNewMealForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Meal.cs" />
-    <Compile Include="MealFoodMap.cs" />
     <Compile Include="Forms\SavedFoodsForm.cs">
       <SubType>Form</SubType>
     </Compile>

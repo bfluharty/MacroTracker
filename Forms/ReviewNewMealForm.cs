@@ -8,8 +8,6 @@ namespace MacroTracker.Forms
     {
         private Meal meal;
         private Dictionary<string, double> mealMap;
-        private List<string> foods;
-        private List<double> servings;
 
         public ReviewNewMealForm(Meal savedMeal, Dictionary<string, double> map)
         {
@@ -19,8 +17,6 @@ namespace MacroTracker.Forms
             mealLabel.Text = meal.ToString();
 
             mealMap = map;
-            foods = new List<string>(map.Keys);
-            servings = new List<double>(map.Values);
 
             foreach (KeyValuePair<string, double> pair in map)
             {
