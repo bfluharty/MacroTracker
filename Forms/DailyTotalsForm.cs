@@ -10,14 +10,16 @@ namespace MacroTracker.Forms
         private List<Tuple<int, int>> lunchFoods = new List<Tuple<int, int>>();
         private List<Tuple<int, int>> dinnerFoods = new List<Tuple<int, int>>();
         private List<Tuple<int, int>> snackFoods = new List<Tuple<int, int>>();
+        private Food total = new Food();
 
         public DailyTotalsForm()
         {
             InitializeComponent();
             datePicker.Value = DateTime.Today;
+            total = DatabaseInterface.SelectMealTotal(datePicker.Value);
 
             LoadMeals();
-            FillTables();
+            UpdateTotals();
         }
 
         private void LoadMeals()
@@ -65,6 +67,14 @@ namespace MacroTracker.Forms
             snackFoodsView.Rows.Clear();
         }
 
+        private void UpdateTotals()
+        {
+            caloriesValue.Text = total.Calories.ToString();
+            fatValue.Text = total.Fat.ToString() + " g";
+            carbsValue.Text = total.Carbs.ToString() + " g";
+            proteinValue.Text = total.Protein.ToString() + " g";
+        }
+
         private void menuButton_Click(object sender, EventArgs e)
         {
             new MenuForm().Show();
@@ -79,12 +89,16 @@ namespace MacroTracker.Forms
         private void DailyTotalsForm_Shown(object sender, EventArgs e)
         {
             ClearSelections();
+            FillTables();
         }
 
-        private void datePicker_ValueChanged(object sender, EventArgs e)
+        private void enterButton_Click(object sender, EventArgs e)
         {
+            total = DatabaseInterface.SelectMealTotal(datePicker.Value);
+
             LoadMeals();
             FillTables();
+            UpdateTotals();
         }
     }
 }
