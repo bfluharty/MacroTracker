@@ -62,10 +62,10 @@ namespace MacroTracker
             return meals;
         }
 
-        public static List<Tuple<int, int>> SelectMealFoods(Meal meal)
+        public static List<Tuple<int, double>> SelectMealFoods(Meal meal)
         {
             int mealID = SelectMealID(meal);
-            List<Tuple<int, int>> foods = new List<Tuple<int, int>>();
+            List<Tuple<int, double>> foods = new List<Tuple<int, double>>();
 
             string sql = "SELECT FoodID, Servings FROM MealContents WHERE MealID = " + mealID;
             SqlCommand command = new SqlCommand(sql, connection);
@@ -74,9 +74,9 @@ namespace MacroTracker
             while (reader.Read())
             {
                 int foodID = int.Parse(reader.GetValue(0).ToString());
-                int servings = int.Parse(reader.GetValue(1).ToString());
+                double servings = double.Parse(reader.GetValue(1).ToString());
 
-                foods.Add(new Tuple<int, int>(foodID, servings));
+                foods.Add(new Tuple<int, double>(foodID, servings));
             }
 
 

@@ -6,10 +6,10 @@ namespace MacroTracker.Forms
 {
     public partial class DailyTotalsForm : Form
     {
-        private List<Tuple<int, int>> breakfastFoods = new List<Tuple<int, int>>();
-        private List<Tuple<int, int>> lunchFoods = new List<Tuple<int, int>>();
-        private List<Tuple<int, int>> dinnerFoods = new List<Tuple<int, int>>();
-        private List<Tuple<int, int>> snackFoods = new List<Tuple<int, int>>();
+        private List<Tuple<int, double>> breakfastFoods = new List<Tuple<int, double>>();
+        private List<Tuple<int, double>> lunchFoods = new List<Tuple<int, double>>();
+        private List<Tuple<int, double>> dinnerFoods = new List<Tuple<int, double>>();
+        private List<Tuple<int, double>> snackFoods = new List<Tuple<int, double>>();
         private Food total = new Food();
 
         public DailyTotalsForm()
@@ -34,25 +34,25 @@ namespace MacroTracker.Forms
         {
             ClearSelections();
 
-            foreach (Tuple<int, int> entry in breakfastFoods)
+            foreach (Tuple<int, double> entry in breakfastFoods)
             {
                 breakfastFoodsView.Rows.Add(DatabaseInterface.SelectFoodName(entry.Item1) + " (" + entry.Item2 + ")");
                 breakfastFoodsView.ClearSelection();
             }
 
-            foreach (Tuple<int, int> entry in lunchFoods)
+            foreach (Tuple<int, double> entry in lunchFoods)
             {
                 lunchFoodsView.Rows.Add(DatabaseInterface.SelectFoodName(entry.Item1) + " (" + entry.Item2 + ")");
                 lunchFoodsView.ClearSelection();
             }
 
-            foreach (Tuple<int, int> entry in dinnerFoods)
+            foreach (Tuple<int, double> entry in dinnerFoods)
             {
                 dinnerFoodsView.Rows.Add(DatabaseInterface.SelectFoodName(entry.Item1) + " (" + entry.Item2 + ")");
                 dinnerFoodsView.ClearSelection();
             }
 
-            foreach (Tuple<int, int> entry in snackFoods)
+            foreach (Tuple<int, double> entry in snackFoods)
             {
                 snackFoodsView.Rows.Add(DatabaseInterface.SelectFoodName(entry.Item1) + " (" + entry.Item2 + ")");
                 snackFoodsView.ClearSelection();
