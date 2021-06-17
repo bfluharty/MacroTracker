@@ -10,13 +10,22 @@ namespace MacroTracker.Forms
         private List<Tuple<int, double>> lunchFoods = new List<Tuple<int, double>>();
         private List<Tuple<int, double>> dinnerFoods = new List<Tuple<int, double>>();
         private List<Tuple<int, double>> snackFoods = new List<Tuple<int, double>>();
+        private Food breakfast = new Food();
+        private Food lunch = new Food();
+        private Food dinner = new Food();
+        private Food snack = new Food();
         private Food total = new Food();
 
         public DailyTotalsForm()
         {
             InitializeComponent();
             datePicker.Value = DateTime.Today;
-            total = DatabaseInterface.SelectMealTotal(datePicker.Value);
+
+            breakfast = DatabaseInterface.SelectMealTotal('B', datePicker.Value);
+            lunch = DatabaseInterface.SelectMealTotal('L', datePicker.Value);
+            dinner = DatabaseInterface.SelectMealTotal('D', datePicker.Value);
+            snack = DatabaseInterface.SelectMealTotal('S', datePicker.Value);
+            total = DatabaseInterface.SelectDailyTotal(datePicker.Value);
 
             LoadMeals();
             UpdateTotals();
@@ -69,6 +78,26 @@ namespace MacroTracker.Forms
 
         private void UpdateTotals()
         {
+            breakfastCaloriesValue.Text = breakfast.Calories.ToString();
+            breakfastFatValue.Text = breakfast.Fat.ToString() + " g";
+            breakfastCarbsValue.Text = breakfast.Carbs.ToString() + " g";
+            breakfastProteinValue.Text = breakfast.Protein.ToString() + " g";
+
+            lunchCaloriesValue.Text = lunch.Calories.ToString();
+            lunchFatValue.Text = lunch.Fat.ToString() + " g";
+            lunchCarbsValue.Text = lunch.Carbs.ToString() + " g";
+            lunchProteinValue.Text = lunch.Protein.ToString() + " g";
+
+            dinnerCaloriesValue.Text = dinner.Calories.ToString();
+            dinnerFatValue.Text = dinner.Fat.ToString() + " g";
+            dinnerCarbsValue.Text = dinner.Carbs.ToString() + " g";
+            dinnerProteinValue.Text = dinner.Protein.ToString() + " g";
+
+            snackCaloriesValue.Text = snack.Calories.ToString();
+            snackFatValue.Text = snack.Fat.ToString() + " g";
+            snackCarbsValue.Text = snack.Carbs.ToString() + " g";
+            snackProteinValue.Text = snack.Protein.ToString() + " g";
+
             caloriesValue.Text = total.Calories.ToString();
             fatValue.Text = total.Fat.ToString() + " g";
             carbsValue.Text = total.Carbs.ToString() + " g";
@@ -94,7 +123,11 @@ namespace MacroTracker.Forms
 
         private void enterButton_Click(object sender, EventArgs e)
         {
-            total = DatabaseInterface.SelectMealTotal(datePicker.Value);
+            breakfast = DatabaseInterface.SelectMealTotal('B', datePicker.Value);
+            lunch = DatabaseInterface.SelectMealTotal('L', datePicker.Value);
+            dinner = DatabaseInterface.SelectMealTotal('D', datePicker.Value);
+            snack = DatabaseInterface.SelectMealTotal('S', datePicker.Value);
+            total = DatabaseInterface.SelectDailyTotal(datePicker.Value);
 
             LoadMeals();
             FillTables();
