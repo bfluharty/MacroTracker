@@ -24,8 +24,8 @@ namespace MacroTracker.Forms
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            new AddNewMealForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.MenuForm);
+            Close();
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -60,8 +60,8 @@ namespace MacroTracker.Forms
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-            new ReviewNewMealForm(meal, map).Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.ReviewNewMealForm, meal: meal, map: map);
+            Close();
         }
 
         private void ResetInputs()
@@ -77,7 +77,7 @@ namespace MacroTracker.Forms
 
         private void RecordMealForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            FormManager.RemoveForm(this);
         }
 
         private void RecordMealForm_Shown(object sender, EventArgs e)

@@ -16,8 +16,8 @@ namespace MacroTracker
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuForm());
-
+            Application.Run(new FormManager());
+            
             DatabaseInterface.CloseConnection();
         }
     }

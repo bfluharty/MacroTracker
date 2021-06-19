@@ -12,31 +12,31 @@ namespace MacroTracker.Forms
 
         private void addFoodButton_Click(object sender, EventArgs e)
         {
-            new AddNewFoodForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.AddNewFoodForm);
+            Close();
         }
 
         private void recordMealButton_Click(object sender, EventArgs e)
         {
-            new AddNewMealForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.AddNewMealForm);
+            Close();
         }
 
         private void viewRecordsButton_Click(object sender, EventArgs e)
         {
-            new DailyTotalsForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.DailyTotalsForm);
+            Close();
         }
 
         private void viewFoodsButton_Click(object sender, EventArgs e)
         {
-            new SavedFoodsForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.SavedFoodsForm);
+            Close();
         }
 
         private void MenuForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            FormManager.RemoveForm(this);
         }
 
         private void MenuForm_Shown(object sender, EventArgs e)

@@ -106,13 +106,13 @@ namespace MacroTracker.Forms
 
         private void menuButton_Click(object sender, EventArgs e)
         {
-            new MenuForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.MenuForm);
+            Close();
         }
 
         private void DailyTotalsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            FormManager.RemoveForm(this);
         }
 
         private void DailyTotalsForm_Shown(object sender, EventArgs e)

@@ -20,22 +20,22 @@ namespace MacroTracker.Forms
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            new AddNewFoodForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.AddNewFoodForm);
+            Close();
         }
 
         private void menuButton_Click(object sender, EventArgs e)
         {
-            new MenuForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.MenuForm);
+            Close();
         }
 
         private void submitButton_Click(object sender, EventArgs e)
         {
             DatabaseInterface.InsertFoods(foods);
 
-            new MenuForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.MenuForm);
+            Close();
         }
 
         private void foodsToAddGrid_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
@@ -45,7 +45,7 @@ namespace MacroTracker.Forms
 
         private void ReviewNewFoodForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            FormManager.RemoveForm(this);
         }
 
         private void ReviewNewFoodForm_Shown(object sender, EventArgs e)

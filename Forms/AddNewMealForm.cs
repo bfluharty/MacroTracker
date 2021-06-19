@@ -13,8 +13,8 @@ namespace MacroTracker.Forms
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            new MenuForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.MenuForm);
+            Close();
         }
 
         private void nextButton_Click(object sender, EventArgs e)
@@ -36,14 +36,13 @@ namespace MacroTracker.Forms
                 confirmationLabel.Text = meal + " has already been added!";
                 return;
             }
-            
-            new RecordMealForm(meal).Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.RecordMealForm, meal);
+            Close();
         }
 
         private void RecordMealForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            FormManager.RemoveForm(this);
         }
 
         private void AddNewMealForm_Shown(object sender, EventArgs e)
