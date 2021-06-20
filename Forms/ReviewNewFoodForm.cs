@@ -2,34 +2,40 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace MacroTracker
+namespace MacroTracker.Forms
 {
     public partial class ReviewNewFoodForm : Form
     {
+        private List<Food> foods;
+
         public ReviewNewFoodForm(List<Food> addedFoods)
         {
             InitializeComponent();
             foods = addedFoods;
+
+            foodsToAddGrid.DataSource = foods;
+            foodsToAddGrid.RowHeadersVisible = false;
+            foodsToAddGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            new AddNewFoodForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.AddNewFoodForm);
+            Close();
         }
 
         private void menuButton_Click(object sender, EventArgs e)
         {
-            new MenuForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.MenuForm);
+            Close();
         }
 
         private void submitButton_Click(object sender, EventArgs e)
         {
             DatabaseInterface.InsertFoods(foods);
 
-            new MenuForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.MenuForm);
+            Close();
         }
 
         private void foodsToAddGrid_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
@@ -37,20 +43,15 @@ namespace MacroTracker
             e.Column.SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
-        private List<Food> foods;
-
         private void ReviewNewFoodForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            FormManager.RemoveForm(this);
         }
 
-        private void ReviewNewFoodForm_Load(object sender, EventArgs e)
+        private void ReviewNewFoodForm_Shown(object sender, EventArgs e)
         {
-            foodsToAddGrid.DataSource = foods;
-            foodsToAddGrid.RowHeadersVisible = false;
             foodsToAddGrid.ClearSelection();
-            foodsToAddGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-
+            title.Select();
         }
     }
 }

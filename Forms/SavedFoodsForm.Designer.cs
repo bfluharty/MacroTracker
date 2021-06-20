@@ -1,4 +1,4 @@
-﻿namespace MacroTracker
+﻿namespace MacroTracker.Forms
 {
     partial class SavedFoodsForm
     {
@@ -32,15 +32,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.savedFoodsView = new System.Windows.Forms.DataGridView();
-            this.foodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.macroTrackerDataSet = new MacroTracker.MacroTrackerDataSet();
-            this.menuButton = new System.Windows.Forms.Button();
-            this.foodsTableAdapter = new MacroTracker.MacroTrackerDataSetTableAdapters.FoodsTableAdapter();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.caloriesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.carbsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proteinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.foodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.macroTrackerDataSet = new DataSets.MacroTrackerDataSet();
+            this.menuButton = new System.Windows.Forms.Button();
+            this.foodsTableAdapter = new DataSets.MacroTrackerDataSetTableAdapters.FoodsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.savedFoodsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.macroTrackerDataSet)).BeginInit();
@@ -90,31 +90,6 @@
             this.savedFoodsView.Size = new System.Drawing.Size(713, 517);
             this.savedFoodsView.TabIndex = 0;
             // 
-            // foodsBindingSource
-            // 
-            this.foodsBindingSource.DataMember = "Foods";
-            this.foodsBindingSource.DataSource = this.macroTrackerDataSet;
-            // 
-            // macroTrackerDataSet
-            // 
-            this.macroTrackerDataSet.DataSetName = "MacroTrackerDataSet";
-            this.macroTrackerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // menuButton
-            // 
-            this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuButton.Location = new System.Drawing.Point(389, 576);
-            this.menuButton.Name = "menuButton";
-            this.menuButton.Size = new System.Drawing.Size(109, 39);
-            this.menuButton.TabIndex = 22;
-            this.menuButton.Text = "Menu";
-            this.menuButton.UseVisualStyleBackColor = true;
-            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
-            // 
-            // foodsTableAdapter
-            // 
-            this.foodsTableAdapter.ClearBeforeFill = true;
-            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -156,6 +131,31 @@
             this.proteinDataGridViewTextBoxColumn.ReadOnly = true;
             this.proteinDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // foodsBindingSource
+            // 
+            this.foodsBindingSource.DataMember = "Foods";
+            this.foodsBindingSource.DataSource = this.macroTrackerDataSet;
+            // 
+            // macroTrackerDataSet
+            // 
+            this.macroTrackerDataSet.DataSetName = "MacroTrackerDataSet";
+            this.macroTrackerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // menuButton
+            // 
+            this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuButton.Location = new System.Drawing.Point(389, 576);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(109, 39);
+            this.menuButton.TabIndex = 22;
+            this.menuButton.Text = "Menu";
+            this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
+            // 
+            // foodsTableAdapter
+            // 
+            this.foodsTableAdapter.ClearBeforeFill = true;
+            // 
             // SavedFoodsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,7 +168,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Saved Foods";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SavedFoodsForm_FormClosed);
-            this.Load += new System.EventHandler(this.SavedFoodsForm_Load);
+            this.Shown += new System.EventHandler(this.SavedFoodsForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.savedFoodsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.macroTrackerDataSet)).EndInit();
@@ -180,8 +180,8 @@
 
         private System.Windows.Forms.DataGridView savedFoodsView;
         private System.Windows.Forms.Button menuButton;
-        private MacroTrackerDataSet macroTrackerDataSet;
-        private MacroTrackerDataSetTableAdapters.FoodsTableAdapter foodsTableAdapter;
+        private DataSets.MacroTrackerDataSet macroTrackerDataSet;
+        private DataSets.MacroTrackerDataSetTableAdapters.FoodsTableAdapter foodsTableAdapter;
         private System.Windows.Forms.BindingSource foodsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn caloriesDataGridViewTextBoxColumn;

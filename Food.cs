@@ -10,6 +10,7 @@
             Carbs = 0;
             Protein = 0;
         }
+
         public Food(string name, int calories, double fat, double carbs, double protein)
         {
             Name = name;
@@ -19,6 +20,11 @@
             Protein = protein;
         }
 
+        public string GetInsertSQL()
+        {
+            return "('" + DatabaseInterface.SanitizeName(Name) + "', " + Calories + ", " + Fat + ", " + Carbs + ", " + Protein + ")";
+        }
+
         public override string ToString()
         {
             return "Food [Name=" + Name +
@@ -26,11 +32,6 @@
                 ", Fat=" + Fat +
                 ", Carbs=" + Carbs +
                 ", Protein=" + Protein + "]";
-        }
-
-        public string getInsertSQL()
-        {
-            return "('" + Name + "', " + Calories + ", " + Fat + ", " + Carbs + ", " + Protein + ")";
         }
 
         public string Name { get; set; }

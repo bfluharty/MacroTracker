@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -63,46 +63,101 @@
   <ItemGroup>
     <Compile Include="DatabaseInterface.cs" />
     <Compile Include="Food.cs" />
-    <Compile Include="SavedFoodsForm.cs">
+    <Compile Include="FormManager.cs" />
+    <Compile Include="Forms\AddNewMealForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SavedFoodsForm.Designer.cs">
+    <Compile Include="Forms\AddNewMealForm.Designer.cs">
+      <DependentUpon>AddNewMealForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EnterMacroGoalsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EnterMacroGoalsForm.Designer.cs">
+      <DependentUpon>EnterMacroGoalsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RecordMealForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RecordMealForm.Designer.cs">
+      <DependentUpon>RecordMealForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReviewNewMealForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReviewNewMealForm.Designer.cs">
+      <DependentUpon>ReviewNewMealForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DailyTotalsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DailyTotalsForm.Designer.cs">
+      <DependentUpon>DailyTotalsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WelcomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WelcomeForm.Designer.cs">
+      <DependentUpon>WelcomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Meal.cs" />
+    <Compile Include="Forms\SavedFoodsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SavedFoodsForm.Designer.cs">
       <DependentUpon>SavedFoodsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MacroTrackerDataSet.Designer.cs">
+    <Compile Include="DataSets\MacroTrackerDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MacroTrackerDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="MenuForm.cs">
+    <Compile Include="Forms\MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuForm.Designer.cs">
+    <Compile Include="Forms\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNewFoodForm.cs">
+    <Compile Include="Forms\AddNewFoodForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNewFoodForm.Designer.cs">
+    <Compile Include="Forms\AddNewFoodForm.Designer.cs">
       <DependentUpon>AddNewFoodForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="MacroTracker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReviewNewFoodForm.cs">
+    <Compile Include="Forms\ReviewNewFoodForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReviewNewFoodForm.Designer.cs">
+    <Compile Include="Forms\ReviewNewFoodForm.Designer.cs">
       <DependentUpon>ReviewNewFoodForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sanitizer.cs" />
-    <EmbeddedResource Include="SavedFoodsForm.resx">
+    <EmbeddedResource Include="Forms\AddNewMealForm.resx">
+      <DependentUpon>AddNewMealForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EnterMacroGoalsForm.resx">
+      <DependentUpon>EnterMacroGoalsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RecordMealForm.resx">
+      <DependentUpon>RecordMealForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReviewNewMealForm.resx">
+      <DependentUpon>ReviewNewMealForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DailyTotalsForm.resx">
+      <DependentUpon>DailyTotalsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SavedFoodsForm.resx">
       <DependentUpon>SavedFoodsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuForm.resx">
+    <EmbeddedResource Include="Forms\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddNewFoodForm.resx">
+    <EmbeddedResource Include="Forms\AddNewFoodForm.resx">
       <DependentUpon>AddNewFoodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WelcomeForm.resx">
+      <DependentUpon>WelcomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -114,18 +169,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ReviewNewFoodForm.resx">
+    <EmbeddedResource Include="Forms\ReviewNewFoodForm.resx">
       <DependentUpon>ReviewNewFoodForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="MacroTrackerDataSet.xsc">
+    <None Include="DataSets\MacroTrackerDataSet.xsc">
       <DependentUpon>MacroTrackerDataSet.xsd</DependentUpon>
     </None>
-    <None Include="MacroTrackerDataSet.xsd">
+    <None Include="DataSets\MacroTrackerDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>MacroTrackerDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="MacroTrackerDataSet.xss">
+    <None Include="DataSets\MacroTrackerDataSet.xss">
       <DependentUpon>MacroTrackerDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\DataSources\Food.datasource" />

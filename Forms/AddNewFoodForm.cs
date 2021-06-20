@@ -1,29 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MacroTracker
+namespace MacroTracker.Forms
 {
     public partial class AddNewFoodForm : Form
     {
+        private List<Food> addedFoods { get; set; }
+
         public AddNewFoodForm()
         {
             InitializeComponent();
             HideArrows();
+            ResetInputs();
+
             addedFoods = new List<Food>();
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            new MenuForm().Show();
-            Hide();
+            FormManager.AddForm(FormManager.FormTypes.MenuForm);
+            Close();
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -32,13 +29,11 @@ namespace MacroTracker
 
             if (name.Equals(""))
             {
-                nameInput.Text = "Name Required!";
+                confirmationLabel.Text = "Enter a name for the food!";
                 return;
             }
 
-            List<string> takenNames = DatabaseInterface.SelectFoodNames();
-
-            if (takenNames.Contains(name))
+            if (DatabaseInterface.SelectFoodNames().Contains(name))
             {
                 confirmationLabel.Text = name + " has already been added!";
                 return;
@@ -50,6 +45,12 @@ namespace MacroTracker
             ResetInputs();
         }
 
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            FormManager.AddForm(FormManager.FormTypes.ReviewNewFoodForm, foods: addedFoods);
+            Close();
+        }
+
         private void ResetInputs()
         {
             nameInput.ResetText();
@@ -57,12 +58,6 @@ namespace MacroTracker
             fatInput.ResetText();
             carbsInput.ResetText();
             proteinInput.ResetText();
-        }
-
-        private void nextButton_Click(object sender, EventArgs e)
-        {
-            new ReviewNewFoodForm(addedFoods).Show();
-            Hide();
         }
 
         private void HideArrows()
@@ -73,17 +68,14 @@ namespace MacroTracker
             proteinInput.Controls[0].Visible = false;
         }
 
-        private List<Food> addedFoods { get; set; }
-
         private void AddNewFoodForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            FormManager.RemoveForm(this);
         }
 
-        private void AddNewFoodForm_Load(object sender, EventArgs e)
+        private void AddNewFoodForm_Shown(object sender, EventArgs e)
         {
             title.Select();
-            ResetInputs();
         }
     }
 }

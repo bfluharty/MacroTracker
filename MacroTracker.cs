@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MacroTracker.Forms;
 
 namespace MacroTracker
 {
-    static class Program
+    static class MacroTracker
     {
         /// <summary>
         /// The main entry point for the application.
@@ -18,8 +16,8 @@ namespace MacroTracker
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuForm());
-
+            Application.Run(new FormManager());
+            
             DatabaseInterface.CloseConnection();
         }
     }

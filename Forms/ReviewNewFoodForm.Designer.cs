@@ -1,4 +1,4 @@
-﻿namespace MacroTracker
+﻿namespace MacroTracker.Forms
 {
     partial class ReviewNewFoodForm
     {
@@ -37,12 +37,12 @@
             this.backButton = new System.Windows.Forms.Button();
             this.menuButton = new System.Windows.Forms.Button();
             this.foodsToAddGrid = new System.Windows.Forms.DataGridView();
-            this.foodBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.caloriesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.carbsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proteinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.foodBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.foodsToAddGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -141,10 +141,6 @@
             this.foodsToAddGrid.TabIndex = 22;
             this.foodsToAddGrid.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.foodsToAddGrid_ColumnAdded);
             // 
-            // foodBindingSource
-            // 
-            this.foodBindingSource.DataSource = typeof(MacroTracker.Food);
-            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -190,6 +186,10 @@
             this.proteinDataGridViewTextBoxColumn.Name = "proteinDataGridViewTextBoxColumn";
             this.proteinDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // foodBindingSource
+            // 
+            this.foodBindingSource.DataSource = typeof(Food);
+            // 
             // ReviewNewFoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,7 +205,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Confirm New Food";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReviewNewFoodForm_FormClosed);
-            this.Load += new System.EventHandler(this.ReviewNewFoodForm_Load);
+            this.Shown += new System.EventHandler(this.ReviewNewFoodForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.foodsToAddGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).EndInit();
             this.ResumeLayout(false);

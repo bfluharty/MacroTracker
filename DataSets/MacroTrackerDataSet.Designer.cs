@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace MacroTracker {
+namespace MacroTracker.DataSets {
     
     
     /// <summary>
@@ -790,7 +790,7 @@ namespace MacroTracker {
         }
     }
 }
-namespace MacroTracker.MacroTrackerDataSetTableAdapters {
+namespace MacroTracker.DataSets.MacroTrackerDataSetTableAdapters {
     
     
     /// <summary>
