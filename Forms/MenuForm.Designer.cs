@@ -33,14 +33,15 @@
             this.viewRecordsButton = new System.Windows.Forms.Button();
             this.viewFoodsButton = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
+            this.editGoalsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addFoodButton
             // 
-            this.addFoodButton.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addFoodButton.Location = new System.Drawing.Point(100, 251);
+            this.addFoodButton.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addFoodButton.Location = new System.Drawing.Point(100, 212);
             this.addFoodButton.Name = "addFoodButton";
-            this.addFoodButton.Size = new System.Drawing.Size(490, 82);
+            this.addFoodButton.Size = new System.Drawing.Size(490, 66);
             this.addFoodButton.TabIndex = 4;
             this.addFoodButton.Text = "Add New Food";
             this.addFoodButton.UseVisualStyleBackColor = true;
@@ -48,10 +49,10 @@
             // 
             // recordMealButton
             // 
-            this.recordMealButton.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recordMealButton.Location = new System.Drawing.Point(100, 149);
+            this.recordMealButton.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordMealButton.Location = new System.Drawing.Point(100, 123);
             this.recordMealButton.Name = "recordMealButton";
-            this.recordMealButton.Size = new System.Drawing.Size(490, 82);
+            this.recordMealButton.Size = new System.Drawing.Size(490, 66);
             this.recordMealButton.TabIndex = 6;
             this.recordMealButton.Text = "Record Meal";
             this.recordMealButton.UseVisualStyleBackColor = true;
@@ -59,10 +60,10 @@
             // 
             // viewRecordsButton
             // 
-            this.viewRecordsButton.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewRecordsButton.Location = new System.Drawing.Point(100, 353);
+            this.viewRecordsButton.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewRecordsButton.Location = new System.Drawing.Point(100, 301);
             this.viewRecordsButton.Name = "viewRecordsButton";
-            this.viewRecordsButton.Size = new System.Drawing.Size(490, 82);
+            this.viewRecordsButton.Size = new System.Drawing.Size(490, 66);
             this.viewRecordsButton.TabIndex = 7;
             this.viewRecordsButton.Text = "View Records";
             this.viewRecordsButton.UseVisualStyleBackColor = true;
@@ -70,10 +71,10 @@
             // 
             // viewFoodsButton
             // 
-            this.viewFoodsButton.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewFoodsButton.Location = new System.Drawing.Point(100, 456);
+            this.viewFoodsButton.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewFoodsButton.Location = new System.Drawing.Point(100, 390);
             this.viewFoodsButton.Name = "viewFoodsButton";
-            this.viewFoodsButton.Size = new System.Drawing.Size(490, 82);
+            this.viewFoodsButton.Size = new System.Drawing.Size(490, 66);
             this.viewFoodsButton.TabIndex = 8;
             this.viewFoodsButton.Text = "View Foods";
             this.viewFoodsButton.UseVisualStyleBackColor = true;
@@ -91,11 +92,23 @@
             this.title.Text = "MacroTracker";
             this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // editGoalsButton
+            // 
+            this.editGoalsButton.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editGoalsButton.Location = new System.Drawing.Point(100, 482);
+            this.editGoalsButton.Name = "editGoalsButton";
+            this.editGoalsButton.Size = new System.Drawing.Size(490, 66);
+            this.editGoalsButton.TabIndex = 9;
+            this.editGoalsButton.Text = "Set Goals";
+            this.editGoalsButton.UseVisualStyleBackColor = true;
+            this.editGoalsButton.Click += new System.EventHandler(this.editGoalsButton_Click);
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 576);
+            this.Controls.Add(this.editGoalsButton);
             this.Controls.Add(this.viewFoodsButton);
             this.Controls.Add(this.viewRecordsButton);
             this.Controls.Add(this.recordMealButton);
@@ -116,6 +129,7 @@
         private System.Windows.Forms.Button viewRecordsButton;
         private System.Windows.Forms.Button viewFoodsButton;
         private System.Windows.Forms.Label title;
+        private System.Windows.Forms.Button editGoalsButton;
     }
 }
 

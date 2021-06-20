@@ -33,5 +33,65 @@ namespace MacroTracker.Properties {
                 return ((string)(this["MacroTrackerConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool setGoal {
+            get {
+                return ((bool)(this["setGoal"]));
+            }
+            set {
+                this["setGoal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int calorieGoal {
+            get {
+                return ((int)(this["calorieGoal"]));
+            }
+            set {
+                this["calorieGoal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double fatGoal {
+            get {
+                return ((double)(this["fatGoal"]));
+            }
+            set {
+                this["fatGoal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double carbGoal {
+            get {
+                return ((double)(this["carbGoal"]));
+            }
+            set {
+                this["carbGoal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double proteinGoal {
+            get {
+                return ((double)(this["proteinGoal"]));
+            }
+            set {
+                this["proteinGoal"] = value;
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.confirmationLabel = new System.Windows.Forms.Label();
             this.nextButton = new System.Windows.Forms.Button();
-            this.backButton = new System.Windows.Forms.Button();
+            this.menuButton = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
             this.mealTypeBox = new System.Windows.Forms.ComboBox();
             this.mealTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -62,16 +62,16 @@
             this.nextButton.UseVisualStyleBackColor = true;
             this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
             // 
-            // backButton
+            // menuButton
             // 
-            this.backButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.Location = new System.Drawing.Point(260, 403);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(109, 39);
-            this.backButton.TabIndex = 22;
-            this.backButton.Text = "Back";
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuButton.Location = new System.Drawing.Point(260, 403);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(109, 39);
+            this.menuButton.TabIndex = 22;
+            this.menuButton.Text = "Menu";
+            this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // title
             // 
@@ -149,7 +149,7 @@
             this.Controls.Add(this.mealTypeBox);
             this.Controls.Add(this.confirmationLabel);
             this.Controls.Add(this.nextButton);
-            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.menuButton);
             this.Controls.Add(this.title);
             this.Name = "AddNewMealForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -166,7 +166,7 @@
 
         private System.Windows.Forms.Label confirmationLabel;
         private System.Windows.Forms.Button nextButton;
-        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button menuButton;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.ComboBox mealTypeBox;
         private System.Windows.Forms.BindingSource mealTypesBindingSource;

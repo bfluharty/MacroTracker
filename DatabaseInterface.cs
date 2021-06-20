@@ -188,9 +188,27 @@ namespace MacroTracker
             return name;
         }
 
+        public static string SanitizeName(string input)
+        {
+            string rest = input;
+            string complete = "";
+
+            while (rest.Contains("'"))
+            {
+                int loc = rest.IndexOf('\'') + 1;
+
+                string temp = rest.Substring(0, loc);
+                rest = rest.Substring(loc, rest.Length - loc);
+
+                temp = temp.Insert(temp.Length, "'");
+                complete += temp;
+            }
+            return complete + rest;
+        }
+
         private static int SelectFoodID(string foodName)
         {
-            string sql = "SELECT FoodID FROM Foods WHERE Name ='" + foodName + "'";
+            string sql = "SELECT FoodID FROM Foods WHERE Name ='" + SanitizeName(foodName) + "'";
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader();
             reader.Read();

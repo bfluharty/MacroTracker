@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace MacroTracker.Forms
 {
@@ -98,10 +99,21 @@ namespace MacroTracker.Forms
             snackCarbsValue.Text = snack.Carbs.ToString() + " g";
             snackProteinValue.Text = snack.Protein.ToString() + " g";
 
-            caloriesValue.Text = total.Calories.ToString();
-            fatValue.Text = total.Fat.ToString() + " g";
-            carbsValue.Text = total.Carbs.ToString() + " g";
-            proteinValue.Text = total.Protein.ToString() + " g";
+            string calories = total.Calories.ToString();
+            caloriesValue.Text = calories;
+            SetTextColor(caloriesValue, MeetCalorieGoal(calories));
+
+            string fat = total.Fat.ToString();
+            fatValue.Text = fat + " g";
+            SetTextColor(fatValue, MeetFatGoal(fat));
+
+            string carbs = total.Carbs.ToString();
+            carbsValue.Text = carbs + " g";
+            SetTextColor(carbsValue, MeetCarbGoal(carbs));
+
+            string protein = total.Protein.ToString();
+            proteinValue.Text = protein + " g";
+            SetTextColor(proteinValue, MeetProteinGoal(protein));
         }
 
         private void menuButton_Click(object sender, EventArgs e)
@@ -132,6 +144,39 @@ namespace MacroTracker.Forms
             LoadMeals();
             FillTables();
             UpdateTotals();
+        }
+
+        private void SetTextColor(Label text, bool met)
+        {
+            if (met)
+            {
+                text.ForeColor = Color.Green;
+            }
+            else
+            {
+                text.ForeColor = Color.Red;
+            }
+
+        }
+
+        private bool MeetCalorieGoal(String calories)
+        {
+            return int.Parse(calories) <= Properties.Settings.Default.calorieGoal;
+        }
+
+        private bool MeetFatGoal(String fat)
+        {
+            return double.Parse(fat) <= Properties.Settings.Default.fatGoal;
+        }
+
+        private bool MeetCarbGoal(String carbs)
+        {
+            return double.Parse(carbs) <= Properties.Settings.Default.carbGoal;
+        }
+
+        private bool MeetProteinGoal(String protein)
+        {
+            return double.Parse(protein) >= Properties.Settings.Default.proteinGoal;
         }
     }
 }

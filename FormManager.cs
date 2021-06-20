@@ -16,21 +16,33 @@ namespace MacroTracker
             RecordMealForm,
             ReviewNewFoodForm,
             ReviewNewMealForm,
-            SavedFoodsForm
+            SavedFoodsForm,
+            WelcomeForm,
+            EnterMacroGoalsForm
         }
 
         private static ArrayList forms = new ArrayList();
 
         public FormManager()
         {
-            AddForm(FormTypes.MenuForm);
+            if (!Properties.Settings.Default.setGoal)
+            {
+                AddForm(FormTypes.WelcomeForm);
+            }
+            else
+            {
+                AddForm(FormTypes.MenuForm);
+            }
         }
 
         public static void AddForm(FormTypes type, Meal meal = null, List<Food> foods = null, Dictionary<string, double> map = null)
         {
-            Form form = new MenuForm();
-
-            if (type == FormTypes.AddNewFoodForm)
+            Form form = null;
+            if (type == FormTypes.MenuForm)
+            {
+                form = new MenuForm();
+            }
+            else if (type == FormTypes.AddNewFoodForm)
             {
                 form = new AddNewFoodForm();
             }
@@ -58,7 +70,14 @@ namespace MacroTracker
             {
                 form = new SavedFoodsForm();
             }
-
+            else if (type == FormTypes.EnterMacroGoalsForm)
+            {
+                form = new EnterMacroGoalsForm();
+            }
+            else if (type == FormTypes.WelcomeForm)
+            {
+                form = new WelcomeForm();
+            }
             form.Show();
             forms.Add(form);
         }

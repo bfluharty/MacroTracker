@@ -40,6 +40,7 @@
             this.foodLabel = new System.Windows.Forms.Label();
             this.mealLabel = new System.Windows.Forms.Label();
             this.mealTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.menuButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.servingsInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mealTypesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +59,7 @@
             // 
             this.nextButton.Enabled = false;
             this.nextButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nextButton.Location = new System.Drawing.Point(542, 403);
+            this.nextButton.Location = new System.Drawing.Point(610, 403);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(109, 39);
             this.nextButton.TabIndex = 33;
@@ -102,7 +103,7 @@
             // backButton
             // 
             this.backButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.Location = new System.Drawing.Point(159, 403);
+            this.backButton.Location = new System.Drawing.Point(258, 403);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(109, 39);
             this.backButton.TabIndex = 22;
@@ -113,7 +114,7 @@
             // addButton
             // 
             this.addButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addButton.Location = new System.Drawing.Point(346, 403);
+            this.addButton.Location = new System.Drawing.Point(434, 403);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(109, 39);
             this.addButton.TabIndex = 21;
@@ -166,11 +167,23 @@
             this.mealLabel.TabIndex = 41;
             this.mealLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // menuButton
+            // 
+            this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuButton.Location = new System.Drawing.Point(82, 403);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(109, 39);
+            this.menuButton.TabIndex = 42;
+            this.menuButton.Text = "Menu";
+            this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
+            // 
             // RecordMealForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.menuButton);
             this.Controls.Add(this.mealLabel);
             this.Controls.Add(this.foodLabel);
             this.Controls.Add(this.foodComboBox);
@@ -206,5 +219,6 @@
         private System.Windows.Forms.ComboBox foodComboBox;
         private System.Windows.Forms.Label foodLabel;
         private System.Windows.Forms.Label mealLabel;
+        private System.Windows.Forms.Button menuButton;
     }
 }

@@ -30,7 +30,7 @@
         {
             this.title = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
-            this.backButton = new System.Windows.Forms.Button();
+            this.menuButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
             this.nameInput = new System.Windows.Forms.TextBox();
             this.caloriesLabel = new System.Windows.Forms.Label();
@@ -72,16 +72,16 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // backButton
+            // menuButton
             // 
-            this.backButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.Location = new System.Drawing.Point(97, 401);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(109, 39);
-            this.backButton.TabIndex = 3;
-            this.backButton.Text = "Back";
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuButton.Location = new System.Drawing.Point(97, 401);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(109, 39);
+            this.menuButton.TabIndex = 3;
+            this.menuButton.Text = "Menu";
+            this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // nameLabel
             // 
@@ -269,7 +269,7 @@
             this.Controls.Add(this.caloriesLabel);
             this.Controls.Add(this.nameInput);
             this.Controls.Add(this.nameLabel);
-            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.menuButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.title);
             this.Name = "AddNewFoodForm";
@@ -290,7 +290,7 @@
 
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button menuButton;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.TextBox nameInput;
         private System.Windows.Forms.Label caloriesLabel;

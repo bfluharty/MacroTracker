@@ -43,5 +43,11 @@ namespace MacroTracker.Forms
         {
             title.Select();
         }
+
+        private void editGoalsButton_Click(object sender, EventArgs e)
+        {
+            FormManager.AddForm(FormManager.FormTypes.EnterMacroGoalsForm);
+            Close();
+        }
     }
 }

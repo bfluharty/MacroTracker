@@ -22,7 +22,7 @@
 
         public string GetInsertSQL()
         {
-            return "('" + Name + "', " + Calories + ", " + Fat + ", " + Carbs + ", " + Protein + ")";
+            return "('" + DatabaseInterface.SanitizeName(Name) + "', " + Calories + ", " + Fat + ", " + Carbs + ", " + Protein + ")";
         }
 
         public override string ToString()

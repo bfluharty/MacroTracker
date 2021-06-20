@@ -70,6 +70,12 @@
     <Compile Include="Forms\AddNewMealForm.Designer.cs">
       <DependentUpon>AddNewMealForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EnterMacroGoalsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EnterMacroGoalsForm.Designer.cs">
+      <DependentUpon>EnterMacroGoalsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RecordMealForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,12 @@
     </Compile>
     <Compile Include="Forms\DailyTotalsForm.Designer.cs">
       <DependentUpon>DailyTotalsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WelcomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WelcomeForm.Designer.cs">
+      <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Meal.cs" />
     <Compile Include="Forms\SavedFoodsForm.cs">
@@ -123,6 +135,9 @@
     <EmbeddedResource Include="Forms\AddNewMealForm.resx">
       <DependentUpon>AddNewMealForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EnterMacroGoalsForm.resx">
+      <DependentUpon>EnterMacroGoalsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\RecordMealForm.resx">
       <DependentUpon>RecordMealForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddNewFoodForm.resx">
       <DependentUpon>AddNewFoodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WelcomeForm.resx">
+      <DependentUpon>WelcomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

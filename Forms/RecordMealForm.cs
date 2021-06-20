@@ -24,7 +24,7 @@ namespace MacroTracker.Forms
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            FormManager.AddForm(FormManager.FormTypes.MenuForm);
+            FormManager.AddForm(FormManager.FormTypes.AddNewMealForm);
             Close();
         }
 
@@ -83,6 +83,12 @@ namespace MacroTracker.Forms
         private void RecordMealForm_Shown(object sender, EventArgs e)
         {
             title.Select();
+        }
+
+        private void menuButton_Click(object sender, EventArgs e)
+        {
+            FormManager.AddForm(FormManager.FormTypes.MenuForm);
+            Close();
         }
     }
 }
