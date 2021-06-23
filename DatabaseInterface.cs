@@ -8,9 +8,8 @@ namespace MacroTracker
     {
         public static void InitiateConnection()
         {
-            connection = new SqlConnection(@"Data Source=LAPTOPPC-1\SQLEXPRESS;Initial Catalog=MacroTracker;Integrated Security=True");
+            connection = new SqlConnection(Properties.Settings.Default.MacroTrackerDatabaseConnectionString);
             connection.Open();
-
             adapter = new SqlDataAdapter();
         }
 

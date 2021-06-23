@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using MacroTracker.Forms;
-
 namespace MacroTracker
 {
     static class MacroTracker

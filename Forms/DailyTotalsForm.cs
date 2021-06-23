@@ -178,5 +178,15 @@ namespace MacroTracker.Forms
         {
             return double.Parse(protein) >= Properties.Settings.Default.proteinGoal;
         }
+
+        private void leftButton_Click(object sender, EventArgs e)
+        {
+            datePicker.Value = datePicker.Value.AddDays(-1);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            datePicker.Value = datePicker.Value.AddDays(1);
+        }
     }
 }
