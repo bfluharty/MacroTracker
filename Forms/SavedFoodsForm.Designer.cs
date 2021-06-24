@@ -175,12 +175,6 @@
 
         private System.Windows.Forms.DataGridView savedFoodsView;
         private System.Windows.Forms.Button menuButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn foodIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn caloriesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn carbsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn proteinDataGridViewTextBoxColumn;
         private MacroTrackerDatabaseDataSet macroTrackerDatabaseDataSet;
         private System.Windows.Forms.BindingSource foodsBindingSource;
         private MacroTrackerDatabaseDataSetTableAdapters.FoodsTableAdapter foodsTableAdapter;
