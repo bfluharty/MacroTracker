@@ -8,8 +8,8 @@ namespace MacroTracker.Forms
         public SavedFoodsForm()
         {
             InitializeComponent();
+            foodsTableAdapter.Fill(macroTrackerDatabaseDataSet.Foods);
 
-            foodsTableAdapter.Fill(macroTrackerDataSet.Foods);
             savedFoodsView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             savedFoodsView.RowHeadersVisible = false;
         }

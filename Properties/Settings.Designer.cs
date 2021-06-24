@@ -23,17 +23,6 @@ namespace MacroTracker.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOPPC-1\\SQLEXPRESS;Initial Catalog=MacroTracker;Integrated Securit" +
-            "y=True")]
-        public string MacroTrackerConnectionString {
-            get {
-                return ((string)(this["MacroTrackerConnectionString"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
@@ -91,6 +80,17 @@ namespace MacroTracker.Properties {
             }
             set {
                 this["proteinGoal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\MacroTrackerD" +
+            "atabase.mdf;Integrated Security=True;Connect Timeout=30")]
+        public string MacroTrackerDatabaseConnectionString {
+            get {
+                return ((string)(this["MacroTrackerDatabaseConnectionString"]));
             }
         }
     }
