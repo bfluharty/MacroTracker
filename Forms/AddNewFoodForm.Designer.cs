@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewFoodForm));
             this.title = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.menuButton = new System.Windows.Forms.Button();
@@ -272,6 +273,7 @@
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.title);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddNewFoodForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Add New Food";
