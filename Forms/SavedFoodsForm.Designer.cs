@@ -31,19 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SavedFoodsForm));
             this.savedFoodsView = new System.Windows.Forms.DataGridView();
-            this.menuButton = new System.Windows.Forms.Button();
-            this.macroTrackerDatabaseDataSet = new MacroTrackerDatabaseDataSet();
-            this.foodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.foodsTableAdapter = new MacroTrackerDatabaseDataSetTableAdapters.FoodsTableAdapter();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.foodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.macroTrackerDatabaseDataSet = new MacroTrackerDatabaseDataSet();
+            this.menuButton = new System.Windows.Forms.Button();
+            this.foodsTableAdapter = new MacroTrackerDatabaseDataSetTableAdapters.FoodsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.savedFoodsView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.macroTrackerDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.macroTrackerDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // savedFoodsView
@@ -90,31 +91,6 @@
             this.savedFoodsView.Size = new System.Drawing.Size(713, 517);
             this.savedFoodsView.TabIndex = 0;
             // 
-            // menuButton
-            // 
-            this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuButton.Location = new System.Drawing.Point(389, 576);
-            this.menuButton.Name = "menuButton";
-            this.menuButton.Size = new System.Drawing.Size(109, 39);
-            this.menuButton.TabIndex = 22;
-            this.menuButton.Text = "Menu";
-            this.menuButton.UseVisualStyleBackColor = true;
-            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
-            // 
-            // macroTrackerDatabaseDataSet
-            // 
-            this.macroTrackerDatabaseDataSet.DataSetName = "MacroTrackerDatabaseDataSet";
-            this.macroTrackerDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // foodsBindingSource
-            // 
-            this.foodsBindingSource.DataMember = "Foods";
-            this.foodsBindingSource.DataSource = this.macroTrackerDatabaseDataSet;
-            // 
-            // foodsTableAdapter
-            // 
-            this.foodsTableAdapter.ClearBeforeFill = true;
-            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -151,6 +127,31 @@
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
+            // foodsBindingSource
+            // 
+            this.foodsBindingSource.DataMember = "Foods";
+            this.foodsBindingSource.DataSource = this.macroTrackerDatabaseDataSet;
+            // 
+            // macroTrackerDatabaseDataSet
+            // 
+            this.macroTrackerDatabaseDataSet.DataSetName = "MacroTrackerDatabaseDataSet";
+            this.macroTrackerDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // menuButton
+            // 
+            this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuButton.Location = new System.Drawing.Point(389, 576);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(109, 39);
+            this.menuButton.TabIndex = 22;
+            this.menuButton.Text = "Menu";
+            this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
+            // 
+            // foodsTableAdapter
+            // 
+            this.foodsTableAdapter.ClearBeforeFill = true;
+            // 
             // SavedFoodsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,6 +159,7 @@
             this.ClientSize = new System.Drawing.Size(908, 626);
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.savedFoodsView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SavedFoodsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -165,8 +167,8 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SavedFoodsForm_FormClosed);
             this.Shown += new System.EventHandler(this.SavedFoodsForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.savedFoodsView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.macroTrackerDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.macroTrackerDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
