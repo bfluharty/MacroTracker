@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnterMacroGoalsForm));
             this.proteinInput = new System.Windows.Forms.NumericUpDown();
             this.carbsInput = new System.Windows.Forms.NumericUpDown();
             this.fatInput = new System.Windows.Forms.NumericUpDown();
@@ -223,6 +224,7 @@
             this.Controls.Add(this.fatLabel);
             this.Controls.Add(this.caloriesLabel);
             this.Controls.Add(this.title);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EnterMacroGoalsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Macro Goals";

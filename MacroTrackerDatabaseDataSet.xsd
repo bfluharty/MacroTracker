@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="MacroTrackerDatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MacroTrackerDatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MacroTracker.Properties.Settings.GlobalReference.Default.MacroTrackerDatabaseConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="MacroTrackerDatabaseConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="MacroTrackerDatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MacroTracker.Properties.Settings.GlobalReference.Default.MacroTrackerDatabaseConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FoodsTableAdapter" GeneratorDataComponentClassName="FoodsTableAdapter" Name="Foods" UserDataComponentName="FoodsTableAdapter">
@@ -195,7 +195,7 @@ SELECT MealID, MealType, CreationDate FROM Meals WHERE (MealID = @MealID)</Comma
   <xs:element name="MacroTrackerDatabaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MacroTrackerDatabaseDataSet" msprop:Generator_UserDSName="MacroTrackerDatabaseDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Foods" msprop:Generator_TableClassName="FoodsDataTable" msprop:Generator_TableVarName="tableFoods" msprop:Generator_TablePropName="Foods" msprop:Generator_RowDeletingName="FoodsRowDeleting" msprop:Generator_RowChangingName="FoodsRowChanging" msprop:Generator_RowEvHandlerName="FoodsRowChangeEventHandler" msprop:Generator_RowDeletedName="FoodsRowDeleted" msprop:Generator_UserTableName="Foods" msprop:Generator_RowChangedName="FoodsRowChanged" msprop:Generator_RowEvArgName="FoodsRowChangeEvent" msprop:Generator_RowClassName="FoodsRow">
+        <xs:element name="Foods" msprop:Generator_TableClassName="FoodsDataTable" msprop:Generator_TableVarName="tableFoods" msprop:Generator_RowChangedName="FoodsRowChanged" msprop:Generator_TablePropName="Foods" msprop:Generator_RowDeletingName="FoodsRowDeleting" msprop:Generator_RowChangingName="FoodsRowChanging" msprop:Generator_RowEvHandlerName="FoodsRowChangeEventHandler" msprop:Generator_RowDeletedName="FoodsRowDeleted" msprop:Generator_RowClassName="FoodsRow" msprop:Generator_UserTableName="Foods" msprop:Generator_RowEvArgName="FoodsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="FoodID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnFoodID" msprop:Generator_ColumnPropNameInRow="FoodID" msprop:Generator_ColumnPropNameInTable="FoodIDColumn" msprop:Generator_UserColumnName="FoodID" type="xs:int" />
@@ -213,7 +213,7 @@ SELECT MealID, MealType, CreationDate FROM Meals WHERE (MealID = @MealID)</Comma
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MealContents" msprop:Generator_TableClassName="MealContentsDataTable" msprop:Generator_TableVarName="tableMealContents" msprop:Generator_TablePropName="MealContents" msprop:Generator_RowDeletingName="MealContentsRowDeleting" msprop:Generator_RowChangingName="MealContentsRowChanging" msprop:Generator_RowEvHandlerName="MealContentsRowChangeEventHandler" msprop:Generator_RowDeletedName="MealContentsRowDeleted" msprop:Generator_UserTableName="MealContents" msprop:Generator_RowChangedName="MealContentsRowChanged" msprop:Generator_RowEvArgName="MealContentsRowChangeEvent" msprop:Generator_RowClassName="MealContentsRow">
+        <xs:element name="MealContents" msprop:Generator_TableClassName="MealContentsDataTable" msprop:Generator_TableVarName="tableMealContents" msprop:Generator_RowChangedName="MealContentsRowChanged" msprop:Generator_TablePropName="MealContents" msprop:Generator_RowDeletingName="MealContentsRowDeleting" msprop:Generator_RowChangingName="MealContentsRowChanging" msprop:Generator_RowEvHandlerName="MealContentsRowChangeEventHandler" msprop:Generator_RowDeletedName="MealContentsRowDeleted" msprop:Generator_RowClassName="MealContentsRow" msprop:Generator_UserTableName="MealContents" msprop:Generator_RowEvArgName="MealContentsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MealID" msprop:Generator_ColumnVarNameInTable="columnMealID" msprop:Generator_ColumnPropNameInRow="MealID" msprop:Generator_ColumnPropNameInTable="MealIDColumn" msprop:Generator_UserColumnName="MealID" type="xs:int" />
@@ -222,7 +222,7 @@ SELECT MealID, MealType, CreationDate FROM Meals WHERE (MealID = @MealID)</Comma
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Meals" msprop:Generator_TableClassName="MealsDataTable" msprop:Generator_TableVarName="tableMeals" msprop:Generator_TablePropName="Meals" msprop:Generator_RowDeletingName="MealsRowDeleting" msprop:Generator_RowChangingName="MealsRowChanging" msprop:Generator_RowEvHandlerName="MealsRowChangeEventHandler" msprop:Generator_RowDeletedName="MealsRowDeleted" msprop:Generator_UserTableName="Meals" msprop:Generator_RowChangedName="MealsRowChanged" msprop:Generator_RowEvArgName="MealsRowChangeEvent" msprop:Generator_RowClassName="MealsRow">
+        <xs:element name="Meals" msprop:Generator_TableClassName="MealsDataTable" msprop:Generator_TableVarName="tableMeals" msprop:Generator_RowChangedName="MealsRowChanged" msprop:Generator_TablePropName="Meals" msprop:Generator_RowDeletingName="MealsRowDeleting" msprop:Generator_RowChangingName="MealsRowChanging" msprop:Generator_RowEvHandlerName="MealsRowChangeEventHandler" msprop:Generator_RowDeletedName="MealsRowDeleted" msprop:Generator_RowClassName="MealsRow" msprop:Generator_UserTableName="Meals" msprop:Generator_RowEvArgName="MealsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MealID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnMealID" msprop:Generator_ColumnPropNameInRow="MealID" msprop:Generator_ColumnPropNameInTable="MealIDColumn" msprop:Generator_UserColumnName="MealID" type="xs:int" />
@@ -255,8 +255,8 @@ SELECT MealID, MealType, CreationDate FROM Meals WHERE (MealID = @MealID)</Comma
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__MealConte__FoodI__286302EC" msdata:parent="Foods" msdata:child="MealContents" msdata:parentkey="FoodID" msdata:childkey="FoodID" msprop:Generator_UserChildTable="MealContents" msprop:Generator_ChildPropName="GetMealContentsRows" msprop:Generator_UserRelationName="FK__MealConte__FoodI__286302EC" msprop:Generator_ParentPropName="FoodsRow" msprop:Generator_RelationVarName="relationFK__MealConte__FoodI__286302EC" msprop:Generator_UserParentTable="Foods" />
-      <msdata:Relationship name="FK__MealConte__MealI__276EDEB3" msdata:parent="Meals" msdata:child="MealContents" msdata:parentkey="MealID" msdata:childkey="MealID" msprop:Generator_UserChildTable="MealContents" msprop:Generator_ChildPropName="GetMealContentsRows" msprop:Generator_UserRelationName="FK__MealConte__MealI__276EDEB3" msprop:Generator_RelationVarName="relationFK__MealConte__MealI__276EDEB3" msprop:Generator_UserParentTable="Meals" msprop:Generator_ParentPropName="MealsRow" />
+      <msdata:Relationship name="FK__MealConte__FoodI__286302EC" msdata:parent="Foods" msdata:child="MealContents" msdata:parentkey="FoodID" msdata:childkey="FoodID" msprop:Generator_UserChildTable="MealContents" msprop:Generator_ChildPropName="GetMealContentsRows" msprop:Generator_UserRelationName="FK__MealConte__FoodI__286302EC" msprop:Generator_RelationVarName="relationFK__MealConte__FoodI__286302EC" msprop:Generator_UserParentTable="Foods" msprop:Generator_ParentPropName="FoodsRow" />
+      <msdata:Relationship name="FK__MealConte__MealI__276EDEB3" msdata:parent="Meals" msdata:child="MealContents" msdata:parentkey="MealID" msdata:childkey="MealID" msprop:Generator_UserChildTable="MealContents" msprop:Generator_ChildPropName="GetMealContentsRows" msprop:Generator_UserRelationName="FK__MealConte__MealI__276EDEB3" msprop:Generator_ParentPropName="MealsRow" msprop:Generator_RelationVarName="relationFK__MealConte__MealI__276EDEB3" msprop:Generator_UserParentTable="Meals" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

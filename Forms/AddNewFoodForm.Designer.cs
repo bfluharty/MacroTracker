@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewFoodForm));
             this.title = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.menuButton = new System.Windows.Forms.Button();
@@ -53,10 +54,10 @@
             // 
             this.title.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.title.Font = new System.Drawing.Font("Arial", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(7, 7);
+            this.title.Location = new System.Drawing.Point(9, 9);
             this.title.Margin = new System.Windows.Forms.Padding(0);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(616, 79);
+            this.title.Size = new System.Drawing.Size(821, 97);
             this.title.TabIndex = 0;
             this.title.Text = "Add New Food";
             this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -64,9 +65,10 @@
             // addButton
             // 
             this.addButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addButton.Location = new System.Drawing.Point(261, 401);
+            this.addButton.Location = new System.Drawing.Point(348, 494);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(109, 39);
+            this.addButton.Size = new System.Drawing.Size(145, 48);
             this.addButton.TabIndex = 2;
             this.addButton.Text = "Add Food";
             this.addButton.UseVisualStyleBackColor = true;
@@ -75,9 +77,10 @@
             // menuButton
             // 
             this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuButton.Location = new System.Drawing.Point(97, 401);
+            this.menuButton.Location = new System.Drawing.Point(129, 494);
+            this.menuButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.menuButton.Name = "menuButton";
-            this.menuButton.Size = new System.Drawing.Size(109, 39);
+            this.menuButton.Size = new System.Drawing.Size(145, 48);
             this.menuButton.TabIndex = 3;
             this.menuButton.Text = "Menu";
             this.menuButton.UseVisualStyleBackColor = true;
@@ -87,8 +90,7 @@
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(92, 113);
-            this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nameLabel.Location = new System.Drawing.Point(125, 128);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(78, 31);
             this.nameLabel.TabIndex = 4;
@@ -97,18 +99,17 @@
             // nameInput
             // 
             this.nameInput.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameInput.Location = new System.Drawing.Point(208, 113);
-            this.nameInput.Margin = new System.Windows.Forms.Padding(2);
+            this.nameInput.Location = new System.Drawing.Point(279, 128);
+            this.nameInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nameInput.Name = "nameInput";
-            this.nameInput.Size = new System.Drawing.Size(326, 38);
+            this.nameInput.Size = new System.Drawing.Size(433, 38);
             this.nameInput.TabIndex = 5;
             // 
             // caloriesLabel
             // 
             this.caloriesLabel.AutoSize = true;
             this.caloriesLabel.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.caloriesLabel.Location = new System.Drawing.Point(92, 160);
-            this.caloriesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.caloriesLabel.Location = new System.Drawing.Point(125, 186);
             this.caloriesLabel.Name = "caloriesLabel";
             this.caloriesLabel.Size = new System.Drawing.Size(100, 31);
             this.caloriesLabel.TabIndex = 6;
@@ -118,8 +119,7 @@
             // 
             this.fatLabel.AutoSize = true;
             this.fatLabel.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fatLabel.Location = new System.Drawing.Point(92, 207);
-            this.fatLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.fatLabel.Location = new System.Drawing.Point(125, 244);
             this.fatLabel.Name = "fatLabel";
             this.fatLabel.Size = new System.Drawing.Size(52, 31);
             this.fatLabel.TabIndex = 8;
@@ -129,8 +129,7 @@
             // 
             this.proteinLabel.AutoSize = true;
             this.proteinLabel.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.proteinLabel.Location = new System.Drawing.Point(92, 301);
-            this.proteinLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.proteinLabel.Location = new System.Drawing.Point(125, 361);
             this.proteinLabel.Name = "proteinLabel";
             this.proteinLabel.Size = new System.Drawing.Size(89, 31);
             this.proteinLabel.TabIndex = 12;
@@ -140,8 +139,7 @@
             // 
             this.carbsLabel.AutoSize = true;
             this.carbsLabel.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carbsLabel.Location = new System.Drawing.Point(92, 254);
-            this.carbsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.carbsLabel.Location = new System.Drawing.Point(125, 302);
             this.carbsLabel.Name = "carbsLabel";
             this.carbsLabel.Size = new System.Drawing.Size(78, 31);
             this.carbsLabel.TabIndex = 10;
@@ -156,15 +154,15 @@
             0,
             0,
             0});
-            this.caloriesInput.Location = new System.Drawing.Point(208, 159);
-            this.caloriesInput.Margin = new System.Windows.Forms.Padding(2);
+            this.caloriesInput.Location = new System.Drawing.Point(279, 185);
+            this.caloriesInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.caloriesInput.Maximum = new decimal(new int[] {
             9999,
             0,
             0,
             0});
             this.caloriesInput.Name = "caloriesInput";
-            this.caloriesInput.Size = new System.Drawing.Size(106, 38);
+            this.caloriesInput.Size = new System.Drawing.Size(141, 38);
             this.caloriesInput.TabIndex = 14;
             // 
             // fatInput
@@ -177,15 +175,15 @@
             0,
             0,
             0});
-            this.fatInput.Location = new System.Drawing.Point(208, 206);
-            this.fatInput.Margin = new System.Windows.Forms.Padding(2);
+            this.fatInput.Location = new System.Drawing.Point(279, 243);
+            this.fatInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fatInput.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
             this.fatInput.Name = "fatInput";
-            this.fatInput.Size = new System.Drawing.Size(106, 38);
+            this.fatInput.Size = new System.Drawing.Size(141, 38);
             this.fatInput.TabIndex = 15;
             // 
             // carbsInput
@@ -198,15 +196,15 @@
             0,
             0,
             0});
-            this.carbsInput.Location = new System.Drawing.Point(208, 254);
-            this.carbsInput.Margin = new System.Windows.Forms.Padding(2);
+            this.carbsInput.Location = new System.Drawing.Point(279, 302);
+            this.carbsInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.carbsInput.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
             this.carbsInput.Name = "carbsInput";
-            this.carbsInput.Size = new System.Drawing.Size(106, 38);
+            this.carbsInput.Size = new System.Drawing.Size(141, 38);
             this.carbsInput.TabIndex = 16;
             // 
             // proteinInput
@@ -219,24 +217,25 @@
             0,
             0,
             0});
-            this.proteinInput.Location = new System.Drawing.Point(208, 301);
-            this.proteinInput.Margin = new System.Windows.Forms.Padding(2);
+            this.proteinInput.Location = new System.Drawing.Point(279, 359);
+            this.proteinInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.proteinInput.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
             this.proteinInput.Name = "proteinInput";
-            this.proteinInput.Size = new System.Drawing.Size(106, 38);
+            this.proteinInput.Size = new System.Drawing.Size(141, 38);
             this.proteinInput.TabIndex = 17;
             // 
             // nextButton
             // 
             this.nextButton.Enabled = false;
             this.nextButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nextButton.Location = new System.Drawing.Point(425, 401);
+            this.nextButton.Location = new System.Drawing.Point(567, 494);
+            this.nextButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nextButton.Name = "nextButton";
-            this.nextButton.Size = new System.Drawing.Size(109, 39);
+            this.nextButton.Size = new System.Drawing.Size(145, 48);
             this.nextButton.TabIndex = 18;
             this.nextButton.Text = "Next";
             this.nextButton.UseVisualStyleBackColor = true;
@@ -245,18 +244,17 @@
             // confirmationLabel
             // 
             this.confirmationLabel.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmationLabel.Location = new System.Drawing.Point(97, 335);
-            this.confirmationLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.confirmationLabel.Location = new System.Drawing.Point(129, 411);
             this.confirmationLabel.Name = "confirmationLabel";
-            this.confirmationLabel.Size = new System.Drawing.Size(437, 63);
+            this.confirmationLabel.Size = new System.Drawing.Size(583, 70);
             this.confirmationLabel.TabIndex = 19;
             this.confirmationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddNewFoodForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 450);
+            this.ClientSize = new System.Drawing.Size(840, 554);
             this.Controls.Add(this.confirmationLabel);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.proteinInput);
@@ -272,6 +270,8 @@
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.title);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AddNewFoodForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Add New Food";
