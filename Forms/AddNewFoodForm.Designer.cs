@@ -90,7 +90,7 @@
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(123, 139);
+            this.nameLabel.Location = new System.Drawing.Point(125, 128);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(78, 31);
             this.nameLabel.TabIndex = 4;
@@ -99,7 +99,7 @@
             // nameInput
             // 
             this.nameInput.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameInput.Location = new System.Drawing.Point(277, 139);
+            this.nameInput.Location = new System.Drawing.Point(279, 128);
             this.nameInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nameInput.Name = "nameInput";
             this.nameInput.Size = new System.Drawing.Size(433, 38);
@@ -109,7 +109,7 @@
             // 
             this.caloriesLabel.AutoSize = true;
             this.caloriesLabel.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.caloriesLabel.Location = new System.Drawing.Point(123, 197);
+            this.caloriesLabel.Location = new System.Drawing.Point(125, 186);
             this.caloriesLabel.Name = "caloriesLabel";
             this.caloriesLabel.Size = new System.Drawing.Size(100, 31);
             this.caloriesLabel.TabIndex = 6;
@@ -119,7 +119,7 @@
             // 
             this.fatLabel.AutoSize = true;
             this.fatLabel.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fatLabel.Location = new System.Drawing.Point(123, 255);
+            this.fatLabel.Location = new System.Drawing.Point(125, 244);
             this.fatLabel.Name = "fatLabel";
             this.fatLabel.Size = new System.Drawing.Size(52, 31);
             this.fatLabel.TabIndex = 8;
@@ -129,7 +129,7 @@
             // 
             this.proteinLabel.AutoSize = true;
             this.proteinLabel.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.proteinLabel.Location = new System.Drawing.Point(123, 372);
+            this.proteinLabel.Location = new System.Drawing.Point(125, 361);
             this.proteinLabel.Name = "proteinLabel";
             this.proteinLabel.Size = new System.Drawing.Size(89, 31);
             this.proteinLabel.TabIndex = 12;
@@ -139,7 +139,7 @@
             // 
             this.carbsLabel.AutoSize = true;
             this.carbsLabel.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carbsLabel.Location = new System.Drawing.Point(123, 313);
+            this.carbsLabel.Location = new System.Drawing.Point(125, 302);
             this.carbsLabel.Name = "carbsLabel";
             this.carbsLabel.Size = new System.Drawing.Size(78, 31);
             this.carbsLabel.TabIndex = 10;
@@ -154,7 +154,7 @@
             0,
             0,
             0});
-            this.caloriesInput.Location = new System.Drawing.Point(277, 196);
+            this.caloriesInput.Location = new System.Drawing.Point(279, 185);
             this.caloriesInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.caloriesInput.Maximum = new decimal(new int[] {
             9999,
@@ -175,7 +175,7 @@
             0,
             0,
             0});
-            this.fatInput.Location = new System.Drawing.Point(277, 254);
+            this.fatInput.Location = new System.Drawing.Point(279, 243);
             this.fatInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fatInput.Maximum = new decimal(new int[] {
             999,
@@ -196,7 +196,7 @@
             0,
             0,
             0});
-            this.carbsInput.Location = new System.Drawing.Point(277, 313);
+            this.carbsInput.Location = new System.Drawing.Point(279, 302);
             this.carbsInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.carbsInput.Maximum = new decimal(new int[] {
             999,
@@ -217,7 +217,7 @@
             0,
             0,
             0});
-            this.proteinInput.Location = new System.Drawing.Point(277, 370);
+            this.proteinInput.Location = new System.Drawing.Point(279, 359);
             this.proteinInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.proteinInput.Maximum = new decimal(new int[] {
             999,
@@ -244,7 +244,7 @@
             // confirmationLabel
             // 
             this.confirmationLabel.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmationLabel.Location = new System.Drawing.Point(129, 420);
+            this.confirmationLabel.Location = new System.Drawing.Point(129, 411);
             this.confirmationLabel.Name = "confirmationLabel";
             this.confirmationLabel.Size = new System.Drawing.Size(583, 70);
             this.confirmationLabel.TabIndex = 19;
