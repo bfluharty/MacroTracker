@@ -37,6 +37,30 @@ namespace MacroTracker
             return names;
         }
 
+        public static List<Food> SelectVisibleFoods()
+        {
+            List<Food> foods = new List<Food>();
+
+            string sql = "SELECT Name, Calories, Fat, Carbs, Protein FROM Foods WHERE Visible = 1";
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Food food = new Food();
+                food.Name = reader.GetValue(0).ToString();
+                food.Calories = (reader.GetValue(1).ToString().Equals("")) ? 0 : int.Parse(reader.GetValue(1).ToString());
+                food.Fat = (reader.GetValue(2).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(2).ToString());
+                food.Carbs = (reader.GetValue(3).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(3).ToString());
+                food.Protein = (reader.GetValue(4).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(4).ToString());
+                foods.Add(food);
+            }
+            reader.Close();
+            command.Dispose();
+
+            return foods;
+        }
+
         public static List<Tuple<string, string>> SelectMeals()
         {
             List<Tuple<string, string>> meals = new List<Tuple<string, string>>();
@@ -169,6 +193,15 @@ namespace MacroTracker
                 adapter.InsertCommand.ExecuteNonQuery();
                 command.Dispose();
             }
+        }
+
+        public static void HideFood(string name)
+        {
+            string sql = "UPDATE Foods SET Visible = 0 WHERE Name = '" + name + "'";
+            SqlCommand command = new SqlCommand(sql, connection);
+            adapter.UpdateCommand = new SqlCommand(sql, connection);
+            adapter.UpdateCommand.ExecuteNonQuery();
+            command.Dispose();
         }
 
         public static string SelectFoodName(int foodID)
