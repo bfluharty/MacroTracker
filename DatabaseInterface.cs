@@ -116,7 +116,7 @@ namespace MacroTracker
             string sql = "SELECT SUM(Foods.Calories * MealContents.Servings), SUM(Foods.Fat * MealContents.Servings), " +
                 "SUM(Foods.Carbs * MealContents.Servings), SUM(Foods.Protein * MealContents.Servings) " +
                 "FROM MealContents INNER JOIN Foods ON MealContents.FoodID = Foods.FoodID " +
-                "INNER JOIN Meals ON MealContents.MealID = Meals.MealID WHERE Meals.MealType = '" + type + "' AND Meals.MealDate = '" +date.ToShortDateString() + "'";
+                "INNER JOIN Meals ON MealContents.MealID = Meals.MealID WHERE Meals.MealType = '" + type + "' AND Meals.MealDate = '" + date.ToShortDateString() + "'";
 
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader();
@@ -133,6 +133,22 @@ namespace MacroTracker
             command.Dispose();
 
             return total;
+        }
+
+        public static string SelectFoodName(int foodID)
+        {
+            string name;
+            string sql = "SELECT Name FROM Foods WHERE FoodID = " + foodID;
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+
+            name = (reader.GetValue(0).ToString());
+
+            reader.Close();
+            command.Dispose();
+
+            return name;
         }
 
         public static Food SelectDailyTotal(DateTime date)
@@ -204,20 +220,18 @@ namespace MacroTracker
             command.Dispose();
         }
 
-        public static string SelectFoodName(int foodID)
+        public static void DeleteEntry(Meal meal, string name)
         {
-            string name;
-            string sql = "SELECT Name FROM Foods WHERE FoodID = " + foodID;
+            int mealID = SelectMealID(meal);
+            int foodID = SelectFoodID(name);
+
+            string sql = "DELETE FROM MealContents WHERE MealID = " + mealID + "AND FoodID = " + foodID;
             SqlCommand command = new SqlCommand(sql, connection);
-            SqlDataReader reader = command.ExecuteReader();
-            reader.Read();
-
-            name = (reader.GetValue(0).ToString());
-
-            reader.Close();
+            adapter.DeleteCommand = new SqlCommand(sql, connection);
+            adapter.DeleteCommand.ExecuteNonQuery();
             command.Dispose();
 
-            return name;
+            CleanupMealTable(mealID);
         }
 
         public static string SanitizeName(string input)
@@ -236,6 +250,28 @@ namespace MacroTracker
                 complete += temp;
             }
             return complete + rest;
+        }
+
+        private static void CleanupMealTable(int mealID)
+        {
+            bool entriesRemain = false;
+            string sql = "SELECT MealID FROM MealContents WHERE MealID = " + mealID;
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                entriesRemain = true;
+                break;
+            }
+
+            reader.Close();
+            command.Dispose();
+
+            if (!entriesRemain)
+            {
+                DeleteMeal(mealID);
+            }
         }
 
         private static int SelectFoodID(string foodName)
@@ -260,16 +296,24 @@ namespace MacroTracker
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader();
 
-            while(reader.Read())
+            while (reader.Read())
             {
                 ID = int.Parse(reader.GetValue(0).ToString());
             }
-
 
             reader.Close();
             command.Dispose();
 
             return ID;
+        }
+
+        private static void DeleteMeal(int mealID)
+        {
+            string sql = "DELETE FROM Meals WHERE MealID = " + mealID;
+            SqlCommand command = new SqlCommand(sql, connection);
+            adapter.DeleteCommand = new SqlCommand(sql, connection);
+            adapter.DeleteCommand.ExecuteNonQuery();
+            command.Dispose();
         }
 
         private static SqlConnection connection;

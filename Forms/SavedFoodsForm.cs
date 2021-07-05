@@ -19,7 +19,6 @@ namespace MacroTracker.Forms
             savedFoodsView.RowHeadersVisible = false;
         }
 
-
         private void menuButton_Click(object sender, EventArgs e)
         {
             FormManager.AddForm(FormManager.FormTypes.MenuForm);

@@ -146,6 +146,32 @@ namespace MacroTracker.Forms
             UpdateTotals();
         }
 
+        private void ResetMeal(string meal)
+        {
+            if (meal == "Breakfast")
+            {
+                breakfast = DatabaseInterface.SelectMealTotal('B', datePicker.Value);
+                breakfastFoodsView.ClearSelection();
+            }
+            else if (meal == "Lunch")
+            {
+                lunch = DatabaseInterface.SelectMealTotal('L', datePicker.Value);
+                lunchFoodsView.ClearSelection();
+            }
+            else if (meal == "Dinner")
+            {
+                dinner = DatabaseInterface.SelectMealTotal('D', datePicker.Value);
+                dinnerFoodsView.ClearSelection();
+            }
+            else if (meal == "Snack")
+            {
+                snack = DatabaseInterface.SelectMealTotal('S', datePicker.Value);
+                snackFoodsView.ClearSelection();
+            }
+            total = DatabaseInterface.SelectDailyTotal(datePicker.Value);
+            UpdateTotals();
+        }
+
         private void SetTextColor(Label text, bool met)
         {
             if (met)
@@ -187,6 +213,78 @@ namespace MacroTracker.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             datePicker.Value = datePicker.Value.AddDays(1);
+        }
+
+        private void breakfastFoodsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == breakfastFoodsView.Columns["removeBreakfastEntryColumn"].Index && e.RowIndex >= 0)
+            {
+                string entry = breakfastFoodsView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                ConfirmDeleteFoodForm form = new ConfirmDeleteFoodForm(entry);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    string name = entry.Substring(0, entry.IndexOf(" "));
+                    DatabaseInterface.DeleteEntry(new Meal('B', datePicker.Value), name);
+                    breakfastFoodsView.Rows.RemoveAt(e.RowIndex);
+                    
+                    ResetMeal(breakfastFoodsView.Columns[0].HeaderText);
+                }
+            }
+        }
+
+        private void lunchFoodsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == lunchFoodsView.Columns["removeLunchEntryColumn"].Index && e.RowIndex >= 0)
+            {
+                string entry = lunchFoodsView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                ConfirmDeleteFoodForm form = new ConfirmDeleteFoodForm(entry);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    string name = entry.Substring(0, entry.IndexOf(" "));
+                    DatabaseInterface.DeleteEntry(new Meal('L', datePicker.Value), name);
+                    lunchFoodsView.Rows.RemoveAt(e.RowIndex);
+
+                    ResetMeal(lunchFoodsView.Columns[0].HeaderText);
+                }
+            }
+        }
+
+        private void dinnerFoodsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dinnerFoodsView.Columns["removeDinnerEntryColumn"].Index && e.RowIndex >= 0)
+            {
+                string entry = dinnerFoodsView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                ConfirmDeleteFoodForm form = new ConfirmDeleteFoodForm(entry);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    string name = entry.Substring(0, entry.IndexOf(" "));
+                    DatabaseInterface.DeleteEntry(new Meal('D', datePicker.Value), name);
+                    dinnerFoodsView.Rows.RemoveAt(e.RowIndex);
+
+                    ResetMeal(dinnerFoodsView.Columns[0].HeaderText);
+                }
+            }
+        }
+
+        private void snackFoodsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == snackFoodsView.Columns["removeSnackEntryColumn"].Index && e.RowIndex >= 0)
+            {
+                string entry = snackFoodsView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                ConfirmDeleteFoodForm form = new ConfirmDeleteFoodForm(entry);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    string name = entry.Substring(0, entry.IndexOf(" "));
+                    DatabaseInterface.DeleteEntry(new Meal('S', datePicker.Value), name);
+                    snackFoodsView.Rows.RemoveAt(e.RowIndex);
+
+                    ResetMeal(snackFoodsView.Columns[0].HeaderText);
+                }
+            }
         }
     }
 }
