@@ -75,7 +75,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.savedFoodsView.DefaultCellStyle = dataGridViewCellStyle3;
             this.savedFoodsView.Location = new System.Drawing.Point(98, 35);
-            this.savedFoodsView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.savedFoodsView.Margin = new System.Windows.Forms.Padding(2);
             this.savedFoodsView.Name = "savedFoodsView";
             this.savedFoodsView.ReadOnly = true;
             this.savedFoodsView.RowHeadersVisible = false;
@@ -114,6 +114,7 @@
             this.CaloriesColumn.Name = "CaloriesColumn";
             this.CaloriesColumn.ReadOnly = true;
             this.CaloriesColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.CaloriesColumn.Width = 120;
             // 
             // FatColumn
             // 
@@ -155,7 +156,7 @@
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.savedFoodsView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SavedFoodsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Saved Foods";

@@ -18,8 +18,6 @@ namespace MacroTracker.Forms
 
             meal = savedMeal;
             map = new Dictionary<string, double>();
-
-            mealLabel.Text = meal.ToString();
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -67,6 +65,7 @@ namespace MacroTracker.Forms
         private void ResetInputs()
         {
             foodComboBox.SelectedItem = null;
+            servingsInput.Value = 0;
             servingsInput.ResetText();
         }
 

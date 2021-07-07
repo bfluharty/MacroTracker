@@ -154,21 +154,20 @@
             // foodColumn
             // 
             this.foodColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.foodColumn.FillWeight = 134.4523F;
+            this.foodColumn.FillWeight = 55.61195F;
             this.foodColumn.HeaderText = "Food";
             this.foodColumn.Name = "foodColumn";
             this.foodColumn.ReadOnly = true;
+            this.foodColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // servingsColumn
             // 
-            this.servingsColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.servingsColumn.FillWeight = 101.5228F;
+            this.servingsColumn.FillWeight = 1F;
             this.servingsColumn.HeaderText = "Servings";
-            this.servingsColumn.MinimumWidth = 80;
+            this.servingsColumn.MinimumWidth = 120;
             this.servingsColumn.Name = "servingsColumn";
             this.servingsColumn.ReadOnly = true;
             this.servingsColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.servingsColumn.Width = 90;
             // 
             // removeMealColumn
             // 

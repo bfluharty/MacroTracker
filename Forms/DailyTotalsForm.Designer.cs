@@ -94,10 +94,10 @@
             this.removeBreakfastEntryColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.removeLunchEntryColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.removeSnackEntryColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.removeDinnerEntryColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.removeSnackEntryColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.breakfastFoodsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lunchFoodsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dinnerFoodsView)).BeginInit();
@@ -133,7 +133,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.breakfastFoodsView.DefaultCellStyle = dataGridViewCellStyle2;
             this.breakfastFoodsView.Location = new System.Drawing.Point(9, 169);
-            this.breakfastFoodsView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.breakfastFoodsView.Margin = new System.Windows.Forms.Padding(2);
             this.breakfastFoodsView.Name = "breakfastFoodsView";
             this.breakfastFoodsView.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -228,7 +228,7 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.lunchFoodsView.DefaultCellStyle = dataGridViewCellStyle5;
             this.lunchFoodsView.Location = new System.Drawing.Point(339, 169);
-            this.lunchFoodsView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lunchFoodsView.Margin = new System.Windows.Forms.Padding(2);
             this.lunchFoodsView.Name = "lunchFoodsView";
             this.lunchFoodsView.ReadOnly = true;
             this.lunchFoodsView.RowHeadersVisible = false;
@@ -268,7 +268,7 @@
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dinnerFoodsView.DefaultCellStyle = dataGridViewCellStyle7;
             this.dinnerFoodsView.Location = new System.Drawing.Point(669, 169);
-            this.dinnerFoodsView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dinnerFoodsView.Margin = new System.Windows.Forms.Padding(2);
             this.dinnerFoodsView.Name = "dinnerFoodsView";
             this.dinnerFoodsView.ReadOnly = true;
             this.dinnerFoodsView.RowHeadersVisible = false;
@@ -308,7 +308,7 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.snackFoodsView.DefaultCellStyle = dataGridViewCellStyle9;
             this.snackFoodsView.Location = new System.Drawing.Point(999, 169);
-            this.snackFoodsView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.snackFoodsView.Margin = new System.Windows.Forms.Padding(2);
             this.snackFoodsView.Name = "snackFoodsView";
             this.snackFoodsView.ReadOnly = true;
             this.snackFoodsView.RowHeadersVisible = false;
@@ -863,6 +863,7 @@
             this.breakfastColumn.HeaderText = "Breakfast";
             this.breakfastColumn.Name = "breakfastColumn";
             this.breakfastColumn.ReadOnly = true;
+            this.breakfastColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // removeBreakfastEntryColumn
             // 
@@ -879,6 +880,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Lunch";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // removeLunchEntryColumn
             // 
@@ -889,28 +891,13 @@
             this.removeLunchEntryColumn.UseColumnTextForButtonValue = true;
             this.removeLunchEntryColumn.Width = 40;
             // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Snack";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // removeSnackEntryColumn
-            // 
-            this.removeSnackEntryColumn.HeaderText = "";
-            this.removeSnackEntryColumn.Name = "removeSnackEntryColumn";
-            this.removeSnackEntryColumn.ReadOnly = true;
-            this.removeSnackEntryColumn.Text = "X";
-            this.removeSnackEntryColumn.UseColumnTextForButtonValue = true;
-            this.removeSnackEntryColumn.Width = 40;
-            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn2.HeaderText = "Dinner";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // removeDinnerEntryColumn
             // 
@@ -920,6 +907,23 @@
             this.removeDinnerEntryColumn.Text = "X";
             this.removeDinnerEntryColumn.UseColumnTextForButtonValue = true;
             this.removeDinnerEntryColumn.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Snack";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // removeSnackEntryColumn
+            // 
+            this.removeSnackEntryColumn.HeaderText = "";
+            this.removeSnackEntryColumn.Name = "removeSnackEntryColumn";
+            this.removeSnackEntryColumn.ReadOnly = true;
+            this.removeSnackEntryColumn.Text = "X";
+            this.removeSnackEntryColumn.UseColumnTextForButtonValue = true;
+            this.removeSnackEntryColumn.Width = 40;
             // 
             // DailyTotalsForm
             // 
@@ -971,7 +975,7 @@
             this.Controls.Add(this.breakfastFoodsView);
             this.Controls.Add(this.background);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DailyTotalsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Daily Totals";
@@ -1046,9 +1050,9 @@
         private System.Windows.Forms.DataGridViewButtonColumn removeBreakfastEntryColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewButtonColumn removeLunchEntryColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewButtonColumn removeSnackEntryColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewButtonColumn removeDinnerEntryColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewButtonColumn removeSnackEntryColumn;
     }
 }

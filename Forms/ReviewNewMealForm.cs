@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace MacroTracker.Forms
@@ -8,6 +9,7 @@ namespace MacroTracker.Forms
     {
         private Meal meal;
         private Dictionary<string, double> mealMap;
+        private bool ascending = true;
 
         public ReviewNewMealForm(Meal savedMeal, Dictionary<string, double> map)
         {
@@ -66,25 +68,62 @@ namespace MacroTracker.Forms
 
         private void mealToAddGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == mealToAddGrid.Columns["removeMealColumn"].Index && e.RowIndex >= 0)
+            if (mealToAddGrid.RowCount > 0)
             {
-                string food = mealToAddGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
-
-                foreach (KeyValuePair<string, double> pair in mealMap)
+                if (e.RowIndex == -1 && e.ColumnIndex != mealToAddGrid.ColumnCount - 1)
                 {
-                    if (pair.Key == food)
+                    ResetHeaders();
+                    HandleSort(mealToAddGrid.Columns[e.ColumnIndex]);
+                }
+                else if (e.ColumnIndex == mealToAddGrid.Columns["removeMealColumn"].Index && e.RowIndex >= 0)
+                {
+                    string food = mealToAddGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                    foreach (KeyValuePair<string, double> pair in mealMap)
                     {
-                        mealMap.Remove(food);
-                        break;
+                        if (pair.Key == food)
+                        {
+                            mealMap.Remove(food);
+                            break;
+                        }
                     }
-                }
 
-                if (mealMap.Count == 0)
-                {
-                    submitButton.Enabled = false;
-                }
+                    if (mealMap.Count == 0)
+                    {
+                        submitButton.Enabled = false;
+                    }
 
-                mealToAddGrid.Rows.RemoveAt(e.RowIndex);
+                    mealToAddGrid.Rows.RemoveAt(e.RowIndex);
+                    ResetHeaders();
+                }
+                mealToAddGrid.ClearSelection();
+            }
+        }
+
+        private void HandleSort(DataGridViewColumn column)
+        {
+            if (ascending)
+            {
+                mealToAddGrid.Sort(column, ListSortDirection.Descending);
+                column.HeaderText += " \\/";
+                ascending = false;
+            }
+            else
+            {
+                mealToAddGrid.Sort(column, ListSortDirection.Ascending);
+                column.HeaderText += " /\\";
+                ascending = true;
+            }
+        }
+
+        private void ResetHeaders()
+        {
+            DataGridViewColumnCollection columns = mealToAddGrid.Columns;
+            List<string> headerNames = new List<string>() { "Food", "Servings" };
+
+            for (int i = 0; i < columns.Count - 1; i++)
+            {
+                columns[i].HeaderText = headerNames[i];
             }
         }
     }

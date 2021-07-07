@@ -147,6 +147,7 @@
             this.nameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.nameColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.nameColumn.FillWeight = 1000F;
             this.nameColumn.HeaderText = "Name";
             this.nameColumn.MinimumWidth = 100;
             this.nameColumn.Name = "nameColumn";
@@ -154,11 +155,13 @@
             // 
             // caloriesColumn
             // 
-            this.caloriesColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.caloriesColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.caloriesColumn.FillWeight = 1000F;
             this.caloriesColumn.HeaderText = "Calories";
-            this.caloriesColumn.MinimumWidth = 100;
+            this.caloriesColumn.MinimumWidth = 120;
             this.caloriesColumn.Name = "caloriesColumn";
             this.caloriesColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.caloriesColumn.Width = 120;
             // 
             // fatColumn
             // 
@@ -178,9 +181,8 @@
             // 
             // proteinColumn
             // 
-            this.proteinColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.proteinColumn.HeaderText = "Protein";
-            this.proteinColumn.MinimumWidth = 100;
+            this.proteinColumn.MinimumWidth = 120;
             this.proteinColumn.Name = "proteinColumn";
             this.proteinColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 

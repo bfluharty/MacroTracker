@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace MacroTracker.Forms
@@ -7,6 +8,7 @@ namespace MacroTracker.Forms
     public partial class ReviewNewFoodForm : Form
     {
         private List<Food> foods;
+        private bool ascending = true;
 
         public ReviewNewFoodForm(List<Food> addedFoods)
         {
@@ -59,25 +61,63 @@ namespace MacroTracker.Forms
 
         private void foodsToAddGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == foodsToAddGrid.Columns["removeFoodColumn"].Index && e.RowIndex >= 0)
+            if (foodsToAddGrid.RowCount > 0)
             {
-                string food = foodsToAddGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
-
-                foreach (Food item in foods)
+                if (e.RowIndex == -1 && e.ColumnIndex != foodsToAddGrid.ColumnCount - 1)
                 {
-                    if (item.Name == food)
+                    ResetHeaders();
+                    HandleSort(foodsToAddGrid.Columns[e.ColumnIndex]);
+                }
+                else if (e.ColumnIndex == foodsToAddGrid.Columns["removeFoodColumn"].Index && e.RowIndex >= 0)
+                {
+                    string food = foodsToAddGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                    foreach (Food item in foods)
                     {
-                        foods.Remove(item);
-                        break;
+                        if (item.Name == food)
+                        {
+                            foods.Remove(item);
+                            break;
+                        }
                     }
-                }
 
-                if (foods.Count == 0)
-                {
-                    submitButton.Enabled = false;
-                }
+                    if (foods.Count == 0)
+                    {
+                        submitButton.Enabled = false;
+                    }
 
-                foodsToAddGrid.Rows.RemoveAt(e.RowIndex);
+                    foodsToAddGrid.Rows.RemoveAt(e.RowIndex);
+                    ResetHeaders();
+                }
+                foodsToAddGrid.ClearSelection();
+            }
+            
+        }
+
+        private void HandleSort(DataGridViewColumn column)
+        {
+            if (ascending)
+            {
+                foodsToAddGrid.Sort(column, ListSortDirection.Descending);
+                column.HeaderText += " \\/";
+                ascending = false;
+            }
+            else
+            {
+                foodsToAddGrid.Sort(column, ListSortDirection.Ascending);
+                column.HeaderText += " /\\";
+                ascending = true;
+            }
+        }
+
+        private void ResetHeaders()
+        {
+            DataGridViewColumnCollection columns = foodsToAddGrid.Columns;
+            List<string> headerNames = new List<string>() { "Name", "Calories", "Fat", "Carbs", "Protein" };
+
+            for (int i = 0; i < columns.Count - 1; i++)
+            {
+                columns[i].HeaderText = headerNames[i];
             }
         }
     }
