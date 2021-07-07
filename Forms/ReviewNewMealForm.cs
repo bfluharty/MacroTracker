@@ -63,5 +63,29 @@ namespace MacroTracker.Forms
             mealToAddGrid.ClearSelection();
             title.Select();
         }
+
+        private void mealToAddGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == mealToAddGrid.Columns["removeMealColumn"].Index && e.RowIndex >= 0)
+            {
+                string food = mealToAddGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                foreach (KeyValuePair<string, double> pair in mealMap)
+                {
+                    if (pair.Key == food)
+                    {
+                        mealMap.Remove(food);
+                        break;
+                    }
+                }
+
+                if (mealMap.Count == 0)
+                {
+                    submitButton.Enabled = false;
+                }
+
+                mealToAddGrid.Rows.RemoveAt(e.RowIndex);
+            }
+        }
     }
 }

@@ -13,9 +13,12 @@ namespace MacroTracker.Forms
             InitializeComponent();
             foods = addedFoods;
 
-            foodsToAddGrid.DataSource = foods;
+            foreach (Food food in foods)
+            {
+                foodsToAddGrid.Rows.Add(food.Name, food.Calories, food.Fat, food.Carbs, food.Protein);
+            }
+
             foodsToAddGrid.RowHeadersVisible = false;
-            foodsToAddGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -52,6 +55,30 @@ namespace MacroTracker.Forms
         {
             foodsToAddGrid.ClearSelection();
             title.Select();
+        }
+
+        private void foodsToAddGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == foodsToAddGrid.Columns["removeFoodColumn"].Index && e.RowIndex >= 0)
+            {
+                string food = foodsToAddGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                foreach (Food item in foods)
+                {
+                    if (item.Name == food)
+                    {
+                        foods.Remove(item);
+                        break;
+                    }
+                }
+
+                if (foods.Count == 0)
+                {
+                    submitButton.Enabled = false;
+                }
+
+                foodsToAddGrid.Rows.RemoveAt(e.RowIndex);
+            }
         }
     }
 }

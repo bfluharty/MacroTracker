@@ -38,10 +38,11 @@
             this.backButton = new System.Windows.Forms.Button();
             this.menuButton = new System.Windows.Forms.Button();
             this.mealToAddGrid = new System.Windows.Forms.DataGridView();
-            this.foodColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.servingsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.foodBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mealLabel = new System.Windows.Forms.Label();
+            this.foodColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.servingsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.removeMealColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mealToAddGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +51,7 @@
             // 
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(99, 9);
+            this.title.Location = new System.Drawing.Point(93, 9);
             this.title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(581, 75);
@@ -61,7 +62,7 @@
             // submitButton
             // 
             this.submitButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitButton.Location = new System.Drawing.Point(500, 547);
+            this.submitButton.Location = new System.Drawing.Point(494, 547);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(109, 39);
             this.submitButton.TabIndex = 19;
@@ -72,7 +73,7 @@
             // backButton
             // 
             this.backButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.Location = new System.Drawing.Point(329, 547);
+            this.backButton.Location = new System.Drawing.Point(323, 547);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(109, 39);
             this.backButton.TabIndex = 20;
@@ -83,7 +84,7 @@
             // menuButton
             // 
             this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuButton.Location = new System.Drawing.Point(158, 546);
+            this.menuButton.Location = new System.Drawing.Point(152, 546);
             this.menuButton.Name = "menuButton";
             this.menuButton.Size = new System.Drawing.Size(109, 39);
             this.menuButton.TabIndex = 21;
@@ -109,7 +110,8 @@
             this.mealToAddGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mealToAddGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.foodColumn,
-            this.servingsColumn});
+            this.servingsColumn,
+            this.removeMealColumn});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,7 +120,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.mealToAddGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.mealToAddGrid.Location = new System.Drawing.Point(101, 205);
+            this.mealToAddGrid.Location = new System.Drawing.Point(95, 205);
             this.mealToAddGrid.Margin = new System.Windows.Forms.Padding(2);
             this.mealToAddGrid.Name = "mealToAddGrid";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -135,12 +137,24 @@
             this.mealToAddGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.mealToAddGrid.Size = new System.Drawing.Size(565, 298);
             this.mealToAddGrid.TabIndex = 22;
+            this.mealToAddGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mealToAddGrid_CellContentClick);
             this.mealToAddGrid.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.foodsToAddGrid_ColumnAdded);
+            // 
+            // mealLabel
+            // 
+            this.mealLabel.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mealLabel.Location = new System.Drawing.Point(95, 117);
+            this.mealLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.mealLabel.Name = "mealLabel";
+            this.mealLabel.Size = new System.Drawing.Size(565, 55);
+            this.mealLabel.TabIndex = 42;
+            this.mealLabel.Text = "Breakfast - 6/12/2021";
+            this.mealLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // foodColumn
             // 
             this.foodColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.foodColumn.FillWeight = 98.47716F;
+            this.foodColumn.FillWeight = 134.4523F;
             this.foodColumn.HeaderText = "Food";
             this.foodColumn.Name = "foodColumn";
             this.foodColumn.ReadOnly = true;
@@ -150,20 +164,22 @@
             this.servingsColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.servingsColumn.FillWeight = 101.5228F;
             this.servingsColumn.HeaderText = "Servings";
+            this.servingsColumn.MinimumWidth = 80;
             this.servingsColumn.Name = "servingsColumn";
             this.servingsColumn.ReadOnly = true;
-            this.servingsColumn.Width = 109;
+            this.servingsColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.servingsColumn.Width = 90;
             // 
-            // mealLabel
+            // removeMealColumn
             // 
-            this.mealLabel.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mealLabel.Location = new System.Drawing.Point(101, 117);
-            this.mealLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.mealLabel.Name = "mealLabel";
-            this.mealLabel.Size = new System.Drawing.Size(565, 55);
-            this.mealLabel.TabIndex = 42;
-            this.mealLabel.Text = "Breakfast - 6/12/2021";
-            this.mealLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.removeMealColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.removeMealColumn.FillWeight = 64.02489F;
+            this.removeMealColumn.HeaderText = "";
+            this.removeMealColumn.MinimumWidth = 40;
+            this.removeMealColumn.Name = "removeMealColumn";
+            this.removeMealColumn.Text = "X";
+            this.removeMealColumn.UseColumnTextForButtonValue = true;
+            this.removeMealColumn.Width = 40;
             // 
             // ReviewNewMealForm
             // 
@@ -198,8 +214,9 @@
         private System.Windows.Forms.Button menuButton;
         private System.Windows.Forms.DataGridView mealToAddGrid;
         private System.Windows.Forms.BindingSource foodBindingSource;
+        private System.Windows.Forms.Label mealLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn foodColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn servingsColumn;
-        private System.Windows.Forms.Label mealLabel;
+        private System.Windows.Forms.DataGridViewButtonColumn removeMealColumn;
     }
 }
