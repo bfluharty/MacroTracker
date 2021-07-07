@@ -22,7 +22,7 @@ namespace MacroTracker
         {
             List<string> names = new List<string>();
 
-            string sql = "SELECT Name FROM Foods";
+            string sql = "SELECT Name FROM Foods WHERE Visible = 1";
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader();
 
