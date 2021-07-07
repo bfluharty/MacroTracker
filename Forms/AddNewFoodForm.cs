@@ -33,12 +33,6 @@ namespace MacroTracker.Forms
                 return;
             }
 
-            if (DatabaseInterface.SelectFoodNames().Contains(name))
-            {
-                confirmationLabel.Text = name + " has already been added!";
-                return;
-            }
-
             addedFoods.Add(new Food(name, (int)caloriesInput.Value, (double) Math.Round(fatInput.Value, 1), (double) Math.Round(carbsInput.Value, 1), (double) Math.Round(proteinInput.Value, 1)));
             confirmationLabel.Text = name + " has been added.";
             nextButton.Enabled = true;
