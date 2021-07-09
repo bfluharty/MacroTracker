@@ -25,6 +25,11 @@
             return "('" + DatabaseInterface.SanitizeName(Name) + "', " + Calories + ", " + Fat + ", " + Carbs + ", " + Protein + ")";
         }
 
+        public string GetUpdateSQL()
+        {
+            return "Name = '" + DatabaseInterface.SanitizeName(Name) + "', Calories = " + Calories + ", Fat = " + Fat + ", Carbs = " + Carbs + ", Protein = " + Protein;
+        }
+
         public override string ToString()
         {
             return "Food [Name=" + Name +

@@ -870,7 +870,7 @@
             this.removeBreakfastEntryColumn.HeaderText = "";
             this.removeBreakfastEntryColumn.Name = "removeBreakfastEntryColumn";
             this.removeBreakfastEntryColumn.ReadOnly = true;
-            this.removeBreakfastEntryColumn.Text = "X";
+            this.removeBreakfastEntryColumn.Text = "x";
             this.removeBreakfastEntryColumn.UseColumnTextForButtonValue = true;
             this.removeBreakfastEntryColumn.Width = 40;
             // 
@@ -887,7 +887,7 @@
             this.removeLunchEntryColumn.HeaderText = "";
             this.removeLunchEntryColumn.Name = "removeLunchEntryColumn";
             this.removeLunchEntryColumn.ReadOnly = true;
-            this.removeLunchEntryColumn.Text = "X";
+            this.removeLunchEntryColumn.Text = "x";
             this.removeLunchEntryColumn.UseColumnTextForButtonValue = true;
             this.removeLunchEntryColumn.Width = 40;
             // 
@@ -904,7 +904,7 @@
             this.removeDinnerEntryColumn.HeaderText = "";
             this.removeDinnerEntryColumn.Name = "removeDinnerEntryColumn";
             this.removeDinnerEntryColumn.ReadOnly = true;
-            this.removeDinnerEntryColumn.Text = "X";
+            this.removeDinnerEntryColumn.Text = "x";
             this.removeDinnerEntryColumn.UseColumnTextForButtonValue = true;
             this.removeDinnerEntryColumn.Width = 40;
             // 
@@ -921,7 +921,7 @@
             this.removeSnackEntryColumn.HeaderText = "";
             this.removeSnackEntryColumn.Name = "removeSnackEntryColumn";
             this.removeSnackEntryColumn.ReadOnly = true;
-            this.removeSnackEntryColumn.Text = "X";
+            this.removeSnackEntryColumn.Text = "x";
             this.removeSnackEntryColumn.UseColumnTextForButtonValue = true;
             this.removeSnackEntryColumn.Width = 40;
             // 

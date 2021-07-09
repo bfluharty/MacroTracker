@@ -7,19 +7,23 @@ namespace MacroTracker.Forms
 {
     public partial class SavedFoodsForm : Form
     {
-        private List<Food> foods;
         private bool ascending = true;
 
         public SavedFoodsForm()
         {
             InitializeComponent();
-            foods = DatabaseInterface.SelectVisibleFoods();
+            FillTable();
+            savedFoodsView.RowHeadersVisible = false;
+        }
+
+        private void FillTable()
+        {
+            List<Food> foods = DatabaseInterface.SelectVisibleFoods();
 
             foreach (Food food in foods)
             {
                 savedFoodsView.Rows.Add(food.Name, food.Calories, food.Fat, food.Carbs, food.Protein);
-            }            
-            savedFoodsView.RowHeadersVisible = false;
+            }
         }
 
         private void menuButton_Click(object sender, EventArgs e)
@@ -42,12 +46,26 @@ namespace MacroTracker.Forms
         {
             if (savedFoodsView.RowCount > 0)
             {
+                // Sort column
                 if (e.RowIndex == -1 && e.ColumnIndex != savedFoodsView.ColumnCount - 1)
                 {
                     ResetHeaders();
                     HandleSort(savedFoodsView.Columns[e.ColumnIndex]);
                 }
-                else if (e.ColumnIndex == savedFoodsView.Columns["RemoveFoodColumn"].Index && e.RowIndex >= 0)
+                // Edit entry
+                else if (e.ColumnIndex == savedFoodsView.ColumnCount - 2 && e.RowIndex >= 0)
+                {
+                    DataGridViewCellCollection group = savedFoodsView.Rows[e.RowIndex].Cells;
+                    string name = group[0].Value.ToString();
+                    int foodID = DatabaseInterface.SelectFoodID(name);
+
+                    EditFoodForm form = new EditFoodForm(foodID, new Food(name, int.Parse(group[1].Value.ToString()), double.Parse(group[2].Value.ToString()), double.Parse(group[3].Value.ToString()), double.Parse(group[4].Value.ToString())));
+                    form.ShowDialog();
+                    savedFoodsView.Rows.Clear();
+                    FillTable();
+                }
+                // Remove entry
+                else if (e.ColumnIndex == savedFoodsView.ColumnCount - 1 && e.RowIndex >= 0)
                 {
                     string name = savedFoodsView.Rows[e.RowIndex].Cells[0].Value.ToString();
                     ConfirmDeleteFoodForm form = new ConfirmDeleteFoodForm(name);
@@ -84,7 +102,7 @@ namespace MacroTracker.Forms
             DataGridViewColumnCollection columns = savedFoodsView.Columns;
             List<string> headerNames = new List<string>() { "Name", "Calories", "Fat", "Carbs", "Protein" };
 
-            for (int i = 0; i < columns.Count - 1; i++)
+            for (int i = 0; i < columns.Count - 2; i++)
             {
                columns[i].HeaderText = headerNames[i];
             }

@@ -39,6 +39,7 @@
             this.FatColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CarbsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProteinColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EditFoodColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.RemoveFoodColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.savedFoodsView)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +66,7 @@
             this.FatColumn,
             this.CarbsColumn,
             this.ProteinColumn,
+            this.EditFoodColumn,
             this.RemoveFoodColumn});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -74,7 +76,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.savedFoodsView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.savedFoodsView.Location = new System.Drawing.Point(98, 35);
+            this.savedFoodsView.Location = new System.Drawing.Point(69, 35);
             this.savedFoodsView.Margin = new System.Windows.Forms.Padding(2);
             this.savedFoodsView.Name = "savedFoodsView";
             this.savedFoodsView.ReadOnly = true;
@@ -83,7 +85,7 @@
             this.savedFoodsView.RowTemplate.Height = 24;
             this.savedFoodsView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.savedFoodsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.savedFoodsView.Size = new System.Drawing.Size(713, 517);
+            this.savedFoodsView.Size = new System.Drawing.Size(771, 517);
             this.savedFoodsView.TabIndex = 0;
             this.savedFoodsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.savedFoodsView_CellContentClick);
             // 
@@ -137,6 +139,16 @@
             this.ProteinColumn.ReadOnly = true;
             this.ProteinColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // EditFoodColumn
+            // 
+            this.EditFoodColumn.HeaderText = "";
+            this.EditFoodColumn.MinimumWidth = 40;
+            this.EditFoodColumn.Name = "EditFoodColumn";
+            this.EditFoodColumn.ReadOnly = true;
+            this.EditFoodColumn.Text = "e";
+            this.EditFoodColumn.UseColumnTextForButtonValue = true;
+            this.EditFoodColumn.Width = 40;
+            // 
             // RemoveFoodColumn
             // 
             this.RemoveFoodColumn.HeaderText = "";
@@ -144,7 +156,7 @@
             this.RemoveFoodColumn.Name = "RemoveFoodColumn";
             this.RemoveFoodColumn.ReadOnly = true;
             this.RemoveFoodColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.RemoveFoodColumn.Text = "X";
+            this.RemoveFoodColumn.Text = "x";
             this.RemoveFoodColumn.UseColumnTextForButtonValue = true;
             this.RemoveFoodColumn.Width = 40;
             // 
@@ -176,6 +188,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FatColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CarbsColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProteinColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn EditFoodColumn;
         private System.Windows.Forms.DataGridViewButtonColumn RemoveFoodColumn;
     }
 }

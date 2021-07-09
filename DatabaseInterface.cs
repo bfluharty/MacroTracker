@@ -6,6 +6,9 @@ namespace MacroTracker
 {
     public static class DatabaseInterface
     {
+        private static SqlConnection connection;
+        private static SqlDataAdapter adapter;
+
         public static void InitiateConnection()
         {
             connection = new SqlConnection(Properties.Settings.Default.MacroTrackerDatabaseConnectionString);
@@ -16,6 +19,21 @@ namespace MacroTracker
         public static void CloseConnection()
         {
             connection.Close();
+        }
+
+        public static int SelectFoodID(string foodName)
+        {
+            string sql = "SELECT FoodID FROM Foods WHERE Name ='" + SanitizeName(foodName) + "' AND Visible = 1";
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+
+            int ID = int.Parse(reader.GetValue(0).ToString());
+
+            reader.Close();
+            command.Dispose();
+
+            return ID;
         }
 
         public static List<string> SelectFoodNames()
@@ -211,6 +229,11 @@ namespace MacroTracker
             }
         }
 
+        public static void EditFood(int foodID, Food food)
+        {
+            UpdateFood(foodID, food);
+        }
+
         public static void HideFood(string name)
         {
             string sql = "UPDATE Foods SET Visible = 0 WHERE Name = '" + name + "'";
@@ -274,21 +297,6 @@ namespace MacroTracker
             }
         }
 
-        private static int SelectFoodID(string foodName)
-        {
-            string sql = "SELECT FoodID FROM Foods WHERE Name ='" + SanitizeName(foodName) + "'";
-            SqlCommand command = new SqlCommand(sql, connection);
-            SqlDataReader reader = command.ExecuteReader();
-            reader.Read();
-
-            int ID = int.Parse(reader.GetValue(0).ToString());
-
-            reader.Close();
-            command.Dispose();
-
-            return ID;
-        }
-
         private static int SelectMealID(Meal meal)
         {
             int ID = -1;
@@ -307,6 +315,15 @@ namespace MacroTracker
             return ID;
         }
 
+        private static void UpdateFood(int foodID, Food food)
+        {
+            string sql = "UPDATE Foods SET " + food.GetUpdateSQL() + " WHERE FoodID = " + foodID;
+            SqlCommand command = new SqlCommand(sql, connection);
+            adapter.UpdateCommand = new SqlCommand(sql, connection);
+            adapter.UpdateCommand.ExecuteNonQuery();
+            command.Dispose();
+        }
+
         private static void DeleteMeal(int mealID)
         {
             string sql = "DELETE FROM Meals WHERE MealID = " + mealID;
@@ -315,8 +332,5 @@ namespace MacroTracker
             adapter.DeleteCommand.ExecuteNonQuery();
             command.Dispose();
         }
-
-        private static SqlConnection connection;
-        private static SqlDataAdapter adapter;
     }
 }

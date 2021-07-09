@@ -192,7 +192,7 @@
             this.removeFoodColumn.HeaderText = "";
             this.removeFoodColumn.MinimumWidth = 40;
             this.removeFoodColumn.Name = "removeFoodColumn";
-            this.removeFoodColumn.Text = "X";
+            this.removeFoodColumn.Text = "x";
             this.removeFoodColumn.UseColumnTextForButtonValue = true;
             this.removeFoodColumn.Width = 40;
             // 

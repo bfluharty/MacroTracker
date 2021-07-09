@@ -27,7 +27,7 @@
     <UpdateUrl>http://localhost/</UpdateUrl>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -85,6 +85,12 @@
     <Compile Include="DatabaseInterface.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="FormManager.cs" />
+    <Compile Include="Forms\EditFoodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditFoodForm.Designer.cs">
+      <DependentUpon>EditFoodForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddNewMealForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     <Compile Include="Forms\ReviewNewFoodForm.Designer.cs">
       <DependentUpon>ReviewNewFoodForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\EditFoodForm.resx">
+      <DependentUpon>EditFoodForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddNewMealForm.resx">
       <DependentUpon>AddNewMealForm.cs</DependentUpon>
     </EmbeddedResource>

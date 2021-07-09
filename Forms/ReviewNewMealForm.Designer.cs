@@ -176,7 +176,7 @@
             this.removeMealColumn.HeaderText = "";
             this.removeMealColumn.MinimumWidth = 40;
             this.removeMealColumn.Name = "removeMealColumn";
-            this.removeMealColumn.Text = "X";
+            this.removeMealColumn.Text = "x";
             this.removeMealColumn.UseColumnTextForButtonValue = true;
             this.removeMealColumn.Width = 40;
             // 
