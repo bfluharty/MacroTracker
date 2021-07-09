@@ -20,6 +20,15 @@
             Protein = protein;
         }
 
+        public void update(Food food)
+        {
+            Name = food.Name;
+            Calories = food.Calories;
+            Fat = food.Fat;
+            Carbs = food.Carbs;
+            Protein = food.Protein;
+        }
+
         public string GetInsertSQL()
         {
             return "('" + DatabaseInterface.SanitizeName(Name) + "', " + Calories + ", " + Fat + ", " + Carbs + ", " + Protein + ")";

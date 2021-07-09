@@ -43,6 +43,7 @@
             this.fatColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.carbsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proteinColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editFoodColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.removeFoodColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.foodsToAddGrid)).BeginInit();
             this.SuspendLayout();
@@ -113,6 +114,7 @@
             this.fatColumn,
             this.carbsColumn,
             this.proteinColumn,
+            this.editFoodColumn,
             this.removeFoodColumn});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -186,6 +188,14 @@
             this.proteinColumn.Name = "proteinColumn";
             this.proteinColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // editFoodColumn
+            // 
+            this.editFoodColumn.HeaderText = "";
+            this.editFoodColumn.MinimumWidth = 40;
+            this.editFoodColumn.Name = "editFoodColumn";
+            this.editFoodColumn.Text = "e";
+            this.editFoodColumn.UseColumnTextForButtonValue = true;
+            // 
             // removeFoodColumn
             // 
             this.removeFoodColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -230,6 +240,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fatColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn carbsColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn proteinColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn editFoodColumn;
         private System.Windows.Forms.DataGridViewButtonColumn removeFoodColumn;
     }
 }

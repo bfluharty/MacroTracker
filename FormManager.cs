@@ -44,7 +44,14 @@ namespace MacroTracker
             }
             else if (type == FormTypes.AddNewFoodForm)
             {
-                form = new AddNewFoodForm();
+                if (foods == null)
+                {
+                    form = new AddNewFoodForm();
+                }
+                else
+                {
+                    form = new AddNewFoodForm(foods);
+                }
             }
             else if (type == FormTypes.AddNewMealForm)
             {

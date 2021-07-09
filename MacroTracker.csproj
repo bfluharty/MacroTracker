@@ -85,11 +85,17 @@
     <Compile Include="DatabaseInterface.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="FormManager.cs" />
-    <Compile Include="Forms\EditFoodForm.cs">
+    <Compile Include="Forms\EditNewFoodForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditFoodForm.Designer.cs">
-      <DependentUpon>EditFoodForm.cs</DependentUpon>
+    <Compile Include="Forms\EditNewFoodForm.Designer.cs">
+      <DependentUpon>EditNewFoodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditSavedFoodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditSavedFoodForm.Designer.cs">
+      <DependentUpon>EditSavedFoodForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddNewMealForm.cs">
       <SubType>Form</SubType>
@@ -168,8 +174,11 @@
     <Compile Include="Forms\ReviewNewFoodForm.Designer.cs">
       <DependentUpon>ReviewNewFoodForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\EditFoodForm.resx">
-      <DependentUpon>EditFoodForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditNewFoodForm.resx">
+      <DependentUpon>EditNewFoodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditSavedFoodForm.resx">
+      <DependentUpon>EditSavedFoodForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddNewMealForm.resx">
       <DependentUpon>AddNewMealForm.cs</DependentUpon>

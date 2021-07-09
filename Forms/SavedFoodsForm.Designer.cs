@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SavedFoodsForm));
             this.savedFoodsView = new System.Windows.Forms.DataGridView();
-            this.menuButton = new System.Windows.Forms.Button();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CaloriesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FatColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +40,8 @@
             this.ProteinColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EditFoodColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.RemoveFoodColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.menuButton = new System.Windows.Forms.Button();
+            this.title = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.savedFoodsView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.savedFoodsView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.savedFoodsView.Location = new System.Drawing.Point(69, 35);
+            this.savedFoodsView.Location = new System.Drawing.Point(69, 82);
             this.savedFoodsView.Margin = new System.Windows.Forms.Padding(2);
             this.savedFoodsView.Name = "savedFoodsView";
             this.savedFoodsView.ReadOnly = true;
@@ -85,20 +86,9 @@
             this.savedFoodsView.RowTemplate.Height = 24;
             this.savedFoodsView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.savedFoodsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.savedFoodsView.Size = new System.Drawing.Size(771, 517);
+            this.savedFoodsView.Size = new System.Drawing.Size(771, 474);
             this.savedFoodsView.TabIndex = 0;
             this.savedFoodsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.savedFoodsView_CellContentClick);
-            // 
-            // menuButton
-            // 
-            this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuButton.Location = new System.Drawing.Point(389, 576);
-            this.menuButton.Name = "menuButton";
-            this.menuButton.Size = new System.Drawing.Size(109, 39);
-            this.menuButton.TabIndex = 22;
-            this.menuButton.Text = "Menu";
-            this.menuButton.UseVisualStyleBackColor = true;
-            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
             // NameColumn
             // 
@@ -160,11 +150,34 @@
             this.RemoveFoodColumn.UseColumnTextForButtonValue = true;
             this.RemoveFoodColumn.Width = 40;
             // 
+            // menuButton
+            // 
+            this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuButton.Location = new System.Drawing.Point(389, 575);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(109, 39);
+            this.menuButton.TabIndex = 22;
+            this.menuButton.Text = "Menu";
+            this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
+            // 
+            // title
+            // 
+            this.title.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.Location = new System.Drawing.Point(220, 9);
+            this.title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(469, 54);
+            this.title.TabIndex = 23;
+            this.title.Text = "Saved Foods";
+            this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // SavedFoodsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 626);
+            this.Controls.Add(this.title);
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.savedFoodsView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -190,5 +203,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProteinColumn;
         private System.Windows.Forms.DataGridViewButtonColumn EditFoodColumn;
         private System.Windows.Forms.DataGridViewButtonColumn RemoveFoodColumn;
+        private System.Windows.Forms.Label title;
     }
 }

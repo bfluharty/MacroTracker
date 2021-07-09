@@ -59,7 +59,7 @@ namespace MacroTracker.Forms
                     string name = group[0].Value.ToString();
                     int foodID = DatabaseInterface.SelectFoodID(name);
 
-                    EditFoodForm form = new EditFoodForm(foodID, new Food(name, int.Parse(group[1].Value.ToString()), double.Parse(group[2].Value.ToString()), double.Parse(group[3].Value.ToString()), double.Parse(group[4].Value.ToString())));
+                    EditSavedFoodForm form = new EditSavedFoodForm(foodID, new Food(name, int.Parse(group[1].Value.ToString()), double.Parse(group[2].Value.ToString()), double.Parse(group[3].Value.ToString()), double.Parse(group[4].Value.ToString())));
                     form.ShowDialog();
                     savedFoodsView.Rows.Clear();
                     FillTable();

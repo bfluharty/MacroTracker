@@ -15,17 +15,21 @@ namespace MacroTracker.Forms
             InitializeComponent();
             foods = addedFoods;
 
+            FillTable();
+            foodsToAddGrid.RowHeadersVisible = false;
+        }
+
+        private void FillTable()
+        {
             foreach (Food food in foods)
             {
                 foodsToAddGrid.Rows.Add(food.Name, food.Calories, food.Fat, food.Carbs, food.Protein);
             }
-
-            foodsToAddGrid.RowHeadersVisible = false;
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            FormManager.AddForm(FormManager.FormTypes.AddNewFoodForm);
+            FormManager.AddForm(FormManager.FormTypes.AddNewFoodForm, foods : foods);
             Close();
         }
 
@@ -63,12 +67,30 @@ namespace MacroTracker.Forms
         {
             if (foodsToAddGrid.RowCount > 0)
             {
+                // Sort column
                 if (e.RowIndex == -1 && e.ColumnIndex != foodsToAddGrid.ColumnCount - 1)
                 {
                     ResetHeaders();
                     HandleSort(foodsToAddGrid.Columns[e.ColumnIndex]);
                 }
-                else if (e.ColumnIndex == foodsToAddGrid.Columns["removeFoodColumn"].Index && e.RowIndex >= 0)
+                // Edit entry
+                else if (e.ColumnIndex == foodsToAddGrid.ColumnCount - 2 && e.RowIndex >= 0)
+                {
+                    DataGridViewCellCollection group = foodsToAddGrid.Rows[e.RowIndex].Cells;
+                    string name = group[0].Value.ToString();
+
+                    EditNewFoodForm form = new EditNewFoodForm(new Food(name, int.Parse(group[1].Value.ToString()), double.Parse(group[2].Value.ToString()), double.Parse(group[3].Value.ToString()), double.Parse(group[4].Value.ToString())));
+                    form.ShowDialog();
+                    Food newFood = form.food;
+
+                    int index = foods.FindIndex(x => x.Name.Equals(name));
+                    foods[index].update(newFood);
+
+                    foodsToAddGrid.Rows.Clear();
+                    FillTable();
+                }
+                // Remove entry
+                else if (e.ColumnIndex == foodsToAddGrid.ColumnCount - 1 && e.RowIndex >= 0)
                 {
                     string food = foodsToAddGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
 
@@ -115,7 +137,7 @@ namespace MacroTracker.Forms
             DataGridViewColumnCollection columns = foodsToAddGrid.Columns;
             List<string> headerNames = new List<string>() { "Name", "Calories", "Fat", "Carbs", "Protein" };
 
-            for (int i = 0; i < columns.Count - 1; i++)
+            for (int i = 0; i < columns.Count - 2; i++)
             {
                 columns[i].HeaderText = headerNames[i];
             }
