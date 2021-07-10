@@ -37,10 +37,10 @@
             this.backButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
-            this.foodComboBox = new System.Windows.Forms.ComboBox();
             this.foodLabel = new System.Windows.Forms.Label();
             this.mealTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuButton = new System.Windows.Forms.Button();
+            this.foodBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.servingsInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mealTypesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -135,25 +135,6 @@
             this.title.Text = "Select Foods";
             this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // foodComboBox
-            // 
-            this.foodComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.foodComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.foodComboBox.DropDownHeight = 160;
-            this.foodComboBox.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.foodComboBox.FormattingEnabled = true;
-            this.foodComboBox.IntegralHeight = false;
-            this.foodComboBox.Location = new System.Drawing.Point(48, 183);
-            this.foodComboBox.MaxDropDownItems = 1;
-            this.foodComboBox.Name = "foodComboBox";
-            this.foodComboBox.Size = new System.Drawing.Size(366, 40);
-            this.foodComboBox.Sorted = true;
-            this.foodComboBox.TabIndex = 39;
-            this.foodComboBox.TextUpdate += new System.EventHandler(this.foodComboBox_TextUpdate);
-            this.foodComboBox.Click += new System.EventHandler(this.foodComboBox_Click);
-            this.foodComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.foodComboBox_KeyDown);
-            this.foodComboBox.Leave += new System.EventHandler(this.foodComboBox_Leave);
-            // 
             // foodLabel
             // 
             this.foodLabel.AutoSize = true;
@@ -177,6 +158,19 @@
             this.menuButton.UseVisualStyleBackColor = true;
             this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
+            // foodBox
+            // 
+            this.foodBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.foodBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.foodBox.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.foodBox.Location = new System.Drawing.Point(48, 184);
+            this.foodBox.Name = "foodBox";
+            this.foodBox.Size = new System.Drawing.Size(366, 39);
+            this.foodBox.TabIndex = 43;
+            this.foodBox.TextChanged += new System.EventHandler(this.foodBox_TextChanged);
+            this.foodBox.DoubleClick += new System.EventHandler(this.foodBox_DoubleClick);
+            this.foodBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.foodBox_KeyDown);
+            // 
             // RecordMealForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,7 +178,6 @@
             this.ClientSize = new System.Drawing.Size(800, 543);
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.foodLabel);
-            this.Controls.Add(this.foodComboBox);
             this.Controls.Add(this.confirmationLabel);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.servingsInput);
@@ -192,6 +185,7 @@
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.title);
+            this.Controls.Add(this.foodBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RecordMealForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -216,8 +210,8 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.BindingSource mealTypesBindingSource;
-        private System.Windows.Forms.ComboBox foodComboBox;
         private System.Windows.Forms.Label foodLabel;
         private System.Windows.Forms.Button menuButton;
+        private System.Windows.Forms.TextBox foodBox;
     }
 }
