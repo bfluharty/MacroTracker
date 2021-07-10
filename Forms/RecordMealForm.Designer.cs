@@ -87,6 +87,7 @@
             this.servingsInput.Name = "servingsInput";
             this.servingsInput.Size = new System.Drawing.Size(83, 38);
             this.servingsInput.TabIndex = 32;
+            this.servingsInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.servingsInput_KeyDown);
             // 
             // servingsLabel
             // 
@@ -136,8 +137,9 @@
             // 
             // foodComboBox
             // 
+            this.foodComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.foodComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.foodComboBox.DropDownHeight = 160;
-            this.foodComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.foodComboBox.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.foodComboBox.FormattingEnabled = true;
             this.foodComboBox.IntegralHeight = false;
@@ -147,6 +149,10 @@
             this.foodComboBox.Size = new System.Drawing.Size(366, 40);
             this.foodComboBox.Sorted = true;
             this.foodComboBox.TabIndex = 39;
+            this.foodComboBox.TextUpdate += new System.EventHandler(this.foodComboBox_TextUpdate);
+            this.foodComboBox.Click += new System.EventHandler(this.foodComboBox_Click);
+            this.foodComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.foodComboBox_KeyDown);
+            this.foodComboBox.Leave += new System.EventHandler(this.foodComboBox_Leave);
             // 
             // foodLabel
             // 
@@ -192,6 +198,7 @@
             this.Text = "MacroTracker - Record Meal";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RecordMealForm_FormClosed);
             this.Shown += new System.EventHandler(this.RecordMealForm_Shown);
+            this.Click += new System.EventHandler(this.RecordMealForm_Click);
             ((System.ComponentModel.ISupportInitialize)(this.servingsInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mealTypesBindingSource)).EndInit();
             this.ResumeLayout(false);

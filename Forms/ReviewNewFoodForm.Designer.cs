@@ -84,7 +84,7 @@
             // menuButton
             // 
             this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuButton.Location = new System.Drawing.Point(229, 547);
+            this.menuButton.Location = new System.Drawing.Point(229, 546);
             this.menuButton.Name = "menuButton";
             this.menuButton.Size = new System.Drawing.Size(109, 39);
             this.menuButton.TabIndex = 21;
@@ -124,7 +124,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.foodsToAddGrid.DefaultCellStyle = dataGridViewCellStyle3;
-            this.foodsToAddGrid.Location = new System.Drawing.Point(9, 64);
+            this.foodsToAddGrid.Location = new System.Drawing.Point(9, 97);
             this.foodsToAddGrid.Margin = new System.Windows.Forms.Padding(2);
             this.foodsToAddGrid.Name = "foodsToAddGrid";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -139,7 +139,7 @@
             this.foodsToAddGrid.RowTemplate.Height = 24;
             this.foodsToAddGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.foodsToAddGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.foodsToAddGrid.Size = new System.Drawing.Size(890, 444);
+            this.foodsToAddGrid.Size = new System.Drawing.Size(890, 413);
             this.foodsToAddGrid.TabIndex = 22;
             this.foodsToAddGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.foodsToAddGrid_CellContentClick);
             this.foodsToAddGrid.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.foodsToAddGrid_ColumnAdded);
