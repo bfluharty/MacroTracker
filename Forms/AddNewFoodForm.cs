@@ -47,7 +47,8 @@ namespace MacroTracker.Forms
                 return;
             }
 
-            if (DatabaseInterface.SelectFoodNames().Contains(name))
+            Food addedFood = addedFoods.Find(x => x.Name == name);
+            if (DatabaseInterface.SelectFoodNames().Contains(name) || addedFood != null)
             {
                 confirmationLabel.Text = name + " has already been added!";
                 return;
