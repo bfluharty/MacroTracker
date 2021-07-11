@@ -9,7 +9,7 @@ namespace MacroTracker.Forms
     {
         private Meal meal;
         private Dictionary<string, double> mealMap;
-        private bool ascending = true;
+        private bool ascending = false;
 
         public ReviewNewMealForm(Meal savedMeal, Dictionary<string, double> map)
         {

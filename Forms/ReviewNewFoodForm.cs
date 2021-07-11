@@ -8,7 +8,7 @@ namespace MacroTracker.Forms
     public partial class ReviewNewFoodForm : Form
     {
         private List<Food> foods;
-        private bool ascending = true;
+        private bool ascending = false;
 
         public ReviewNewFoodForm(List<Food> addedFoods)
         {

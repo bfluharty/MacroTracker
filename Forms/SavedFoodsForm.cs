@@ -7,7 +7,7 @@ namespace MacroTracker.Forms
 {
     public partial class SavedFoodsForm : Form
     {
-        private bool ascending = true;
+        private bool ascending = false;
         private List<Food> foods;
 
         public SavedFoodsForm()
