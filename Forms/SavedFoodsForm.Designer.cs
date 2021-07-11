@@ -42,6 +42,8 @@
             this.RemoveFoodColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuButton = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
+            this.foodLabel = new System.Windows.Forms.Label();
+            this.foodBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.savedFoodsView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +79,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.savedFoodsView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.savedFoodsView.Location = new System.Drawing.Point(69, 82);
+            this.savedFoodsView.Location = new System.Drawing.Point(69, 148);
             this.savedFoodsView.Margin = new System.Windows.Forms.Padding(2);
             this.savedFoodsView.Name = "savedFoodsView";
             this.savedFoodsView.ReadOnly = true;
@@ -86,7 +88,7 @@
             this.savedFoodsView.RowTemplate.Height = 24;
             this.savedFoodsView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.savedFoodsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.savedFoodsView.Size = new System.Drawing.Size(771, 474);
+            this.savedFoodsView.Size = new System.Drawing.Size(771, 407);
             this.savedFoodsView.TabIndex = 0;
             this.savedFoodsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.savedFoodsView_CellContentClick);
             // 
@@ -163,20 +165,45 @@
             // 
             // title
             // 
-            this.title.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title.Location = new System.Drawing.Point(220, 9);
             this.title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(469, 54);
+            this.title.Size = new System.Drawing.Size(469, 75);
             this.title.TabIndex = 23;
             this.title.Text = "Saved Foods";
             this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // foodLabel
+            // 
+            this.foodLabel.AutoSize = true;
+            this.foodLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.foodLabel.Location = new System.Drawing.Point(226, 100);
+            this.foodLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.foodLabel.Name = "foodLabel";
+            this.foodLabel.Size = new System.Drawing.Size(85, 32);
+            this.foodLabel.TabIndex = 44;
+            this.foodLabel.Text = "Food:";
+            this.foodLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // foodBox
+            // 
+            this.foodBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.foodBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.foodBox.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.foodBox.Location = new System.Drawing.Point(316, 97);
+            this.foodBox.Name = "foodBox";
+            this.foodBox.Size = new System.Drawing.Size(366, 39);
+            this.foodBox.TabIndex = 45;
+            this.foodBox.TextChanged += new System.EventHandler(this.foodBox_TextChanged);
             // 
             // SavedFoodsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 626);
+            this.Controls.Add(this.foodLabel);
+            this.Controls.Add(this.foodBox);
             this.Controls.Add(this.title);
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.savedFoodsView);
@@ -189,6 +216,7 @@
             this.Shown += new System.EventHandler(this.SavedFoodsForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.savedFoodsView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -204,5 +232,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn EditFoodColumn;
         private System.Windows.Forms.DataGridViewButtonColumn RemoveFoodColumn;
         private System.Windows.Forms.Label title;
+        private System.Windows.Forms.Label foodLabel;
+        private System.Windows.Forms.TextBox foodBox;
     }
 }

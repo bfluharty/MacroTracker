@@ -17,6 +17,7 @@ namespace MacroTracker.Forms
 
             FillTable();
             foodsToAddGrid.RowHeadersVisible = false;
+            HandleSort(foodsToAddGrid.Columns[0]);
         }
 
         private void FillTable()

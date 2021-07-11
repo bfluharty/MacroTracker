@@ -8,22 +8,29 @@ namespace MacroTracker.Forms
     public partial class SavedFoodsForm : Form
     {
         private bool ascending = true;
+        private List<Food> foods;
 
         public SavedFoodsForm()
         {
             InitializeComponent();
-            FillTable();
+            foods = DatabaseInterface.SelectVisibleFoods();
+            FillTable("");
             savedFoodsView.RowHeadersVisible = false;
+            HandleSort(savedFoodsView.Columns[0]);
         }
 
-        private void FillTable()
+        private void FillTable(string search)
         {
-            List<Food> foods = DatabaseInterface.SelectVisibleFoods();
-
+            savedFoodsView.Rows.Clear();
+            
             foreach (Food food in foods)
             {
-                savedFoodsView.Rows.Add(food.Name, food.Calories, food.Fat, food.Carbs, food.Protein);
+                if (search == "" || food.Name.ToLower().StartsWith(search))
+                {
+                    savedFoodsView.Rows.Add(food.Name, food.Calories, food.Fat, food.Carbs, food.Protein);
+                }
             }
+            savedFoodsView.ClearSelection();
         }
 
         private void menuButton_Click(object sender, EventArgs e)
@@ -62,7 +69,7 @@ namespace MacroTracker.Forms
                     EditSavedFoodForm form = new EditSavedFoodForm(foodID, new Food(name, int.Parse(group[1].Value.ToString()), double.Parse(group[2].Value.ToString()), double.Parse(group[3].Value.ToString()), double.Parse(group[4].Value.ToString())));
                     form.ShowDialog();
                     savedFoodsView.Rows.Clear();
-                    FillTable();
+                    FillTable(foodBox.Text);
                 }
                 // Remove entry
                 else if (e.ColumnIndex == savedFoodsView.ColumnCount - 1 && e.RowIndex >= 0)
@@ -106,6 +113,11 @@ namespace MacroTracker.Forms
             {
                columns[i].HeaderText = headerNames[i];
             }
+        }
+
+        private void foodBox_TextChanged(object sender, EventArgs e)
+        {
+            FillTable(foodBox.Text);
         }
     }
 }

@@ -27,6 +27,7 @@ namespace MacroTracker.Forms
 
             mealToAddGrid.RowHeadersVisible = false;
             mealToAddGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            HandleSort(mealToAddGrid.Columns[0]);
         }
 
         private void menuButton_Click(object sender, EventArgs e)
