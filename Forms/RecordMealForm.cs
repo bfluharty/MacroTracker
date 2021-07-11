@@ -61,7 +61,7 @@ namespace MacroTracker.Forms
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            FormManager.AddForm(FormManager.FormTypes.AddNewMealForm);
+            FormManager.AddForm(FormManager.FormTypes.AddNewMealForm, meal);
             Close();
         }
 
