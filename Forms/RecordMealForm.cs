@@ -33,6 +33,32 @@ namespace MacroTracker.Forms
             foodBox.AutoCompleteCustomSource = foodCollection;
         }
 
+        public RecordMealForm(Meal savedMeal, Dictionary<string, double> map)
+        {
+            InitializeComponent();
+            HideArrows();
+            ResetInputs();
+
+            meal = savedMeal;
+            this.map = map;
+            foods = DatabaseInterface.SelectFoodNames();
+
+            suggestBox = new ListBox();
+            suggestBox.Width = foodBox.Width;
+            suggestBox.Sorted = true;
+
+            suggestBox.SelectedIndexChanged += suggestBox_SelectedIndexChanged;
+
+            AutoCompleteStringCollection foodCollection = new AutoCompleteStringCollection();
+            foodCollection.AddRange(foods.ToArray());
+            foodBox.AutoCompleteCustomSource = foodCollection;
+
+            if (this.map.Keys.Count != 0)
+            {
+                nextButton.Enabled = true;
+            }
+        }
+
         private void backButton_Click(object sender, EventArgs e)
         {
             FormManager.AddForm(FormManager.FormTypes.AddNewMealForm);

@@ -38,7 +38,7 @@ namespace MacroTracker.Forms
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            FormManager.AddForm(FormManager.FormTypes.RecordMealForm, meal);
+            FormManager.AddForm(FormManager.FormTypes.RecordMealForm, meal, map: mealMap);
             Close();
         }
 

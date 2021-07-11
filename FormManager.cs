@@ -63,7 +63,14 @@ namespace MacroTracker
             }
             else if (type == FormTypes.RecordMealForm)
             {
-                form = new RecordMealForm(meal);
+                if (map == null)
+                {
+                    form = new RecordMealForm(meal);
+                }
+                else
+                {
+                    form = new RecordMealForm(meal, map);
+                }
             }
             else if (type == FormTypes.ReviewNewFoodForm)
             {
