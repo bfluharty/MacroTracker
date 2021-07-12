@@ -42,7 +42,7 @@ namespace MacroTracker.Forms
 
         private void FillTables()
         {
-            ClearSelections();
+            ClearRows();
 
             foreach (Tuple<int, double> entry in breakfastFoods)
             {
@@ -69,7 +69,7 @@ namespace MacroTracker.Forms
             }
         }
 
-        private void ClearSelections()
+        private void ClearRows()
         {
             breakfastFoodsView.Rows.Clear();
             lunchFoodsView.Rows.Clear();
@@ -129,7 +129,7 @@ namespace MacroTracker.Forms
 
         private void DailyTotalsForm_Shown(object sender, EventArgs e)
         {
-            ClearSelections();
+            ClearRows();
             FillTables();
         }
 
@@ -224,7 +224,7 @@ namespace MacroTracker.Forms
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    string name = entry.Substring(0, entry.IndexOf(" "));
+                    string name = entry.Substring(0, entry.LastIndexOf(" "));
                     DatabaseInterface.DeleteEntry(new Meal('B', datePicker.Value), name);
                     breakfastFoodsView.Rows.RemoveAt(e.RowIndex);
                     
@@ -242,7 +242,7 @@ namespace MacroTracker.Forms
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    string name = entry.Substring(0, entry.IndexOf(" "));
+                    string name = entry.Substring(0, entry.LastIndexOf(" "));
                     DatabaseInterface.DeleteEntry(new Meal('L', datePicker.Value), name);
                     lunchFoodsView.Rows.RemoveAt(e.RowIndex);
 
@@ -260,7 +260,7 @@ namespace MacroTracker.Forms
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    string name = entry.Substring(0, entry.IndexOf(" "));
+                    string name = entry.Substring(0, entry.LastIndexOf(" "));
                     DatabaseInterface.DeleteEntry(new Meal('D', datePicker.Value), name);
                     dinnerFoodsView.Rows.RemoveAt(e.RowIndex);
 
@@ -278,7 +278,7 @@ namespace MacroTracker.Forms
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    string name = entry.Substring(0, entry.IndexOf(" "));
+                    string name = entry.Substring(0, entry.LastIndexOf(" "));
                     DatabaseInterface.DeleteEntry(new Meal('S', datePicker.Value), name);
                     snackFoodsView.Rows.RemoveAt(e.RowIndex);
 
