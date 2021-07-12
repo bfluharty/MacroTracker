@@ -115,6 +115,12 @@
     <Compile Include="Forms\EnterMacroGoalsForm.Designer.cs">
       <DependentUpon>EnterMacroGoalsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EditNewMealForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditNewMealForm.Designer.cs">
+      <DependentUpon>EditNewMealForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RecordMealForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EnterMacroGoalsForm.resx">
       <DependentUpon>EnterMacroGoalsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditNewMealForm.resx">
+      <DependentUpon>EditNewMealForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RecordMealForm.resx">
       <DependentUpon>RecordMealForm.cs</DependentUpon>

@@ -20,13 +20,8 @@ namespace MacroTracker.Forms
 
             mealMap = map;
 
-            foreach (KeyValuePair<string, double> pair in map)
-            {
-                mealToAddGrid.Rows.Add(pair.Key, pair.Value);
-            }
-
+            FillTable();
             mealToAddGrid.RowHeadersVisible = false;
-            mealToAddGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             HandleSort(mealToAddGrid.Columns[0]);
         }
 
@@ -67,16 +62,43 @@ namespace MacroTracker.Forms
             title.Select();
         }
 
+        private void FillTable()
+        {
+            mealToAddGrid.Rows.Clear();
+
+            foreach (KeyValuePair<string, double> pair in mealMap)
+            {
+                mealToAddGrid.Rows.Add(pair.Key, pair.Value);
+            }
+        }
+
         private void mealToAddGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (mealToAddGrid.RowCount > 0)
             {
+                // Sort column
                 if (e.RowIndex == -1 && e.ColumnIndex != mealToAddGrid.ColumnCount - 1)
                 {
                     ResetHeaders();
                     HandleSort(mealToAddGrid.Columns[e.ColumnIndex]);
                 }
-                else if (e.ColumnIndex == mealToAddGrid.Columns["removeMealColumn"].Index && e.RowIndex >= 0)
+                // Edit entry
+                else if (e.ColumnIndex == mealToAddGrid.ColumnCount - 2 && e.RowIndex >= 0)
+                {
+                    DataGridViewCellCollection group = mealToAddGrid.Rows[e.RowIndex].Cells;
+                    string name = group[0].Value.ToString();
+                    double servings = double.Parse(group[1].Value.ToString());
+                    EditNewMealForm form = new EditNewMealForm(mealMap, new Tuple<string, double>(name, servings));
+                    form.ShowDialog();
+                    mealMap = form.mealMap;
+
+                    FillTable();
+                    ascending = false;
+                    HandleSort(mealToAddGrid.Columns[0]);
+                    ResetHeaders();
+                }
+                // Remove entry
+                else if (e.ColumnIndex == mealToAddGrid.ColumnCount - 1 && e.RowIndex >= 0)
                 {
                     string food = mealToAddGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
 
@@ -122,7 +144,7 @@ namespace MacroTracker.Forms
             DataGridViewColumnCollection columns = mealToAddGrid.Columns;
             List<string> headerNames = new List<string>() { "Food", "Servings" };
 
-            for (int i = 0; i < columns.Count - 1; i++)
+            for (int i = 0; i < columns.Count - 2; i++)
             {
                 columns[i].HeaderText = headerNames[i];
             }

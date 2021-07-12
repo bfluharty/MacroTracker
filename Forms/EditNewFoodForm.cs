@@ -1,17 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace MacroTracker.Forms
 {
     public partial class EditNewFoodForm : Form
     {
-        public Food food { get; set; }
-
-        public EditNewFoodForm(Food food)
+        private Food food;
+        public List<Food> foodsToAdd { get; set; }
+        public EditNewFoodForm(Food currentFood, List<Food> foods)
         {
             InitializeComponent();
             HideArrows();
+            food = currentFood;
             SetInputs(food);
+            foodsToAdd = foods;
+
+            int index = foodsToAdd.FindIndex(x => x.Name.Equals(food.Name));
+            foodsToAdd.RemoveAt(index);
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
@@ -21,6 +27,12 @@ namespace MacroTracker.Forms
             if (name.Equals(""))
             {
                 confirmationLabel.Text = "Enter a name for the food!";
+                return;
+            }
+
+            if (foodsToAdd.Contains(food) || DatabaseInterface.SelectVisibleFoods().Contains(food))
+            {
+                confirmationLabel.Text = name + " has already been added!"; 
                 return;
             }
 
@@ -53,6 +65,11 @@ namespace MacroTracker.Forms
         private void backButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void EditNewFoodForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            foodsToAdd.Add(food);
         }
     }
 }

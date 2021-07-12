@@ -8,21 +8,20 @@ namespace MacroTracker.Forms
     public partial class SavedFoodsForm : Form
     {
         private bool ascending = false;
-        private List<Food> foods;
 
         public SavedFoodsForm()
         {
             InitializeComponent();
-            foods = DatabaseInterface.SelectVisibleFoods();
             FillTable("");
             savedFoodsView.RowHeadersVisible = false;
-            HandleSort(savedFoodsView.Columns[0]);
         }
 
         private void FillTable(string search)
         {
             savedFoodsView.Rows.Clear();
-            
+
+            List<Food> foods = DatabaseInterface.SelectVisibleFoods();
+
             foreach (Food food in foods)
             {
                 if (search == "" || food.Name.ToLower().StartsWith(search))
@@ -31,6 +30,9 @@ namespace MacroTracker.Forms
                 }
             }
             savedFoodsView.ClearSelection();
+            ascending = false;
+            ResetHeaders();
+            HandleSort(savedFoodsView.Columns[0]);
         }
 
         private void menuButton_Click(object sender, EventArgs e)
@@ -68,7 +70,6 @@ namespace MacroTracker.Forms
 
                     EditSavedFoodForm form = new EditSavedFoodForm(foodID, new Food(name, int.Parse(group[1].Value.ToString()), double.Parse(group[2].Value.ToString()), double.Parse(group[3].Value.ToString()), double.Parse(group[4].Value.ToString())));
                     form.ShowDialog();
-                    savedFoodsView.Rows.Clear();
                     FillTable(foodBox.Text);
                 }
                 // Remove entry

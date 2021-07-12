@@ -80,15 +80,18 @@ namespace MacroTracker.Forms
                     DataGridViewCellCollection group = foodsToAddGrid.Rows[e.RowIndex].Cells;
                     string name = group[0].Value.ToString();
 
-                    EditNewFoodForm form = new EditNewFoodForm(new Food(name, int.Parse(group[1].Value.ToString()), double.Parse(group[2].Value.ToString()), double.Parse(group[3].Value.ToString()), double.Parse(group[4].Value.ToString())));
+                    EditNewFoodForm form = new EditNewFoodForm(new Food(name, int.Parse(group[1].Value.ToString()), 
+                        double.Parse(group[2].Value.ToString()), double.Parse(group[3].Value.ToString()), double.Parse(group[4].Value.ToString())),
+                        foods);
                     form.ShowDialog();
-                    Food newFood = form.food;
-
-                    int index = foods.FindIndex(x => x.Name.Equals(name));
-                    foods[index].update(newFood);
+                    foods = form.foodsToAdd;
 
                     foodsToAddGrid.Rows.Clear();
                     FillTable();
+
+                    ascending = false;
+                    HandleSort(foodsToAddGrid.Columns[0]);
+                    ResetHeaders();
                 }
                 // Remove entry
                 else if (e.ColumnIndex == foodsToAddGrid.ColumnCount - 1 && e.RowIndex >= 0)

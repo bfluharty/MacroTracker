@@ -5,21 +5,19 @@ using System.Windows.Forms;
 
 namespace MacroTracker.Forms
 {
-    public partial class RecordMealForm : Form
+    public partial class EditNewMealForm : Form
     {
-        private Dictionary<string, double> map;
-        private Meal meal;
+        public Dictionary<string, double> mealMap { get; set; }
         private ListBox suggestBox;
         private List<string> foods;
-
-        public RecordMealForm(Meal savedMeal)
+        private Tuple<string, double> entry;
+        public EditNewMealForm(Dictionary<string, double> map, Tuple<string, double> oldEntry)
         {
             InitializeComponent();
             HideArrows();
-            ResetInputs();
-
-            meal = savedMeal;
-            map = new Dictionary<string, double>();
+            entry = oldEntry;
+            mealMap = map;
+            mealMap.Remove(entry.Item1);
             foods = DatabaseInterface.SelectFoodNames();
 
             suggestBox = new ListBox();
@@ -27,32 +25,18 @@ namespace MacroTracker.Forms
             suggestBox.Sorted = true;
 
             suggestBox.SelectedIndexChanged += suggestBox_SelectedIndexChanged;
+
             SetUpAutocompleteCollection();
-        }
 
-        public RecordMealForm(Meal savedMeal, Dictionary<string, double> map)
-        {
-            InitializeComponent();
-            HideArrows();
-            ResetInputs();
-
-            meal = savedMeal;
-            this.map = map;
-            foods = DatabaseInterface.SelectFoodNames();
-
-            suggestBox = new ListBox();
-            suggestBox.Width = foodBox.Width;
-            suggestBox.Sorted = true;
-
-            suggestBox.SelectedIndexChanged += suggestBox_SelectedIndexChanged;
-            SetUpAutocompleteCollection();
+            SetInputs(entry);
+            suggestBox.Visible = false;
         }
 
         private void SetUpAutocompleteCollection()
         {
             AutoCompleteStringCollection foodCollection = new AutoCompleteStringCollection();
             foodCollection.AddRange(foods.ToArray());
-            foreach (KeyValuePair<string, double> pair in map)
+            foreach (KeyValuePair<string, double> pair in mealMap)
             {
                 if (foodCollection.Contains(pair.Key))
                 {
@@ -62,84 +46,15 @@ namespace MacroTracker.Forms
             foodBox.AutoCompleteCustomSource = foodCollection;
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void SetInputs(Tuple<string, double> entry)
         {
-            FormManager.AddForm(FormManager.FormTypes.AddNewMealForm, meal);
-            Close();
-        }
-
-        private void addButton_Click(object sender, EventArgs e)
-        {
-            string foodChoice = foodBox.Text;
-
-            if (foodChoice == "")
-            {
-                confirmationLabel.Text = "Select a food!";
-                return;
-            }
-
-
-            if (!foods.Contains(foodChoice))
-            {
-                confirmationLabel.Text = "Select a valid food!";
-                return;
-            }
-
-
-            if (servingsInput.Value == 0)
-            {
-                confirmationLabel.Text = "Enter a valid servings amount!";
-                return;
-            }
-
-
-            if (map.ContainsKey(foodChoice))
-            {
-                confirmationLabel.Text = foodChoice + " has already been added!";
-                return;
-            }
-
-            double servings = (double)Math.Round(servingsInput.Value, 1);
-
-            map.Add(foodChoice, servings);
-
-            confirmationLabel.Text = foodChoice + " (" + servings + " serving[s]) has been added.";
-            nextButton.Enabled = true;
-            ResetInputs();
-            SetUpAutocompleteCollection();
-        }
-
-        private void nextButton_Click(object sender, EventArgs e)
-        {
-            FormManager.AddForm(FormManager.FormTypes.ReviewNewMealForm, meal: meal, map: map);
-            Close();
-        }
-
-        private void ResetInputs()
-        {
-            servingsInput.Value = 0;
-            servingsInput.ResetText();
+            foodBox.Text = entry.Item1;
+            servingsInput.Value = (decimal) entry.Item2;
         }
 
         private void HideArrows()
         {
             servingsInput.Controls[0].Visible = false;
-        }
-
-        private void RecordMealForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            FormManager.RemoveForm(this);
-        }
-
-        private void RecordMealForm_Shown(object sender, EventArgs e)
-        {
-            title.Select();
-        }
-
-        private void menuButton_Click(object sender, EventArgs e)
-        {
-            FormManager.AddForm(FormManager.FormTypes.MenuForm);
-            Close();
         }
 
         private void suggestBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -160,7 +75,7 @@ namespace MacroTracker.Forms
             {
                 foreach (string item in foods)
                 {
-                    if (!map.ContainsKey(item))
+                    if (!mealMap.ContainsKey(item))
                     {
                         suggestBox.Items.Add(item);
                         height += 40;
@@ -171,7 +86,7 @@ namespace MacroTracker.Forms
             {
                 foreach (string item in foods)
                 {
-                    if (item.ToLower().StartsWith(foodBox.Text.ToLower()) && foodBox.Text != string.Empty && !map.ContainsKey(item))
+                    if (item.ToLower().StartsWith(foodBox.Text.ToLower()) && foodBox.Text != string.Empty && !mealMap.ContainsKey(item))
                     {
                         suggestBox.Items.Add(item);
                         height += 40;
@@ -184,16 +99,11 @@ namespace MacroTracker.Forms
             Controls.Add(suggestBox);
         }
 
-        private void RecordMealForm_Click(object sender, EventArgs e)
-        {
-            suggestBox.Visible = false;
-        }
-
         private void servingsInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                addButton.Focus();
+                confirmButton.Focus();
             }
         }
 
@@ -228,6 +138,58 @@ namespace MacroTracker.Forms
                     return;
                 }
             }
+        }
+
+        private void confirmButton_Click(object sender, EventArgs e)
+        {
+            string foodChoice = foodBox.Text;
+
+            if (foodChoice == "")
+            {
+                confirmationLabel.Text = "Select a food!";
+                return;
+            }
+
+
+            if (!foods.Contains(foodChoice))
+            {
+                confirmationLabel.Text = "Select a valid food!";
+                return;
+            }
+
+
+            if (servingsInput.Value == 0)
+            {
+                confirmationLabel.Text = "Enter a valid servings amount!";
+                return;
+            }
+
+
+            if (mealMap.ContainsKey(foodChoice))
+            {
+                confirmationLabel.Text = foodChoice + " has already been added!";
+                return;
+            }
+
+            double servings = (double)Math.Round(servingsInput.Value, 1);
+            mealMap.Add(foodChoice, servings);
+            Close();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            mealMap.Add(entry.Item1, entry.Item2);
+            Close();
+        }
+
+        private void EditNewMealForm_Shown(object sender, EventArgs e)
+        {
+            title.Select();
+        }
+
+        private void EditNewMealForm_Click(object sender, EventArgs e)
+        {
+            suggestBox.Visible = false;
         }
     }
 }

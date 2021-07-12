@@ -30,8 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReviewNewMealForm));
             this.title = new System.Windows.Forms.Label();
             this.submitButton = new System.Windows.Forms.Button();
@@ -42,6 +43,7 @@
             this.mealLabel = new System.Windows.Forms.Label();
             this.foodColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.servingsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editMealColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.removeMealColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mealToAddGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).BeginInit();
@@ -111,26 +113,27 @@
             this.mealToAddGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.foodColumn,
             this.servingsColumn,
+            this.editMealColumn,
             this.removeMealColumn});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.mealToAddGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mealToAddGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.mealToAddGrid.Location = new System.Drawing.Point(95, 205);
             this.mealToAddGrid.Margin = new System.Windows.Forms.Padding(2);
             this.mealToAddGrid.Name = "mealToAddGrid";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mealToAddGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mealToAddGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.mealToAddGrid.RowHeadersVisible = false;
             this.mealToAddGrid.RowTemplate.Height = 24;
             this.mealToAddGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -154,7 +157,9 @@
             // foodColumn
             // 
             this.foodColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.foodColumn.FillWeight = 55.61195F;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.foodColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.foodColumn.FillWeight = 122.4885F;
             this.foodColumn.HeaderText = "Food";
             this.foodColumn.Name = "foodColumn";
             this.foodColumn.ReadOnly = true;
@@ -162,12 +167,23 @@
             // 
             // servingsColumn
             // 
-            this.servingsColumn.FillWeight = 1F;
+            this.servingsColumn.FillWeight = 2.202557F;
             this.servingsColumn.HeaderText = "Servings";
             this.servingsColumn.MinimumWidth = 120;
             this.servingsColumn.Name = "servingsColumn";
             this.servingsColumn.ReadOnly = true;
             this.servingsColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // editMealColumn
+            // 
+            this.editMealColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.editMealColumn.FillWeight = 31.92091F;
+            this.editMealColumn.HeaderText = "";
+            this.editMealColumn.MinimumWidth = 40;
+            this.editMealColumn.Name = "editMealColumn";
+            this.editMealColumn.Text = "e";
+            this.editMealColumn.UseColumnTextForButtonValue = true;
+            this.editMealColumn.Width = 40;
             // 
             // removeMealColumn
             // 
@@ -216,6 +232,7 @@
         private System.Windows.Forms.Label mealLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn foodColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn servingsColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn editMealColumn;
         private System.Windows.Forms.DataGridViewButtonColumn removeMealColumn;
     }
 }

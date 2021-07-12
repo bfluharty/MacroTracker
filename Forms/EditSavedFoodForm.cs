@@ -23,7 +23,7 @@ namespace MacroTracker.Forms
                 confirmationLabel.Text = "Enter a name for the food!";
                 return;
             }
-            
+
             DatabaseInterface.EditFood(foodID, new Food(name, (int)caloriesInput.Value, (double)Math.Round(fatInput.Value, 1), (double)Math.Round(carbsInput.Value, 1), (double)Math.Round(proteinInput.Value, 1)));
             Close();
         }

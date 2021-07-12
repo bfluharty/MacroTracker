@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditSavedFoodForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditNewFoodForm));
             this.title = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.nameInput = new System.Windows.Forms.TextBox();
@@ -240,7 +240,7 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
-            // EditFoodForm
+            // EditNewFoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -260,9 +260,10 @@
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.title);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "EditFoodForm";
+            this.Name = "EditNewFoodForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Edit Food";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditNewFoodForm_FormClosed);
             this.Shown += new System.EventHandler(this.EditNewFoodForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.caloriesInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fatInput)).EndInit();
