@@ -234,6 +234,14 @@ namespace MacroTracker
             UpdateFood(foodID, food);
         }
 
+        public static void EditMeal(Meal meal, Tuple<string, double> entry)
+        {
+            int mealID = SelectMealID(meal);
+            int foodID = SelectFoodID(entry.Item1);
+            double servings = entry.Item2;
+            UpdateMeal(mealID, foodID, servings);
+        }
+
         public static void HideFood(string name)
         {
             string sql = "UPDATE Foods SET Visible = 0 WHERE Name = '" + name + "'";
@@ -318,6 +326,15 @@ namespace MacroTracker
         private static void UpdateFood(int foodID, Food food)
         {
             string sql = "UPDATE Foods SET " + food.GetUpdateSQL() + " WHERE FoodID = " + foodID;
+            SqlCommand command = new SqlCommand(sql, connection);
+            adapter.UpdateCommand = new SqlCommand(sql, connection);
+            adapter.UpdateCommand.ExecuteNonQuery();
+            command.Dispose();
+        }
+
+        private static void UpdateMeal(int mealID, int foodID, double servings)
+        {
+            string sql = "UPDATE MealContents SET servings = " + servings + " WHERE MealID = " + mealID + " AND FoodID = " + foodID;
             SqlCommand command = new SqlCommand(sql, connection);
             adapter.UpdateCommand = new SqlCommand(sql, connection);
             adapter.UpdateCommand.ExecuteNonQuery();

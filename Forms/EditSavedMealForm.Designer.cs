@@ -1,6 +1,6 @@
 ﻿namespace MacroTracker.Forms
 {
-    partial class EditNewMealForm
+    partial class EditSavedMealForm
     {
         /// <summary>
         /// Required designer variable.
@@ -126,14 +126,12 @@
             // 
             this.foodBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.foodBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.foodBox.Enabled = false;
             this.foodBox.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.foodBox.Location = new System.Drawing.Point(48, 184);
             this.foodBox.Name = "foodBox";
             this.foodBox.Size = new System.Drawing.Size(458, 39);
             this.foodBox.TabIndex = 43;
-            this.foodBox.TextChanged += new System.EventHandler(this.foodBox_TextChanged);
-            this.foodBox.DoubleClick += new System.EventHandler(this.foodBox_DoubleClick);
-            this.foodBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.foodBox_KeyDown);
             // 
             // confirmButton
             // 
@@ -146,7 +144,7 @@
             this.confirmButton.UseVisualStyleBackColor = true;
             this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
-            // EditNewMealForm
+            // EditSavedMealForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -160,12 +158,10 @@
             this.Controls.Add(this.title);
             this.Controls.Add(this.foodBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "EditNewMealForm";
+            this.Name = "EditSavedMealForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Edit Meal";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditNewMealForm_FormClosed);
             this.Shown += new System.EventHandler(this.EditNewMealForm_Shown);
-            this.Click += new System.EventHandler(this.EditNewMealForm_Click);
             ((System.ComponentModel.ISupportInitialize)(this.servingsInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mealTypesBindingSource)).EndInit();
             this.ResumeLayout(false);

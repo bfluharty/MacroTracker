@@ -91,6 +91,12 @@
     <Compile Include="Forms\EditNewFoodForm.Designer.cs">
       <DependentUpon>EditNewFoodForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EditSavedMealForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditSavedMealForm.Designer.cs">
+      <DependentUpon>EditSavedMealForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditSavedFoodForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\EditNewFoodForm.resx">
       <DependentUpon>EditNewFoodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditSavedMealForm.resx">
+      <DependentUpon>EditSavedMealForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditSavedFoodForm.resx">
       <DependentUpon>EditSavedFoodForm.cs</DependentUpon>

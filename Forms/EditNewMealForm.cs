@@ -11,12 +11,14 @@ namespace MacroTracker.Forms
         private ListBox suggestBox;
         private List<string> foods;
         private Tuple<string, double> entry;
+        private int initialCount;
         public EditNewMealForm(Dictionary<string, double> map, Tuple<string, double> oldEntry)
         {
             InitializeComponent();
             HideArrows();
             entry = oldEntry;
             mealMap = map;
+            initialCount = mealMap.Count;
             mealMap.Remove(entry.Item1);
             foods = DatabaseInterface.SelectFoodNames();
 
@@ -178,7 +180,6 @@ namespace MacroTracker.Forms
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            mealMap.Add(entry.Item1, entry.Item2);
             Close();
         }
 
@@ -190,6 +191,14 @@ namespace MacroTracker.Forms
         private void EditNewMealForm_Click(object sender, EventArgs e)
         {
             suggestBox.Visible = false;
+        }
+
+        private void EditNewMealForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (mealMap.Count != initialCount)
+            {
+                mealMap.Add(entry.Item1, entry.Item2);
+            }
         }
     }
 }
