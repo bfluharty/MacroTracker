@@ -141,7 +141,7 @@ namespace MacroTracker
 
             while (reader.Read())
             {
-                total.Calories = (reader.GetValue(0).ToString().Equals("")) ? 0 : int.Parse(reader.GetValue(0).ToString());
+                total.Calories = (reader.GetValue(0).ToString().Equals("")) ? 0 : (int) double.Parse(reader.GetValue(0).ToString());
                 total.Fat = (reader.GetValue(1).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(1).ToString());
                 total.Carbs = (reader.GetValue(2).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(2).ToString());
                 total.Protein = (reader.GetValue(3).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(3).ToString());
@@ -183,7 +183,7 @@ namespace MacroTracker
 
             while (reader.Read())
             {
-                total.Calories = (reader.GetValue(0).ToString().Equals("")) ? 0 : int.Parse(reader.GetValue(0).ToString());
+                total.Calories = (reader.GetValue(0).ToString().Equals("")) ? 0 : (int) double.Parse(reader.GetValue(0).ToString());
                 total.Fat = (reader.GetValue(1).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(1).ToString());
                 total.Carbs = (reader.GetValue(2).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(2).ToString());
                 total.Protein = (reader.GetValue(3).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(3).ToString());

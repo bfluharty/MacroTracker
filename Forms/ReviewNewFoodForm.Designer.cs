@@ -51,7 +51,7 @@
             // title
             // 
             this.title.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(220, 7);
+            this.title.Location = new System.Drawing.Point(219, 23);
             this.title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(469, 54);
@@ -124,7 +124,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.foodsToAddGrid.DefaultCellStyle = dataGridViewCellStyle3;
-            this.foodsToAddGrid.Location = new System.Drawing.Point(9, 97);
+            this.foodsToAddGrid.Location = new System.Drawing.Point(37, 97);
             this.foodsToAddGrid.Margin = new System.Windows.Forms.Padding(2);
             this.foodsToAddGrid.Name = "foodsToAddGrid";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -139,7 +139,7 @@
             this.foodsToAddGrid.RowTemplate.Height = 24;
             this.foodsToAddGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.foodsToAddGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.foodsToAddGrid.Size = new System.Drawing.Size(890, 413);
+            this.foodsToAddGrid.Size = new System.Drawing.Size(835, 413);
             this.foodsToAddGrid.TabIndex = 22;
             this.foodsToAddGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.foodsToAddGrid_CellContentClick);
             this.foodsToAddGrid.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.foodsToAddGrid_ColumnAdded);
@@ -198,13 +198,11 @@
             // 
             // removeFoodColumn
             // 
-            this.removeFoodColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.removeFoodColumn.HeaderText = "";
             this.removeFoodColumn.MinimumWidth = 40;
             this.removeFoodColumn.Name = "removeFoodColumn";
             this.removeFoodColumn.Text = "x";
             this.removeFoodColumn.UseColumnTextForButtonValue = true;
-            this.removeFoodColumn.Width = 40;
             // 
             // ReviewNewFoodForm
             // 

@@ -114,7 +114,7 @@
             // 
             this.foodLabel.AutoSize = true;
             this.foodLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.foodLabel.Location = new System.Drawing.Point(191, 141);
+            this.foodLabel.Location = new System.Drawing.Point(252, 141);
             this.foodLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.foodLabel.Name = "foodLabel";
             this.foodLabel.Size = new System.Drawing.Size(77, 32);
@@ -129,7 +129,7 @@
             this.foodBox.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.foodBox.Location = new System.Drawing.Point(48, 184);
             this.foodBox.Name = "foodBox";
-            this.foodBox.Size = new System.Drawing.Size(366, 39);
+            this.foodBox.Size = new System.Drawing.Size(458, 39);
             this.foodBox.TabIndex = 43;
             this.foodBox.TextChanged += new System.EventHandler(this.foodBox_TextChanged);
             this.foodBox.DoubleClick += new System.EventHandler(this.foodBox_DoubleClick);

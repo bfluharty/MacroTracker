@@ -71,7 +71,7 @@
             // 
             this.servingsInput.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.servingsInput.DecimalPlaces = 1;
-            this.servingsInput.Font = new System.Drawing.Font("Cambria", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.servingsInput.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.servingsInput.Increment = new decimal(new int[] {
             0,
             0,
@@ -85,7 +85,7 @@
             0,
             0});
             this.servingsInput.Name = "servingsInput";
-            this.servingsInput.Size = new System.Drawing.Size(83, 38);
+            this.servingsInput.Size = new System.Drawing.Size(111, 39);
             this.servingsInput.TabIndex = 32;
             this.servingsInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.servingsInput_KeyDown);
             // 
@@ -93,7 +93,7 @@
             // 
             this.servingsLabel.AutoSize = true;
             this.servingsLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.servingsLabel.Location = new System.Drawing.Point(578, 141);
+            this.servingsLabel.Location = new System.Drawing.Point(592, 141);
             this.servingsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.servingsLabel.Name = "servingsLabel";
             this.servingsLabel.Size = new System.Drawing.Size(120, 32);
@@ -139,7 +139,7 @@
             // 
             this.foodLabel.AutoSize = true;
             this.foodLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.foodLabel.Location = new System.Drawing.Point(191, 141);
+            this.foodLabel.Location = new System.Drawing.Point(252, 141);
             this.foodLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.foodLabel.Name = "foodLabel";
             this.foodLabel.Size = new System.Drawing.Size(77, 32);
@@ -163,9 +163,9 @@
             this.foodBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.foodBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.foodBox.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.foodBox.Location = new System.Drawing.Point(48, 184);
+            this.foodBox.Location = new System.Drawing.Point(47, 184);
             this.foodBox.Name = "foodBox";
-            this.foodBox.Size = new System.Drawing.Size(366, 39);
+            this.foodBox.Size = new System.Drawing.Size(458, 39);
             this.foodBox.TabIndex = 43;
             this.foodBox.TextChanged += new System.EventHandler(this.foodBox_TextChanged);
             this.foodBox.DoubleClick += new System.EventHandler(this.foodBox_DoubleClick);

@@ -44,7 +44,7 @@ namespace MacroTracker.Forms
         {
             DatabaseInterface.InsertFoods(foods);
 
-            FormManager.AddForm(FormManager.FormTypes.MenuForm);
+            FormManager.AddForm(FormManager.FormTypes.SavedFoodsForm);
             Close();
         }
 
