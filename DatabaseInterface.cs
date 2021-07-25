@@ -127,6 +127,12 @@ namespace MacroTracker
             return foods;
         }
 
+        public static bool MealExists(Meal meal)
+        {
+            int mealID = SelectMealID(meal);
+            return mealID != -1;
+        }
+
         public static Food SelectMealTotal(char type, DateTime date)
         {
             Food total = new Food();

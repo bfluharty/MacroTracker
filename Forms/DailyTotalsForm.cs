@@ -374,5 +374,40 @@ namespace MacroTracker.Forms
                 }
             }
         }
+
+        private void AddItem(Meal meal)
+        {
+            List<Tuple<int, double>> items = DatabaseInterface.SelectMealFoods(meal);
+            Dictionary<string, double> map = new Dictionary<string, double>();
+            foreach (Tuple<int, double> item in items)
+            {
+                map.Add(DatabaseInterface.SelectFoodName(item.Item1), item.Item2);
+            }
+            AddMealItemForm form = new AddMealItemForm(meal, map);
+            form.ShowDialog();
+            ResetMeal(breakfastFoodsView.Columns[0].HeaderText);
+            LoadMeals();
+            FillTables();
+        }
+
+        private void addBreakfastItem_Click(object sender, EventArgs e)
+        {
+            AddItem(new Meal('B', datePicker.Value));
+        }
+
+        private void addLunchItem_Click(object sender, EventArgs e)
+        {
+            AddItem(new Meal('L', datePicker.Value));
+        }
+
+        private void addDinnerItem_Click(object sender, EventArgs e)
+        {
+            AddItem(new Meal('D', datePicker.Value));
+        }
+
+        private void addSnackItem_Click(object sender, EventArgs e)
+        {
+            AddItem(new Meal('S', datePicker.Value));
+        }
     }
 }

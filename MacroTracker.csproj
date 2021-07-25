@@ -127,6 +127,12 @@
     <Compile Include="Forms\EditNewMealForm.Designer.cs">
       <DependentUpon>EditNewMealForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddMealItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddMealItemForm.Designer.cs">
+      <DependentUpon>AddMealItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RecordMealForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditNewMealForm.resx">
       <DependentUpon>EditNewMealForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddMealItemForm.resx">
+      <DependentUpon>AddMealItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RecordMealForm.resx">
       <DependentUpon>RecordMealForm.cs</DependentUpon>
