@@ -11,6 +11,13 @@ namespace MacroTracker.Forms
             datePicker.Value = DateTime.Today;
         }
 
+        public AddNewMealForm(Meal meal)
+        {
+            InitializeComponent();
+            mealTypeBox.SelectedItem = meal.Type.ToString();
+            datePicker.Value = meal.Date;
+        }
+
         private void backButton_Click(object sender, EventArgs e)
         {
             FormManager.AddForm(FormManager.FormTypes.MenuForm);

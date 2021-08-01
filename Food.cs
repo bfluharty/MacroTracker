@@ -20,9 +20,23 @@
             Protein = protein;
         }
 
+        public void update(Food food)
+        {
+            Name = food.Name;
+            Calories = food.Calories;
+            Fat = food.Fat;
+            Carbs = food.Carbs;
+            Protein = food.Protein;
+        }
+
         public string GetInsertSQL()
         {
             return "('" + DatabaseInterface.SanitizeName(Name) + "', " + Calories + ", " + Fat + ", " + Carbs + ", " + Protein + ")";
+        }
+
+        public string GetUpdateSQL()
+        {
+            return "Name = '" + DatabaseInterface.SanitizeName(Name) + "', Calories = " + Calories + ", Fat = " + Fat + ", Carbs = " + Carbs + ", Protein = " + Protein;
         }
 
         public override string ToString()

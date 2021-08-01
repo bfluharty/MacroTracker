@@ -6,6 +6,9 @@ namespace MacroTracker
 {
     public static class DatabaseInterface
     {
+        private static SqlConnection connection;
+        private static SqlDataAdapter adapter;
+
         public static void InitiateConnection()
         {
             connection = new SqlConnection(Properties.Settings.Default.MacroTrackerDatabaseConnectionString);
@@ -18,11 +21,26 @@ namespace MacroTracker
             connection.Close();
         }
 
+        public static int SelectFoodID(string foodName)
+        {
+            string sql = "SELECT FoodID FROM Foods WHERE Name ='" + SanitizeName(foodName) + "' AND Visible = 1";
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+
+            int ID = int.Parse(reader.GetValue(0).ToString());
+
+            reader.Close();
+            command.Dispose();
+
+            return ID;
+        }
+
         public static List<string> SelectFoodNames()
         {
             List<string> names = new List<string>();
 
-            string sql = "SELECT Name FROM Foods";
+            string sql = "SELECT Name FROM Foods WHERE Visible = 1";
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader();
 
@@ -35,6 +53,30 @@ namespace MacroTracker
             command.Dispose();
 
             return names;
+        }
+
+        public static List<Food> SelectVisibleFoods()
+        {
+            List<Food> foods = new List<Food>();
+
+            string sql = "SELECT Name, Calories, Fat, Carbs, Protein FROM Foods WHERE Visible = 1";
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Food food = new Food();
+                food.Name = reader.GetValue(0).ToString();
+                food.Calories = (reader.GetValue(1).ToString().Equals("")) ? 0 : int.Parse(reader.GetValue(1).ToString());
+                food.Fat = (reader.GetValue(2).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(2).ToString());
+                food.Carbs = (reader.GetValue(3).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(3).ToString());
+                food.Protein = (reader.GetValue(4).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(4).ToString());
+                foods.Add(food);
+            }
+            reader.Close();
+            command.Dispose();
+
+            return foods;
         }
 
         public static List<Tuple<string, string>> SelectMeals()
@@ -85,6 +127,12 @@ namespace MacroTracker
             return foods;
         }
 
+        public static bool MealExists(Meal meal)
+        {
+            int mealID = SelectMealID(meal);
+            return mealID != -1;
+        }
+
         public static Food SelectMealTotal(char type, DateTime date)
         {
             Food total = new Food();
@@ -92,14 +140,14 @@ namespace MacroTracker
             string sql = "SELECT SUM(Foods.Calories * MealContents.Servings), SUM(Foods.Fat * MealContents.Servings), " +
                 "SUM(Foods.Carbs * MealContents.Servings), SUM(Foods.Protein * MealContents.Servings) " +
                 "FROM MealContents INNER JOIN Foods ON MealContents.FoodID = Foods.FoodID " +
-                "INNER JOIN Meals ON MealContents.MealID = Meals.MealID WHERE Meals.MealType = '" + type + "' AND Meals.MealDate = '" +date.ToShortDateString() + "'";
+                "INNER JOIN Meals ON MealContents.MealID = Meals.MealID WHERE Meals.MealType = '" + type + "' AND Meals.MealDate = '" + date.ToShortDateString() + "'";
 
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
             {
-                total.Calories = (reader.GetValue(0).ToString().Equals("")) ? 0 : int.Parse(reader.GetValue(0).ToString());
+                total.Calories = (reader.GetValue(0).ToString().Equals("")) ? 0 : (int) double.Parse(reader.GetValue(0).ToString());
                 total.Fat = (reader.GetValue(1).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(1).ToString());
                 total.Carbs = (reader.GetValue(2).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(2).ToString());
                 total.Protein = (reader.GetValue(3).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(3).ToString());
@@ -109,6 +157,22 @@ namespace MacroTracker
             command.Dispose();
 
             return total;
+        }
+
+        public static string SelectFoodName(int foodID)
+        {
+            string name;
+            string sql = "SELECT Name FROM Foods WHERE FoodID = " + foodID;
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+
+            name = (reader.GetValue(0).ToString());
+
+            reader.Close();
+            command.Dispose();
+
+            return name;
         }
 
         public static Food SelectDailyTotal(DateTime date)
@@ -125,7 +189,7 @@ namespace MacroTracker
 
             while (reader.Read())
             {
-                total.Calories = (reader.GetValue(0).ToString().Equals("")) ? 0 : int.Parse(reader.GetValue(0).ToString());
+                total.Calories = (reader.GetValue(0).ToString().Equals("")) ? 0 : (int) double.Parse(reader.GetValue(0).ToString());
                 total.Fat = (reader.GetValue(1).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(1).ToString());
                 total.Carbs = (reader.GetValue(2).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(2).ToString());
                 total.Protein = (reader.GetValue(3).ToString().Equals("")) ? 0 : double.Parse(reader.GetValue(3).ToString());
@@ -171,20 +235,40 @@ namespace MacroTracker
             }
         }
 
-        public static string SelectFoodName(int foodID)
+        public static void EditFood(int foodID, Food food)
         {
-            string name;
-            string sql = "SELECT Name FROM Foods WHERE FoodID = " + foodID;
+            UpdateFood(foodID, food);
+        }
+
+        public static void EditMeal(Meal meal, Tuple<string, double> entry)
+        {
+            int mealID = SelectMealID(meal);
+            int foodID = SelectFoodID(entry.Item1);
+            double servings = entry.Item2;
+            UpdateMeal(mealID, foodID, servings);
+        }
+
+        public static void HideFood(string name)
+        {
+            string sql = "UPDATE Foods SET Visible = 0 WHERE Name = '" + name + "'";
             SqlCommand command = new SqlCommand(sql, connection);
-            SqlDataReader reader = command.ExecuteReader();
-            reader.Read();
+            adapter.UpdateCommand = new SqlCommand(sql, connection);
+            adapter.UpdateCommand.ExecuteNonQuery();
+            command.Dispose();
+        }
 
-            name = (reader.GetValue(0).ToString());
+        public static void DeleteEntry(Meal meal, string name)
+        {
+            int mealID = SelectMealID(meal);
+            int foodID = SelectFoodID(name);
 
-            reader.Close();
+            string sql = "DELETE FROM MealContents WHERE MealID = " + mealID + "AND FoodID = " + foodID;
+            SqlCommand command = new SqlCommand(sql, connection);
+            adapter.DeleteCommand = new SqlCommand(sql, connection);
+            adapter.DeleteCommand.ExecuteNonQuery();
             command.Dispose();
 
-            return name;
+            CleanupMealTable(mealID);
         }
 
         public static string SanitizeName(string input)
@@ -205,19 +289,26 @@ namespace MacroTracker
             return complete + rest;
         }
 
-        private static int SelectFoodID(string foodName)
+        private static void CleanupMealTable(int mealID)
         {
-            string sql = "SELECT FoodID FROM Foods WHERE Name ='" + SanitizeName(foodName) + "'";
+            bool entriesRemain = false;
+            string sql = "SELECT MealID FROM MealContents WHERE MealID = " + mealID;
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader();
-            reader.Read();
 
-            int ID = int.Parse(reader.GetValue(0).ToString());
+            while (reader.Read())
+            {
+                entriesRemain = true;
+                break;
+            }
 
             reader.Close();
             command.Dispose();
 
-            return ID;
+            if (!entriesRemain)
+            {
+                DeleteMeal(mealID);
+            }
         }
 
         private static int SelectMealID(Meal meal)
@@ -227,11 +318,10 @@ namespace MacroTracker
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader();
 
-            while(reader.Read())
+            while (reader.Read())
             {
                 ID = int.Parse(reader.GetValue(0).ToString());
             }
-
 
             reader.Close();
             command.Dispose();
@@ -239,7 +329,31 @@ namespace MacroTracker
             return ID;
         }
 
-        private static SqlConnection connection;
-        private static SqlDataAdapter adapter;
+        private static void UpdateFood(int foodID, Food food)
+        {
+            string sql = "UPDATE Foods SET " + food.GetUpdateSQL() + " WHERE FoodID = " + foodID;
+            SqlCommand command = new SqlCommand(sql, connection);
+            adapter.UpdateCommand = new SqlCommand(sql, connection);
+            adapter.UpdateCommand.ExecuteNonQuery();
+            command.Dispose();
+        }
+
+        private static void UpdateMeal(int mealID, int foodID, double servings)
+        {
+            string sql = "UPDATE MealContents SET servings = " + servings + " WHERE MealID = " + mealID + " AND FoodID = " + foodID;
+            SqlCommand command = new SqlCommand(sql, connection);
+            adapter.UpdateCommand = new SqlCommand(sql, connection);
+            adapter.UpdateCommand.ExecuteNonQuery();
+            command.Dispose();
+        }
+
+        private static void DeleteMeal(int mealID)
+        {
+            string sql = "DELETE FROM Meals WHERE MealID = " + mealID;
+            SqlCommand command = new SqlCommand(sql, connection);
+            adapter.DeleteCommand = new SqlCommand(sql, connection);
+            adapter.DeleteCommand.ExecuteNonQuery();
+            command.Dispose();
+        }
     }
 }

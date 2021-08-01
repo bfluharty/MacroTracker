@@ -96,7 +96,7 @@
             "Lunch",
             "Dinner",
             "Snack"});
-            this.mealTypeBox.Location = new System.Drawing.Point(211, 205);
+            this.mealTypeBox.Location = new System.Drawing.Point(211, 194);
             this.mealTypeBox.MaxDropDownItems = 4;
             this.mealTypeBox.Name = "mealTypeBox";
             this.mealTypeBox.Size = new System.Drawing.Size(158, 40);
@@ -106,7 +106,7 @@
             // 
             this.dateLabel.AutoSize = true;
             this.dateLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.Location = new System.Drawing.Point(413, 208);
+            this.dateLabel.Location = new System.Drawing.Point(413, 197);
             this.dateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(81, 32);
@@ -120,9 +120,8 @@
             this.datePicker.CustomFormat = "M/dd/yyyy";
             this.datePicker.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePicker.Location = new System.Drawing.Point(499, 206);
+            this.datePicker.Location = new System.Drawing.Point(499, 195);
             this.datePicker.Name = "datePicker";
-            this.datePicker.ShowUpDown = true;
             this.datePicker.Size = new System.Drawing.Size(180, 39);
             this.datePicker.TabIndex = 37;
             this.datePicker.Value = new System.DateTime(2021, 6, 10, 0, 29, 20, 0);
@@ -131,7 +130,7 @@
             // 
             this.mealLabel.AutoSize = true;
             this.mealLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mealLabel.Location = new System.Drawing.Point(121, 208);
+            this.mealLabel.Location = new System.Drawing.Point(121, 197);
             this.mealLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mealLabel.Name = "mealLabel";
             this.mealLabel.Size = new System.Drawing.Size(82, 32);

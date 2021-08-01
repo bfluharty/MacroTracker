@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReviewNewFoodForm));
             this.title = new System.Windows.Forms.Label();
             this.submitButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.menuButton = new System.Windows.Forms.Button();
             this.foodsToAddGrid = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.caloriesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carbsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proteinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.foodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.caloriesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fatColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carbsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proteinColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editFoodColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.removeFoodColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.foodsToAddGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // title
             // 
             this.title.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(220, 7);
+            this.title.Location = new System.Drawing.Point(219, 23);
             this.title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(469, 54);
@@ -84,7 +84,7 @@
             // menuButton
             // 
             this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuButton.Location = new System.Drawing.Point(229, 547);
+            this.menuButton.Location = new System.Drawing.Point(229, 546);
             this.menuButton.Name = "menuButton";
             this.menuButton.Size = new System.Drawing.Size(109, 39);
             this.menuButton.TabIndex = 21;
@@ -94,9 +94,9 @@
             // 
             // foodsToAddGrid
             // 
+            this.foodsToAddGrid.AllowUserToAddRows = false;
             this.foodsToAddGrid.AllowUserToResizeColumns = false;
             this.foodsToAddGrid.AllowUserToResizeRows = false;
-            this.foodsToAddGrid.AutoGenerateColumns = false;
             this.foodsToAddGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.foodsToAddGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -109,87 +109,100 @@
             this.foodsToAddGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.foodsToAddGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.foodsToAddGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.caloriesDataGridViewTextBoxColumn,
-            this.fatDataGridViewTextBoxColumn,
-            this.carbsDataGridViewTextBoxColumn,
-            this.proteinDataGridViewTextBoxColumn});
-            this.foodsToAddGrid.DataSource = this.foodBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.foodsToAddGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.foodsToAddGrid.Location = new System.Drawing.Point(9, 64);
-            this.foodsToAddGrid.Margin = new System.Windows.Forms.Padding(2);
-            this.foodsToAddGrid.Name = "foodsToAddGrid";
+            this.nameColumn,
+            this.caloriesColumn,
+            this.fatColumn,
+            this.carbsColumn,
+            this.proteinColumn,
+            this.editFoodColumn,
+            this.removeFoodColumn});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.foodsToAddGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.foodsToAddGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.foodsToAddGrid.Location = new System.Drawing.Point(37, 97);
+            this.foodsToAddGrid.Margin = new System.Windows.Forms.Padding(2);
+            this.foodsToAddGrid.Name = "foodsToAddGrid";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.foodsToAddGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.foodsToAddGrid.RowHeadersVisible = false;
             this.foodsToAddGrid.RowTemplate.Height = 24;
             this.foodsToAddGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.foodsToAddGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.foodsToAddGrid.Size = new System.Drawing.Size(890, 444);
+            this.foodsToAddGrid.Size = new System.Drawing.Size(835, 413);
             this.foodsToAddGrid.TabIndex = 22;
+            this.foodsToAddGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.foodsToAddGrid_CellContentClick);
             this.foodsToAddGrid.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.foodsToAddGrid_ColumnAdded);
             // 
-            // nameDataGridViewTextBoxColumn
+            // nameColumn
             // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.FillWeight = 34.55964F;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.nameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.nameColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.nameColumn.FillWeight = 1000F;
+            this.nameColumn.HeaderText = "Name";
+            this.nameColumn.MinimumWidth = 100;
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // caloriesDataGridViewTextBoxColumn
+            // caloriesColumn
             // 
-            this.caloriesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.caloriesDataGridViewTextBoxColumn.DataPropertyName = "Calories";
-            this.caloriesDataGridViewTextBoxColumn.FillWeight = 34.55964F;
-            this.caloriesDataGridViewTextBoxColumn.HeaderText = "Calories";
-            this.caloriesDataGridViewTextBoxColumn.Name = "caloriesDataGridViewTextBoxColumn";
-            this.caloriesDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.caloriesColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.caloriesColumn.FillWeight = 1000F;
+            this.caloriesColumn.HeaderText = "Calories";
+            this.caloriesColumn.MinimumWidth = 120;
+            this.caloriesColumn.Name = "caloriesColumn";
+            this.caloriesColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.caloriesColumn.Width = 120;
             // 
-            // fatDataGridViewTextBoxColumn
+            // fatColumn
             // 
-            this.fatDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.fatDataGridViewTextBoxColumn.DataPropertyName = "Fat";
-            this.fatDataGridViewTextBoxColumn.FillWeight = 34.55964F;
-            this.fatDataGridViewTextBoxColumn.HeaderText = "Fat";
-            this.fatDataGridViewTextBoxColumn.Name = "fatDataGridViewTextBoxColumn";
-            this.fatDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.fatColumn.FillWeight = 11F;
+            this.fatColumn.HeaderText = "Fat";
+            this.fatColumn.MinimumWidth = 100;
+            this.fatColumn.Name = "fatColumn";
+            this.fatColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // carbsDataGridViewTextBoxColumn
+            // carbsColumn
             // 
-            this.carbsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.carbsDataGridViewTextBoxColumn.DataPropertyName = "Carbs";
-            this.carbsDataGridViewTextBoxColumn.FillWeight = 253.8071F;
-            this.carbsDataGridViewTextBoxColumn.HeaderText = "Carbs";
-            this.carbsDataGridViewTextBoxColumn.Name = "carbsDataGridViewTextBoxColumn";
-            this.carbsDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.carbsColumn.FillWeight = 43.86742F;
+            this.carbsColumn.HeaderText = "Carbs";
+            this.carbsColumn.MinimumWidth = 100;
+            this.carbsColumn.Name = "carbsColumn";
+            this.carbsColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // proteinDataGridViewTextBoxColumn
+            // proteinColumn
             // 
-            this.proteinDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.proteinDataGridViewTextBoxColumn.DataPropertyName = "Protein";
-            this.proteinDataGridViewTextBoxColumn.FillWeight = 142.514F;
-            this.proteinDataGridViewTextBoxColumn.HeaderText = "Protein";
-            this.proteinDataGridViewTextBoxColumn.Name = "proteinDataGridViewTextBoxColumn";
-            this.proteinDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.proteinColumn.HeaderText = "Protein";
+            this.proteinColumn.MinimumWidth = 120;
+            this.proteinColumn.Name = "proteinColumn";
+            this.proteinColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // foodBindingSource
+            // editFoodColumn
             // 
-            this.foodBindingSource.DataSource = typeof(Food);
+            this.editFoodColumn.HeaderText = "";
+            this.editFoodColumn.MinimumWidth = 40;
+            this.editFoodColumn.Name = "editFoodColumn";
+            this.editFoodColumn.Text = "e";
+            this.editFoodColumn.UseColumnTextForButtonValue = true;
+            // 
+            // removeFoodColumn
+            // 
+            this.removeFoodColumn.HeaderText = "";
+            this.removeFoodColumn.MinimumWidth = 40;
+            this.removeFoodColumn.Name = "removeFoodColumn";
+            this.removeFoodColumn.Text = "x";
+            this.removeFoodColumn.UseColumnTextForButtonValue = true;
             // 
             // ReviewNewFoodForm
             // 
@@ -209,7 +222,6 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReviewNewFoodForm_FormClosed);
             this.Shown += new System.EventHandler(this.ReviewNewFoodForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.foodsToAddGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -221,11 +233,12 @@
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button menuButton;
         private System.Windows.Forms.DataGridView foodsToAddGrid;
-        private System.Windows.Forms.BindingSource foodBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn caloriesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn carbsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn proteinDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn caloriesColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fatColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn carbsColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proteinColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn editFoodColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn removeFoodColumn;
     }
 }

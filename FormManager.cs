@@ -44,11 +44,25 @@ namespace MacroTracker
             }
             else if (type == FormTypes.AddNewFoodForm)
             {
-                form = new AddNewFoodForm();
+                if (foods == null)
+                {
+                    form = new AddNewFoodForm();
+                }
+                else
+                {
+                    form = new AddNewFoodForm(foods);
+                }
             }
             else if (type == FormTypes.AddNewMealForm)
             {
-                form = new AddNewMealForm();
+                if (meal == null)
+                {
+                    form = new AddNewMealForm();
+                }
+                else
+                {
+                    form = new AddNewMealForm(meal);
+                }
             }
             else if (type == FormTypes.DailyTotalsForm)
             {
@@ -56,7 +70,14 @@ namespace MacroTracker
             }
             else if (type == FormTypes.RecordMealForm)
             {
-                form = new RecordMealForm(meal);
+                if (map == null)
+                {
+                    form = new RecordMealForm(meal);
+                }
+                else
+                {
+                    form = new RecordMealForm(meal, map);
+                }
             }
             else if (type == FormTypes.ReviewNewFoodForm)
             {

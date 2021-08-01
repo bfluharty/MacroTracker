@@ -17,6 +17,20 @@ namespace MacroTracker.Forms
             addedFoods = new List<Food>();
         }
 
+        public AddNewFoodForm(List<Food> foods)
+        {
+            InitializeComponent();
+            HideArrows();
+            ResetInputs();
+
+            addedFoods = foods;
+
+            if (addedFoods.Count != 0)
+            {
+                nextButton.Enabled = true;
+            }
+        }
+
         private void backButton_Click(object sender, EventArgs e)
         {
             FormManager.AddForm(FormManager.FormTypes.MenuForm);
@@ -33,7 +47,8 @@ namespace MacroTracker.Forms
                 return;
             }
 
-            if (DatabaseInterface.SelectFoodNames().Contains(name))
+            Food addedFood = addedFoods.Find(x => x.Name == name);
+            if (DatabaseInterface.SelectFoodNames().Contains(name) || addedFood != null)
             {
                 confirmationLabel.Text = name + " has already been added!";
                 return;

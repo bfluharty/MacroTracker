@@ -12,10 +12,10 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>D:\MacroTracker\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Web</InstallFrom>
+    <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Background</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -23,12 +23,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://localhost/</InstallUrl>
     <UpdateUrl>http://localhost/</UpdateUrl>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>24</ApplicationRevision>
-    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -85,17 +85,53 @@
     <Compile Include="DatabaseInterface.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="FormManager.cs" />
+    <Compile Include="Forms\EditNewFoodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditNewFoodForm.Designer.cs">
+      <DependentUpon>EditNewFoodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditSavedMealForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditSavedMealForm.Designer.cs">
+      <DependentUpon>EditSavedMealForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditSavedFoodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditSavedFoodForm.Designer.cs">
+      <DependentUpon>EditSavedFoodForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddNewMealForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AddNewMealForm.Designer.cs">
       <DependentUpon>AddNewMealForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ConfirmDeleteFoodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConfirmDeleteFoodForm.Designer.cs">
+      <DependentUpon>ConfirmDeleteFoodForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EnterMacroGoalsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\EnterMacroGoalsForm.Designer.cs">
       <DependentUpon>EnterMacroGoalsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditNewMealForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditNewMealForm.Designer.cs">
+      <DependentUpon>EditNewMealForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddMealItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddMealItemForm.Designer.cs">
+      <DependentUpon>AddMealItemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\RecordMealForm.cs">
       <SubType>Form</SubType>
@@ -156,11 +192,29 @@
     <Compile Include="Forms\ReviewNewFoodForm.Designer.cs">
       <DependentUpon>ReviewNewFoodForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\EditNewFoodForm.resx">
+      <DependentUpon>EditNewFoodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditSavedMealForm.resx">
+      <DependentUpon>EditSavedMealForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditSavedFoodForm.resx">
+      <DependentUpon>EditSavedFoodForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddNewMealForm.resx">
       <DependentUpon>AddNewMealForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConfirmDeleteFoodForm.resx">
+      <DependentUpon>ConfirmDeleteFoodForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EnterMacroGoalsForm.resx">
       <DependentUpon>EnterMacroGoalsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditNewMealForm.resx">
+      <DependentUpon>EditNewMealForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddMealItemForm.resx">
+      <DependentUpon>AddMealItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RecordMealForm.resx">
       <DependentUpon>RecordMealForm.cs</DependentUpon>

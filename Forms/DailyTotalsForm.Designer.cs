@@ -40,16 +40,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DailyTotalsForm));
             this.breakfastFoodsView = new System.Windows.Forms.DataGridView();
             this.breakfastColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editBreakfastColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.removeBreakfastEntryColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuButton = new System.Windows.Forms.Button();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.dateLabel = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
             this.lunchFoodsView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editLunchColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.removeLunchEntryColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dinnerFoodsView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dinnerEditColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.removeDinnerEntryColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.snackFoodsView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editSnackColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.removeSnackEntryColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.enterButton = new System.Windows.Forms.Button();
             this.breakfastProteinValue = new System.Windows.Forms.Label();
             this.breakfastCarbsValue = new System.Windows.Forms.Label();
@@ -93,7 +101,11 @@
             this.proteinLabel = new System.Windows.Forms.Label();
             this.background = new System.Windows.Forms.Panel();
             this.leftButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.rightButton = new System.Windows.Forms.Button();
+            this.addBreakfastItem = new System.Windows.Forms.Button();
+            this.addLunchItem = new System.Windows.Forms.Button();
+            this.addDinnerItem = new System.Windows.Forms.Button();
+            this.addSnackItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.breakfastFoodsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lunchFoodsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dinnerFoodsView)).BeginInit();
@@ -118,7 +130,9 @@
             this.breakfastFoodsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.breakfastFoodsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.breakfastFoodsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.breakfastColumn});
+            this.breakfastColumn,
+            this.editBreakfastColumn,
+            this.removeBreakfastEntryColumn});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,8 +141,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.breakfastFoodsView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.breakfastFoodsView.Location = new System.Drawing.Point(12, 208);
-            this.breakfastFoodsView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.breakfastFoodsView.Location = new System.Drawing.Point(16, 169);
+            this.breakfastFoodsView.Margin = new System.Windows.Forms.Padding(2);
             this.breakfastFoodsView.Name = "breakfastFoodsView";
             this.breakfastFoodsView.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -144,8 +158,9 @@
             this.breakfastFoodsView.RowTemplate.Height = 24;
             this.breakfastFoodsView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.breakfastFoodsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.breakfastFoodsView.Size = new System.Drawing.Size(440, 350);
+            this.breakfastFoodsView.Size = new System.Drawing.Size(450, 284);
             this.breakfastFoodsView.TabIndex = 0;
+            this.breakfastFoodsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.breakfastFoodsView_CellContentClick);
             // 
             // breakfastColumn
             // 
@@ -153,14 +168,33 @@
             this.breakfastColumn.HeaderText = "Breakfast";
             this.breakfastColumn.Name = "breakfastColumn";
             this.breakfastColumn.ReadOnly = true;
+            this.breakfastColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // editBreakfastColumn
+            // 
+            this.editBreakfastColumn.HeaderText = "";
+            this.editBreakfastColumn.MinimumWidth = 40;
+            this.editBreakfastColumn.Name = "editBreakfastColumn";
+            this.editBreakfastColumn.ReadOnly = true;
+            this.editBreakfastColumn.Text = "e";
+            this.editBreakfastColumn.UseColumnTextForButtonValue = true;
+            this.editBreakfastColumn.Width = 40;
+            // 
+            // removeBreakfastEntryColumn
+            // 
+            this.removeBreakfastEntryColumn.HeaderText = "";
+            this.removeBreakfastEntryColumn.Name = "removeBreakfastEntryColumn";
+            this.removeBreakfastEntryColumn.ReadOnly = true;
+            this.removeBreakfastEntryColumn.Text = "x";
+            this.removeBreakfastEntryColumn.UseColumnTextForButtonValue = true;
+            this.removeBreakfastEntryColumn.Width = 40;
             // 
             // menuButton
             // 
             this.menuButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuButton.Location = new System.Drawing.Point(819, 927);
-            this.menuButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.menuButton.Location = new System.Drawing.Point(854, 833);
             this.menuButton.Name = "menuButton";
-            this.menuButton.Size = new System.Drawing.Size(145, 48);
+            this.menuButton.Size = new System.Drawing.Size(109, 39);
             this.menuButton.TabIndex = 22;
             this.menuButton.Text = "Menu";
             this.menuButton.UseVisualStyleBackColor = true;
@@ -172,10 +206,9 @@
             this.datePicker.CustomFormat = "M/dd/yyyy";
             this.datePicker.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePicker.Location = new System.Drawing.Point(699, 139);
-            this.datePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.datePicker.Location = new System.Drawing.Point(772, 113);
             this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(239, 39);
+            this.datePicker.Size = new System.Drawing.Size(180, 39);
             this.datePicker.TabIndex = 39;
             this.datePicker.Value = new System.DateTime(2021, 6, 10, 0, 29, 20, 0);
             // 
@@ -183,7 +216,8 @@
             // 
             this.dateLabel.AutoSize = true;
             this.dateLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.Location = new System.Drawing.Point(585, 142);
+            this.dateLabel.Location = new System.Drawing.Point(687, 115);
+            this.dateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(81, 32);
             this.dateLabel.TabIndex = 38;
@@ -194,10 +228,10 @@
             // 
             this.title.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.title.Font = new System.Drawing.Font("Arial", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(482, 11);
+            this.title.Location = new System.Drawing.Point(609, 9);
             this.title.Margin = new System.Windows.Forms.Padding(0);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(821, 97);
+            this.title.Size = new System.Drawing.Size(616, 79);
             this.title.TabIndex = 40;
             this.title.Text = "Daily Totals";
             this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -219,7 +253,9 @@
             this.lunchFoodsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.lunchFoodsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lunchFoodsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1});
+            this.dataGridViewTextBoxColumn1,
+            this.editLunchColumn,
+            this.removeLunchEntryColumn});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,8 +264,8 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.lunchFoodsView.DefaultCellStyle = dataGridViewCellStyle5;
-            this.lunchFoodsView.Location = new System.Drawing.Point(452, 208);
-            this.lunchFoodsView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lunchFoodsView.Location = new System.Drawing.Point(465, 169);
+            this.lunchFoodsView.Margin = new System.Windows.Forms.Padding(2);
             this.lunchFoodsView.Name = "lunchFoodsView";
             this.lunchFoodsView.ReadOnly = true;
             this.lunchFoodsView.RowHeadersVisible = false;
@@ -237,8 +273,9 @@
             this.lunchFoodsView.RowTemplate.Height = 24;
             this.lunchFoodsView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.lunchFoodsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.lunchFoodsView.Size = new System.Drawing.Size(440, 350);
+            this.lunchFoodsView.Size = new System.Drawing.Size(450, 284);
             this.lunchFoodsView.TabIndex = 49;
+            this.lunchFoodsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lunchFoodsView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -246,6 +283,26 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Lunch";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // editLunchColumn
+            // 
+            this.editLunchColumn.HeaderText = "";
+            this.editLunchColumn.MinimumWidth = 40;
+            this.editLunchColumn.Name = "editLunchColumn";
+            this.editLunchColumn.ReadOnly = true;
+            this.editLunchColumn.Text = "e";
+            this.editLunchColumn.UseColumnTextForButtonValue = true;
+            this.editLunchColumn.Width = 40;
+            // 
+            // removeLunchEntryColumn
+            // 
+            this.removeLunchEntryColumn.HeaderText = "";
+            this.removeLunchEntryColumn.Name = "removeLunchEntryColumn";
+            this.removeLunchEntryColumn.ReadOnly = true;
+            this.removeLunchEntryColumn.Text = "x";
+            this.removeLunchEntryColumn.UseColumnTextForButtonValue = true;
+            this.removeLunchEntryColumn.Width = 40;
             // 
             // dinnerFoodsView
             // 
@@ -264,7 +321,9 @@
             this.dinnerFoodsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dinnerFoodsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dinnerFoodsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2});
+            this.dataGridViewTextBoxColumn2,
+            this.dinnerEditColumn,
+            this.removeDinnerEntryColumn});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -273,8 +332,8 @@
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dinnerFoodsView.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dinnerFoodsView.Location = new System.Drawing.Point(892, 208);
-            this.dinnerFoodsView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dinnerFoodsView.Location = new System.Drawing.Point(914, 169);
+            this.dinnerFoodsView.Margin = new System.Windows.Forms.Padding(2);
             this.dinnerFoodsView.Name = "dinnerFoodsView";
             this.dinnerFoodsView.ReadOnly = true;
             this.dinnerFoodsView.RowHeadersVisible = false;
@@ -282,8 +341,9 @@
             this.dinnerFoodsView.RowTemplate.Height = 24;
             this.dinnerFoodsView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dinnerFoodsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dinnerFoodsView.Size = new System.Drawing.Size(440, 350);
+            this.dinnerFoodsView.Size = new System.Drawing.Size(450, 284);
             this.dinnerFoodsView.TabIndex = 50;
+            this.dinnerFoodsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dinnerFoodsView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -291,6 +351,26 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Dinner";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dinnerEditColumn
+            // 
+            this.dinnerEditColumn.HeaderText = "";
+            this.dinnerEditColumn.MinimumWidth = 40;
+            this.dinnerEditColumn.Name = "dinnerEditColumn";
+            this.dinnerEditColumn.ReadOnly = true;
+            this.dinnerEditColumn.Text = "e";
+            this.dinnerEditColumn.UseColumnTextForButtonValue = true;
+            this.dinnerEditColumn.Width = 40;
+            // 
+            // removeDinnerEntryColumn
+            // 
+            this.removeDinnerEntryColumn.HeaderText = "";
+            this.removeDinnerEntryColumn.Name = "removeDinnerEntryColumn";
+            this.removeDinnerEntryColumn.ReadOnly = true;
+            this.removeDinnerEntryColumn.Text = "x";
+            this.removeDinnerEntryColumn.UseColumnTextForButtonValue = true;
+            this.removeDinnerEntryColumn.Width = 40;
             // 
             // snackFoodsView
             // 
@@ -309,7 +389,9 @@
             this.snackFoodsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.snackFoodsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.snackFoodsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3});
+            this.dataGridViewTextBoxColumn3,
+            this.editSnackColumn,
+            this.removeSnackEntryColumn});
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -318,8 +400,8 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.snackFoodsView.DefaultCellStyle = dataGridViewCellStyle9;
-            this.snackFoodsView.Location = new System.Drawing.Point(1332, 208);
-            this.snackFoodsView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.snackFoodsView.Location = new System.Drawing.Point(1363, 169);
+            this.snackFoodsView.Margin = new System.Windows.Forms.Padding(2);
             this.snackFoodsView.Name = "snackFoodsView";
             this.snackFoodsView.ReadOnly = true;
             this.snackFoodsView.RowHeadersVisible = false;
@@ -327,8 +409,9 @@
             this.snackFoodsView.RowTemplate.Height = 24;
             this.snackFoodsView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.snackFoodsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.snackFoodsView.Size = new System.Drawing.Size(440, 350);
+            this.snackFoodsView.Size = new System.Drawing.Size(450, 284);
             this.snackFoodsView.TabIndex = 51;
+            this.snackFoodsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.snackFoodsView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -336,14 +419,33 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Snack";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // editSnackColumn
+            // 
+            this.editSnackColumn.HeaderText = "";
+            this.editSnackColumn.MinimumWidth = 40;
+            this.editSnackColumn.Name = "editSnackColumn";
+            this.editSnackColumn.ReadOnly = true;
+            this.editSnackColumn.Text = "e";
+            this.editSnackColumn.UseColumnTextForButtonValue = true;
+            this.editSnackColumn.Width = 40;
+            // 
+            // removeSnackEntryColumn
+            // 
+            this.removeSnackEntryColumn.HeaderText = "";
+            this.removeSnackEntryColumn.Name = "removeSnackEntryColumn";
+            this.removeSnackEntryColumn.ReadOnly = true;
+            this.removeSnackEntryColumn.Text = "x";
+            this.removeSnackEntryColumn.UseColumnTextForButtonValue = true;
+            this.removeSnackEntryColumn.Width = 40;
             // 
             // enterButton
             // 
             this.enterButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enterButton.Location = new System.Drawing.Point(1055, 139);
-            this.enterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.enterButton.Location = new System.Drawing.Point(1039, 113);
             this.enterButton.Name = "enterButton";
-            this.enterButton.Size = new System.Drawing.Size(145, 48);
+            this.enterButton.Size = new System.Drawing.Size(109, 39);
             this.enterButton.TabIndex = 52;
             this.enterButton.Text = "Enter";
             this.enterButton.UseVisualStyleBackColor = true;
@@ -353,7 +455,8 @@
             // 
             this.breakfastProteinValue.AutoSize = true;
             this.breakfastProteinValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breakfastProteinValue.Location = new System.Drawing.Point(267, 719);
+            this.breakfastProteinValue.Location = new System.Drawing.Point(231, 626);
+            this.breakfastProteinValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.breakfastProteinValue.Name = "breakfastProteinValue";
             this.breakfastProteinValue.Size = new System.Drawing.Size(83, 32);
             this.breakfastProteinValue.TabIndex = 60;
@@ -364,7 +467,8 @@
             // 
             this.breakfastCarbsValue.AutoSize = true;
             this.breakfastCarbsValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breakfastCarbsValue.Location = new System.Drawing.Point(267, 667);
+            this.breakfastCarbsValue.Location = new System.Drawing.Point(231, 584);
+            this.breakfastCarbsValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.breakfastCarbsValue.Name = "breakfastCarbsValue";
             this.breakfastCarbsValue.Size = new System.Drawing.Size(83, 32);
             this.breakfastCarbsValue.TabIndex = 59;
@@ -375,7 +479,8 @@
             // 
             this.breakfastFatValue.AutoSize = true;
             this.breakfastFatValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breakfastFatValue.Location = new System.Drawing.Point(267, 613);
+            this.breakfastFatValue.Location = new System.Drawing.Point(231, 540);
+            this.breakfastFatValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.breakfastFatValue.Name = "breakfastFatValue";
             this.breakfastFatValue.Size = new System.Drawing.Size(83, 32);
             this.breakfastFatValue.TabIndex = 58;
@@ -386,7 +491,8 @@
             // 
             this.breakfastCaloriesValue.AutoSize = true;
             this.breakfastCaloriesValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breakfastCaloriesValue.Location = new System.Drawing.Point(267, 560);
+            this.breakfastCaloriesValue.Location = new System.Drawing.Point(231, 491);
+            this.breakfastCaloriesValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.breakfastCaloriesValue.Name = "breakfastCaloriesValue";
             this.breakfastCaloriesValue.Size = new System.Drawing.Size(75, 32);
             this.breakfastCaloriesValue.TabIndex = 57;
@@ -397,7 +503,8 @@
             // 
             this.breakfastProteinLabel.AutoSize = true;
             this.breakfastProteinLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breakfastProteinLabel.Location = new System.Drawing.Point(97, 719);
+            this.breakfastProteinLabel.Location = new System.Drawing.Point(104, 626);
+            this.breakfastProteinLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.breakfastProteinLabel.Name = "breakfastProteinLabel";
             this.breakfastProteinLabel.Size = new System.Drawing.Size(108, 32);
             this.breakfastProteinLabel.TabIndex = 56;
@@ -408,7 +515,8 @@
             // 
             this.breakfastCarbsLabel.AutoSize = true;
             this.breakfastCarbsLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breakfastCarbsLabel.Location = new System.Drawing.Point(97, 666);
+            this.breakfastCarbsLabel.Location = new System.Drawing.Point(104, 583);
+            this.breakfastCarbsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.breakfastCarbsLabel.Name = "breakfastCarbsLabel";
             this.breakfastCarbsLabel.Size = new System.Drawing.Size(96, 32);
             this.breakfastCarbsLabel.TabIndex = 55;
@@ -419,7 +527,8 @@
             // 
             this.breakfastFatLabel.AutoSize = true;
             this.breakfastFatLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breakfastFatLabel.Location = new System.Drawing.Point(97, 613);
+            this.breakfastFatLabel.Location = new System.Drawing.Point(104, 540);
+            this.breakfastFatLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.breakfastFatLabel.Name = "breakfastFatLabel";
             this.breakfastFatLabel.Size = new System.Drawing.Size(63, 32);
             this.breakfastFatLabel.TabIndex = 54;
@@ -430,7 +539,8 @@
             // 
             this.breakfastCaloriesLabel.AutoSize = true;
             this.breakfastCaloriesLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breakfastCaloriesLabel.Location = new System.Drawing.Point(97, 560);
+            this.breakfastCaloriesLabel.Location = new System.Drawing.Point(104, 491);
+            this.breakfastCaloriesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.breakfastCaloriesLabel.Name = "breakfastCaloriesLabel";
             this.breakfastCaloriesLabel.Size = new System.Drawing.Size(123, 32);
             this.breakfastCaloriesLabel.TabIndex = 53;
@@ -441,7 +551,8 @@
             // 
             this.lunchProteinValue.AutoSize = true;
             this.lunchProteinValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lunchProteinValue.Location = new System.Drawing.Point(707, 719);
+            this.lunchProteinValue.Location = new System.Drawing.Point(667, 626);
+            this.lunchProteinValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lunchProteinValue.Name = "lunchProteinValue";
             this.lunchProteinValue.Size = new System.Drawing.Size(83, 32);
             this.lunchProteinValue.TabIndex = 68;
@@ -452,7 +563,8 @@
             // 
             this.lunchCarbsValue.AutoSize = true;
             this.lunchCarbsValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lunchCarbsValue.Location = new System.Drawing.Point(707, 666);
+            this.lunchCarbsValue.Location = new System.Drawing.Point(667, 584);
+            this.lunchCarbsValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lunchCarbsValue.Name = "lunchCarbsValue";
             this.lunchCarbsValue.Size = new System.Drawing.Size(83, 32);
             this.lunchCarbsValue.TabIndex = 67;
@@ -463,7 +575,8 @@
             // 
             this.lunchFatValue.AutoSize = true;
             this.lunchFatValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lunchFatValue.Location = new System.Drawing.Point(707, 613);
+            this.lunchFatValue.Location = new System.Drawing.Point(667, 540);
+            this.lunchFatValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lunchFatValue.Name = "lunchFatValue";
             this.lunchFatValue.Size = new System.Drawing.Size(83, 32);
             this.lunchFatValue.TabIndex = 66;
@@ -474,7 +587,8 @@
             // 
             this.lunchCaloriesValue.AutoSize = true;
             this.lunchCaloriesValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lunchCaloriesValue.Location = new System.Drawing.Point(707, 560);
+            this.lunchCaloriesValue.Location = new System.Drawing.Point(667, 491);
+            this.lunchCaloriesValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lunchCaloriesValue.Name = "lunchCaloriesValue";
             this.lunchCaloriesValue.Size = new System.Drawing.Size(75, 32);
             this.lunchCaloriesValue.TabIndex = 65;
@@ -485,7 +599,8 @@
             // 
             this.lunchProteinLabel.AutoSize = true;
             this.lunchProteinLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lunchProteinLabel.Location = new System.Drawing.Point(537, 719);
+            this.lunchProteinLabel.Location = new System.Drawing.Point(540, 626);
+            this.lunchProteinLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lunchProteinLabel.Name = "lunchProteinLabel";
             this.lunchProteinLabel.Size = new System.Drawing.Size(108, 32);
             this.lunchProteinLabel.TabIndex = 64;
@@ -496,7 +611,8 @@
             // 
             this.lunchCarbsLabel.AutoSize = true;
             this.lunchCarbsLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lunchCarbsLabel.Location = new System.Drawing.Point(537, 666);
+            this.lunchCarbsLabel.Location = new System.Drawing.Point(540, 584);
+            this.lunchCarbsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lunchCarbsLabel.Name = "lunchCarbsLabel";
             this.lunchCarbsLabel.Size = new System.Drawing.Size(96, 32);
             this.lunchCarbsLabel.TabIndex = 63;
@@ -507,7 +623,8 @@
             // 
             this.lunchFatLabel.AutoSize = true;
             this.lunchFatLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lunchFatLabel.Location = new System.Drawing.Point(537, 613);
+            this.lunchFatLabel.Location = new System.Drawing.Point(540, 540);
+            this.lunchFatLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lunchFatLabel.Name = "lunchFatLabel";
             this.lunchFatLabel.Size = new System.Drawing.Size(63, 32);
             this.lunchFatLabel.TabIndex = 62;
@@ -518,7 +635,8 @@
             // 
             this.lunchCaloriesLabel.AutoSize = true;
             this.lunchCaloriesLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lunchCaloriesLabel.Location = new System.Drawing.Point(537, 560);
+            this.lunchCaloriesLabel.Location = new System.Drawing.Point(540, 491);
+            this.lunchCaloriesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lunchCaloriesLabel.Name = "lunchCaloriesLabel";
             this.lunchCaloriesLabel.Size = new System.Drawing.Size(123, 32);
             this.lunchCaloriesLabel.TabIndex = 61;
@@ -529,7 +647,8 @@
             // 
             this.dinnerProteinValue.AutoSize = true;
             this.dinnerProteinValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dinnerProteinValue.Location = new System.Drawing.Point(1147, 719);
+            this.dinnerProteinValue.Location = new System.Drawing.Point(1135, 626);
+            this.dinnerProteinValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dinnerProteinValue.Name = "dinnerProteinValue";
             this.dinnerProteinValue.Size = new System.Drawing.Size(83, 32);
             this.dinnerProteinValue.TabIndex = 76;
@@ -540,7 +659,8 @@
             // 
             this.dinnerCarbsValue.AutoSize = true;
             this.dinnerCarbsValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dinnerCarbsValue.Location = new System.Drawing.Point(1147, 667);
+            this.dinnerCarbsValue.Location = new System.Drawing.Point(1135, 584);
+            this.dinnerCarbsValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dinnerCarbsValue.Name = "dinnerCarbsValue";
             this.dinnerCarbsValue.Size = new System.Drawing.Size(83, 32);
             this.dinnerCarbsValue.TabIndex = 75;
@@ -551,7 +671,8 @@
             // 
             this.dinnerFatValue.AutoSize = true;
             this.dinnerFatValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dinnerFatValue.Location = new System.Drawing.Point(1147, 610);
+            this.dinnerFatValue.Location = new System.Drawing.Point(1135, 540);
+            this.dinnerFatValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dinnerFatValue.Name = "dinnerFatValue";
             this.dinnerFatValue.Size = new System.Drawing.Size(83, 32);
             this.dinnerFatValue.TabIndex = 74;
@@ -562,7 +683,8 @@
             // 
             this.dinnerCaloriesValue.AutoSize = true;
             this.dinnerCaloriesValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dinnerCaloriesValue.Location = new System.Drawing.Point(1147, 560);
+            this.dinnerCaloriesValue.Location = new System.Drawing.Point(1135, 491);
+            this.dinnerCaloriesValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dinnerCaloriesValue.Name = "dinnerCaloriesValue";
             this.dinnerCaloriesValue.Size = new System.Drawing.Size(75, 32);
             this.dinnerCaloriesValue.TabIndex = 73;
@@ -573,7 +695,8 @@
             // 
             this.dinnerProteinLabel.AutoSize = true;
             this.dinnerProteinLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dinnerProteinLabel.Location = new System.Drawing.Point(977, 719);
+            this.dinnerProteinLabel.Location = new System.Drawing.Point(1008, 626);
+            this.dinnerProteinLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dinnerProteinLabel.Name = "dinnerProteinLabel";
             this.dinnerProteinLabel.Size = new System.Drawing.Size(108, 32);
             this.dinnerProteinLabel.TabIndex = 72;
@@ -584,7 +707,8 @@
             // 
             this.dinnerCarbsLabel.AutoSize = true;
             this.dinnerCarbsLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dinnerCarbsLabel.Location = new System.Drawing.Point(977, 666);
+            this.dinnerCarbsLabel.Location = new System.Drawing.Point(1008, 583);
+            this.dinnerCarbsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dinnerCarbsLabel.Name = "dinnerCarbsLabel";
             this.dinnerCarbsLabel.Size = new System.Drawing.Size(96, 32);
             this.dinnerCarbsLabel.TabIndex = 71;
@@ -595,7 +719,8 @@
             // 
             this.dinnerFatLabel.AutoSize = true;
             this.dinnerFatLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dinnerFatLabel.Location = new System.Drawing.Point(977, 613);
+            this.dinnerFatLabel.Location = new System.Drawing.Point(1008, 540);
+            this.dinnerFatLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dinnerFatLabel.Name = "dinnerFatLabel";
             this.dinnerFatLabel.Size = new System.Drawing.Size(63, 32);
             this.dinnerFatLabel.TabIndex = 70;
@@ -606,7 +731,8 @@
             // 
             this.dinnerCaloriesLabel.AutoSize = true;
             this.dinnerCaloriesLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dinnerCaloriesLabel.Location = new System.Drawing.Point(977, 560);
+            this.dinnerCaloriesLabel.Location = new System.Drawing.Point(1008, 491);
+            this.dinnerCaloriesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dinnerCaloriesLabel.Name = "dinnerCaloriesLabel";
             this.dinnerCaloriesLabel.Size = new System.Drawing.Size(123, 32);
             this.dinnerCaloriesLabel.TabIndex = 69;
@@ -617,7 +743,8 @@
             // 
             this.snackProteinValue.AutoSize = true;
             this.snackProteinValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.snackProteinValue.Location = new System.Drawing.Point(1587, 719);
+            this.snackProteinValue.Location = new System.Drawing.Point(1576, 626);
+            this.snackProteinValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.snackProteinValue.Name = "snackProteinValue";
             this.snackProteinValue.Size = new System.Drawing.Size(83, 32);
             this.snackProteinValue.TabIndex = 84;
@@ -628,7 +755,8 @@
             // 
             this.snackCarbsValue.AutoSize = true;
             this.snackCarbsValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.snackCarbsValue.Location = new System.Drawing.Point(1587, 667);
+            this.snackCarbsValue.Location = new System.Drawing.Point(1576, 583);
+            this.snackCarbsValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.snackCarbsValue.Name = "snackCarbsValue";
             this.snackCarbsValue.Size = new System.Drawing.Size(83, 32);
             this.snackCarbsValue.TabIndex = 83;
@@ -639,7 +767,8 @@
             // 
             this.snackFatValue.AutoSize = true;
             this.snackFatValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.snackFatValue.Location = new System.Drawing.Point(1587, 610);
+            this.snackFatValue.Location = new System.Drawing.Point(1576, 538);
+            this.snackFatValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.snackFatValue.Name = "snackFatValue";
             this.snackFatValue.Size = new System.Drawing.Size(83, 32);
             this.snackFatValue.TabIndex = 82;
@@ -650,7 +779,8 @@
             // 
             this.snackCaloriesValue.AutoSize = true;
             this.snackCaloriesValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.snackCaloriesValue.Location = new System.Drawing.Point(1587, 560);
+            this.snackCaloriesValue.Location = new System.Drawing.Point(1576, 491);
+            this.snackCaloriesValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.snackCaloriesValue.Name = "snackCaloriesValue";
             this.snackCaloriesValue.Size = new System.Drawing.Size(75, 32);
             this.snackCaloriesValue.TabIndex = 81;
@@ -661,7 +791,8 @@
             // 
             this.snackProteinLabel.AutoSize = true;
             this.snackProteinLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.snackProteinLabel.Location = new System.Drawing.Point(1417, 719);
+            this.snackProteinLabel.Location = new System.Drawing.Point(1452, 626);
+            this.snackProteinLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.snackProteinLabel.Name = "snackProteinLabel";
             this.snackProteinLabel.Size = new System.Drawing.Size(108, 32);
             this.snackProteinLabel.TabIndex = 80;
@@ -672,7 +803,8 @@
             // 
             this.snackCarbsLabel.AutoSize = true;
             this.snackCarbsLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.snackCarbsLabel.Location = new System.Drawing.Point(1417, 666);
+            this.snackCarbsLabel.Location = new System.Drawing.Point(1452, 583);
+            this.snackCarbsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.snackCarbsLabel.Name = "snackCarbsLabel";
             this.snackCarbsLabel.Size = new System.Drawing.Size(96, 32);
             this.snackCarbsLabel.TabIndex = 79;
@@ -683,7 +815,8 @@
             // 
             this.snackFatLabel.AutoSize = true;
             this.snackFatLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.snackFatLabel.Location = new System.Drawing.Point(1417, 613);
+            this.snackFatLabel.Location = new System.Drawing.Point(1452, 538);
+            this.snackFatLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.snackFatLabel.Name = "snackFatLabel";
             this.snackFatLabel.Size = new System.Drawing.Size(63, 32);
             this.snackFatLabel.TabIndex = 78;
@@ -694,7 +827,8 @@
             // 
             this.snackCaloriesLabel.AutoSize = true;
             this.snackCaloriesLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.snackCaloriesLabel.Location = new System.Drawing.Point(1417, 560);
+            this.snackCaloriesLabel.Location = new System.Drawing.Point(1449, 491);
+            this.snackCaloriesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.snackCaloriesLabel.Name = "snackCaloriesLabel";
             this.snackCaloriesLabel.Size = new System.Drawing.Size(123, 32);
             this.snackCaloriesLabel.TabIndex = 77;
@@ -706,7 +840,8 @@
             this.fatValue.AutoSize = true;
             this.fatValue.BackColor = System.Drawing.SystemColors.ControlDark;
             this.fatValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fatValue.Location = new System.Drawing.Point(691, 39);
+            this.fatValue.Location = new System.Drawing.Point(651, 32);
+            this.fatValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fatValue.Name = "fatValue";
             this.fatValue.Size = new System.Drawing.Size(83, 32);
             this.fatValue.TabIndex = 46;
@@ -718,7 +853,8 @@
             this.carbsLabel.AutoSize = true;
             this.carbsLabel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.carbsLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carbsLabel.Location = new System.Drawing.Point(961, 39);
+            this.carbsLabel.Location = new System.Drawing.Point(992, 32);
+            this.carbsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.carbsLabel.Name = "carbsLabel";
             this.carbsLabel.Size = new System.Drawing.Size(96, 32);
             this.carbsLabel.TabIndex = 43;
@@ -730,7 +866,8 @@
             this.fatLabel.AutoSize = true;
             this.fatLabel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.fatLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fatLabel.Location = new System.Drawing.Point(521, 39);
+            this.fatLabel.Location = new System.Drawing.Point(524, 32);
+            this.fatLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fatLabel.Name = "fatLabel";
             this.fatLabel.Size = new System.Drawing.Size(63, 32);
             this.fatLabel.TabIndex = 42;
@@ -742,7 +879,8 @@
             this.caloriesValue.AutoSize = true;
             this.caloriesValue.BackColor = System.Drawing.SystemColors.ControlDark;
             this.caloriesValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.caloriesValue.Location = new System.Drawing.Point(251, 39);
+            this.caloriesValue.Location = new System.Drawing.Point(215, 32);
+            this.caloriesValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.caloriesValue.Name = "caloriesValue";
             this.caloriesValue.Size = new System.Drawing.Size(75, 32);
             this.caloriesValue.TabIndex = 45;
@@ -754,7 +892,8 @@
             this.carbsValue.AutoSize = true;
             this.carbsValue.BackColor = System.Drawing.SystemColors.ControlDark;
             this.carbsValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carbsValue.Location = new System.Drawing.Point(1131, 39);
+            this.carbsValue.Location = new System.Drawing.Point(1119, 32);
+            this.carbsValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.carbsValue.Name = "carbsValue";
             this.carbsValue.Size = new System.Drawing.Size(83, 32);
             this.carbsValue.TabIndex = 47;
@@ -766,7 +905,8 @@
             this.caloriesLabel.AutoSize = true;
             this.caloriesLabel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.caloriesLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.caloriesLabel.Location = new System.Drawing.Point(81, 39);
+            this.caloriesLabel.Location = new System.Drawing.Point(88, 32);
+            this.caloriesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.caloriesLabel.Name = "caloriesLabel";
             this.caloriesLabel.Size = new System.Drawing.Size(123, 32);
             this.caloriesLabel.TabIndex = 41;
@@ -778,7 +918,8 @@
             this.proteinValue.AutoSize = true;
             this.proteinValue.BackColor = System.Drawing.SystemColors.ControlDark;
             this.proteinValue.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.proteinValue.Location = new System.Drawing.Point(1571, 39);
+            this.proteinValue.Location = new System.Drawing.Point(1560, 32);
+            this.proteinValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.proteinValue.Name = "proteinValue";
             this.proteinValue.Size = new System.Drawing.Size(83, 32);
             this.proteinValue.TabIndex = 48;
@@ -790,7 +931,8 @@
             this.proteinLabel.AutoSize = true;
             this.proteinLabel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.proteinLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.proteinLabel.Location = new System.Drawing.Point(1401, 39);
+            this.proteinLabel.Location = new System.Drawing.Point(1436, 32);
+            this.proteinLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.proteinLabel.Name = "proteinLabel";
             this.proteinLabel.Size = new System.Drawing.Size(108, 32);
             this.proteinLabel.TabIndex = 44;
@@ -808,42 +950,87 @@
             this.background.Controls.Add(this.caloriesValue);
             this.background.Controls.Add(this.caloriesLabel);
             this.background.Controls.Add(this.proteinValue);
-            this.background.Location = new System.Drawing.Point(16, 783);
-            this.background.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.background.Location = new System.Drawing.Point(16, 687);
             this.background.Name = "background";
-            this.background.Size = new System.Drawing.Size(1756, 118);
+            this.background.Size = new System.Drawing.Size(1803, 96);
             this.background.TabIndex = 85;
             // 
             // leftButton
             // 
             this.leftButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leftButton.Location = new System.Drawing.Point(947, 138);
-            this.leftButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.leftButton.Location = new System.Drawing.Point(958, 112);
             this.leftButton.Name = "leftButton";
-            this.leftButton.Size = new System.Drawing.Size(47, 48);
+            this.leftButton.Size = new System.Drawing.Size(35, 39);
             this.leftButton.TabIndex = 86;
             this.leftButton.Text = "<";
             this.leftButton.UseVisualStyleBackColor = true;
             this.leftButton.Click += new System.EventHandler(this.leftButton_Click);
             // 
-            // button1
+            // rightButton
             // 
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1002, 138);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 48);
-            this.button1.TabIndex = 87;
-            this.button1.Text = ">";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.rightButton.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rightButton.Location = new System.Drawing.Point(1000, 112);
+            this.rightButton.Name = "rightButton";
+            this.rightButton.Size = new System.Drawing.Size(35, 39);
+            this.rightButton.TabIndex = 87;
+            this.rightButton.Text = ">";
+            this.rightButton.UseVisualStyleBackColor = true;
+            this.rightButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // addBreakfastItem
+            // 
+            this.addBreakfastItem.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBreakfastItem.Location = new System.Drawing.Point(16, 414);
+            this.addBreakfastItem.Name = "addBreakfastItem";
+            this.addBreakfastItem.Size = new System.Drawing.Size(450, 39);
+            this.addBreakfastItem.TabIndex = 88;
+            this.addBreakfastItem.Text = "Add Breakfast Food";
+            this.addBreakfastItem.UseVisualStyleBackColor = true;
+            this.addBreakfastItem.Click += new System.EventHandler(this.addBreakfastItem_Click);
+            // 
+            // addLunchItem
+            // 
+            this.addLunchItem.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addLunchItem.Location = new System.Drawing.Point(465, 414);
+            this.addLunchItem.Name = "addLunchItem";
+            this.addLunchItem.Size = new System.Drawing.Size(450, 39);
+            this.addLunchItem.TabIndex = 89;
+            this.addLunchItem.Text = "Add Lunch Food";
+            this.addLunchItem.UseVisualStyleBackColor = true;
+            this.addLunchItem.Click += new System.EventHandler(this.addLunchItem_Click);
+            // 
+            // addDinnerItem
+            // 
+            this.addDinnerItem.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addDinnerItem.Location = new System.Drawing.Point(914, 414);
+            this.addDinnerItem.Name = "addDinnerItem";
+            this.addDinnerItem.Size = new System.Drawing.Size(450, 39);
+            this.addDinnerItem.TabIndex = 90;
+            this.addDinnerItem.Text = "Add Dinner Food";
+            this.addDinnerItem.UseVisualStyleBackColor = true;
+            this.addDinnerItem.Click += new System.EventHandler(this.addDinnerItem_Click);
+            // 
+            // addSnackItem
+            // 
+            this.addSnackItem.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addSnackItem.Location = new System.Drawing.Point(1363, 414);
+            this.addSnackItem.Name = "addSnackItem";
+            this.addSnackItem.Size = new System.Drawing.Size(450, 39);
+            this.addSnackItem.TabIndex = 91;
+            this.addSnackItem.Text = "Add Snack Food";
+            this.addSnackItem.UseVisualStyleBackColor = true;
+            this.addSnackItem.Click += new System.EventHandler(this.addSnackItem_Click);
             // 
             // DailyTotalsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1784, 990);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1834, 884);
+            this.Controls.Add(this.addSnackItem);
+            this.Controls.Add(this.addDinnerItem);
+            this.Controls.Add(this.addLunchItem);
+            this.Controls.Add(this.addBreakfastItem);
+            this.Controls.Add(this.rightButton);
             this.Controls.Add(this.leftButton);
             this.Controls.Add(this.snackProteinValue);
             this.Controls.Add(this.snackCarbsValue);
@@ -888,7 +1075,7 @@
             this.Controls.Add(this.breakfastFoodsView);
             this.Controls.Add(this.background);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DailyTotalsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MacroTracker - Daily Totals";
@@ -912,13 +1099,9 @@
         private System.Windows.Forms.DateTimePicker datePicker;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn breakfastColumn;
         private System.Windows.Forms.DataGridView lunchFoodsView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridView dinnerFoodsView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridView snackFoodsView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Button enterButton;
         private System.Windows.Forms.Label breakfastProteinValue;
         private System.Windows.Forms.Label breakfastCarbsValue;
@@ -962,6 +1145,22 @@
         private System.Windows.Forms.Label proteinLabel;
         private System.Windows.Forms.Panel background;
         private System.Windows.Forms.Button leftButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button rightButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn breakfastColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn editBreakfastColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn removeBreakfastEntryColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewButtonColumn editLunchColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn removeLunchEntryColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewButtonColumn dinnerEditColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn removeDinnerEntryColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewButtonColumn editSnackColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn removeSnackEntryColumn;
+        private System.Windows.Forms.Button addBreakfastItem;
+        private System.Windows.Forms.Button addLunchItem;
+        private System.Windows.Forms.Button addDinnerItem;
+        private System.Windows.Forms.Button addSnackItem;
     }
 }
